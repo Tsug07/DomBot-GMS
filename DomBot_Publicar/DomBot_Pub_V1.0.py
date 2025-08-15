@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from tkinter import filedialog, scrolledtext, messagebox
 import threading
+from PIL import Image, ImageTk  # Para carregar PNG como logo
 import os
 import time
 import pandas as pd
@@ -278,26 +279,51 @@ class DomBot:
             return False
 
 class AppUI(ctk.CTk):
+  
     def __init__(self):
         super().__init__()
         self.title("DomBot_Pub - Publicador Domínio Folha")
         self.geometry("520x420")
-        self.resizable(False, False)  # Interface fixa para manter compacta
+        self.resizable(False, False)
         ctk.set_appearance_mode("dark")
         ctk.set_default_color_theme("green")
+
+        # Define o ícone da janela (apenas no executável ou quando rodar local)
+        try:
+            self.iconbitmap("./assets/DomBot_Pub.ico")
+        except Exception as e:
+            print(f"Não foi possível carregar ícone: {e}")
 
         self.is_running = False
         self.setup_ui()
 
     def setup_ui(self):
-        # Frame principal
         main_frame = ctk.CTkFrame(self)
         main_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Título
-        title_label = ctk.CTkLabel(main_frame, text="DomBot_Pub", 
-                                   font=ctk.CTkFont(size=18, weight="bold"))
-        title_label.pack(pady=(10, 20))
+        try:
+            img_logo = Image.open("./assets/DomBot_Pub.png")
+            img_logo = img_logo.resize((64, 64))
+            self.logo_ctk = ctk.CTkImage(light_image=img_logo, dark_image=img_logo, size=(64, 64))
+
+            # Frame para colocar logo e texto lado a lado
+            top_frame = ctk.CTkFrame(main_frame)
+            top_frame.pack(pady=(10, 5))
+
+            # Logo
+            logo_label = ctk.CTkLabel(top_frame, image=self.logo_ctk, text="")
+            logo_label.pack(side="left", padx=(0, 10))  # Espaço entre logo e texto
+
+            # Texto ao lado
+            text_label = ctk.CTkLabel(top_frame, text="DomBot_Pub", font=("Arial", 18))
+            text_label.pack(side="left")
+
+        except Exception as e:
+            print(f"Não foi possível carregar logo: {e}")
+
+        # title_label = ctk.CTkLabel(main_frame, text="DomBot_Pub",
+        #                            font=ctk.CTkFont(size=18, weight="bold"))
+        # title_label.pack(pady=(0, 20))
 
         # Frame de seleção de arquivo
         file_frame = ctk.CTkFrame(main_frame)
