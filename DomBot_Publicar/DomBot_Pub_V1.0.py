@@ -303,11 +303,11 @@ class AppUI(ctk.CTk):
 
         try:
             img_logo = Image.open("./assets/DomBot_Pub.png")
-            img_logo = img_logo.resize((64, 64))
-            self.logo_ctk = ctk.CTkImage(light_image=img_logo, dark_image=img_logo, size=(64, 64))
+            img_logo = img_logo.resize((64, 100))
+            self.logo_ctk = ctk.CTkImage(light_image=img_logo, dark_image=img_logo, size=(64, 80))
 
             # Frame para colocar logo e texto lado a lado
-            top_frame = ctk.CTkFrame(main_frame)
+            top_frame = ctk.CTkFrame(main_frame, fg_color="transparent")
             top_frame.pack(pady=(10, 5))
 
             # Logo
