@@ -536,13 +536,40 @@ class DominioAutomation:
     def find_dominio_window(self) -> Optional[int]:
         """Encontra a janela do Domínio Folha"""
         try:
+            # Procurar por qualquer janela que contenha "Domínio Folha" no título
+            self.log("🔍 Procurando janela do Domínio Folha...")
+
+            # Listar todas as janelas abertas para debug
+            try:
+                all_windows = findwindows.find_windows()
+                self.log(f"📋 Total de janelas abertas: {len(all_windows)}")
+
+                # Tentar encontrar janelas com "Domínio" no título
+                for hwnd in all_windows:
+                    try:
+                        title = win32gui.GetWindowText(hwnd)
+                        if "Domínio" in title and title:
+                            self.log(f"🪟 Janela encontrada: '{title}'")
+                            if "Folha" in title:
+                                self.log(f"✅ Janela do Domínio Folha localizada!")
+                                return hwnd
+                    except Exception:
+                        continue
+            except Exception as e:
+                self.log(f"⚠️ Erro ao listar janelas: {str(e)}")
+
+            # Fallback: tentar o método original com regex
             windows = findwindows.find_windows(title_re=".*Domínio Folha.*")
             if windows:
+                self.log(f"✅ Janela do Domínio encontrada via regex (total: {len(windows)})")
                 return windows[0]
+
             self.log("❌ Nenhuma janela do Domínio Folha encontrada")
             return None
         except Exception as e:
             self.log(f"❌ Erro ao procurar janela do Domínio: {str(e)}")
+            import traceback
+            self.log(f"Traceback: {traceback.format_exc()}")
             return None
 
     def connect_to_dominio(self) -> bool:
@@ -665,6 +692,16 @@ class DominioAutomation:
             # Reconectar se necessário
             handle = self.find_dominio_window()
             if not handle:
+                self.log("❌ Não foi possível localizar a janela do Domínio")
+                return False
+
+            # Reconectar o app e main_window
+            try:
+                self.app = Application(backend="uia").connect(handle=handle)
+                self.main_window = self.app.window(handle=handle)
+                self.log("✅ Reconectado ao Domínio com sucesso")
+            except Exception as e:
+                self.log(f"❌ Erro ao reconectar: {str(e)}")
                 return False
 
             if win32gui.IsIconic(handle):
@@ -750,7 +787,7 @@ class DominioAutomation:
             send_keys('{TAB}22')  # Campo de código (assumindo valor fixo 22)
             time.sleep(0.3)
 
-            send_keys('{TAB}')  # Próximo campo
+            send_keys('{TAB}8')  # Próximo campo
             time.sleep(0.2)
 
             # Período
@@ -905,37 +942,53 @@ class DominioAutomation:
     def handle_error_dialogs(self) -> bool:
         """Trata diálogos de erro que podem aparecer. Retorna True se deve continuar, False se deve abortar."""
         try:
-            # Verificar janela de erro genérica
-            error_window = self.main_window.child_window(
-                title="Erro",
-                class_name="#32770"
-            )
+            # Lista de títulos possíveis de erro
+            error_titles = ["Erro", "Erro léxico", "Aviso", "Atenção", "Informação"]
 
-            if error_window.exists():
-                self.log("⚠️ Janela de erro detectada, fechando")
-                send_keys('{ENTER}')
-                time.sleep(1)
-                return False  # erro crítico, abortar
+            # Procurar erros críticos
+            for title in error_titles:
+                try:
+                    error_window = self.app.window(title=title, class_name="#32770")
+                    if error_window.exists() and error_window.is_visible():
+                        # Verificar se é o aviso "Sem dados para emitir!"
+                        try:
+                            message = error_window.window_text()
+                            if "Sem dados para emitir!" in message:
+                                self.log("⚠️ Aviso: Sem dados para emitir!")
+                                error_window.set_focus()
+                                send_keys('{ENTER}')
+                                time.sleep(1)
+                                # Limpar janelas e continuar para próxima linha
+                                for _ in range(4):
+                                    send_keys('{ESC}')
+                                    time.sleep(1.5)
+                                return True
+                        except Exception:
+                            pass
 
-            # Verificar outras janelas de aviso
-            aviso_titles = ["Aviso", "Atenção", "Informação"]
-            for title in aviso_titles:
-                aviso_window = self.main_window.child_window(
-                    title=title,
-                    class_name="#32770"
-                )
+                        if title == "Erro léxico":
+                            self.log(f"⚠️ Janela de erro '{title}' detectada, fechando ...")
+                            for _ in range(3):
+                                send_keys('{ESC}')
+                                time.sleep(1.5)
+                                self.handle_error_dialogs()
+                            return True
+                        elif title == "Aviso":
+                            return False
+                            
+                        self.log(f"⚠️ Janela de erro '{title}' detectada, fechando")
+                        error_window.set_focus()
+                        send_keys('{ENTER}')
+                        time.sleep(1)
+                        return False  # erro crítico → aborta
+                except Exception:
+                    pass
 
-                if aviso_window.exists():
-                    self.log(f"⚠️ Janela '{title}' detectada, fechando")
-                    send_keys('{ENTER}')
-                    time.sleep(0.5)
-                    if title == "Aviso":
-                        return False  # abortar para próxima empresa
-
-            return True  # se nada crítico, continuar
+            return True
 
         except Exception:
-            return True  # se der erro no tratamento, continuar mesmo assim
+            return True
+
 
     def cleanup_windows(self):
         """Limpa e fecha janelas abertas"""
@@ -946,7 +999,7 @@ class DominioAutomation:
             self.main_window.set_focus()
 
             # Enviar ESCs para garantir que todas as janelas sejam fechadas
-            for _ in range(3):
+            for _ in range(4):
                 send_keys('{ESC}')
                 time.sleep(1.5)
 

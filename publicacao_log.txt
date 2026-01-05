@@ -1,0 +1,1894 @@
+2025-08-15 09:43:46 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 09:43:47 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 09:43:47 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 09:43:47 - ✅ Foco definido na janela principal
+2025-08-15 09:43:52 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 09:43:55 - 📂 Inserindo caminho: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf e número: 102
+2025-08-15 09:44:17 - ⚠️ Botão 'OK' não encontrado para 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025
+2025-08-15 09:44:17 - ✅ Documento 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025 publicado com sucesso
+2025-08-15 09:44:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\5-AUTO PECAS BAIXO ATERRADO LTDA-072025.pdf
+2025-08-15 09:52:50 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 09:52:50 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 09:52:50 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 09:52:51 - ✅ Foco definido na janela principal
+2025-08-15 09:52:56 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 09:52:59 - 📂 Inserindo caminho: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf, número: 102, documento: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025
+2025-08-15 09:53:10 - ⚠️ Erro ao clicar no botão 'OK' para 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025: find_elements() got an unexpected keyword argument 'timeout'
+2025-08-15 09:53:10 - 📂 Inserindo caminho: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf, número: 102, documento: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 09:53:13 - ⚠️ Erro ao preencher caminho Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf ou número 102: (-2147220992, None, (None, None, None, 0, None))
+2025-08-15 09:59:14 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 09:59:14 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 09:59:14 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 09:59:15 - ✅ Foco definido na janela principal
+2025-08-15 09:59:22 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 09:59:24 - 📂 Inserindo caminho: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf, número: 102, documento: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025
+2025-08-15 09:59:45 - ⚠️ Janela de confirmação 'Atenção' não encontrada para 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025
+2025-08-15 09:59:45 - 📂 Inserindo caminho: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf, número: 102, documento: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 09:59:48 - ⚠️ Erro ao preencher caminho Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf ou número 102: (-2147220992, None, (None, None, None, 0, None))
+2025-08-15 10:05:41 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 10:05:41 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 10:05:41 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 10:05:42 - ✅ Foco definido na janela principal
+2025-08-15 10:05:47 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 10:05:50 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 10:05:50 - 🧹 Limpando campos...
+2025-08-15 10:05:58 - ⚠️ Erro ao processar CANELLA - Taxa GMS: Neither GUI element (wrapper) nor wrapper method 'select_all' were found (typo?)
+2025-08-15 10:05:58 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 10:05:58 - 🧹 Limpando campos...
+2025-08-15 10:06:07 - ⚠️ Erro ao processar 5-AUTO PECAS BAIXO ATERRADO LTDA-072025: Neither GUI element (wrapper) nor wrapper method 'select_all' were found (typo?)
+2025-08-15 10:06:07 - 🎉 Processamento concluído!
+2025-08-15 10:10:29 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 10:10:29 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 10:10:29 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 10:10:30 - ✅ Foco definido na janela principal
+2025-08-15 10:10:35 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 10:10:38 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 10:10:38 - 🧹 Limpando campos...
+2025-08-15 10:10:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 10:11:03 - ✅ Número preenchido: 102
+2025-08-15 10:11:16 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:11:21 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:11:39 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:11:39 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:11:39 - ✅ Documento 'CANELLA - Taxa GMS' publicado com sucesso
+2025-08-15 10:11:40 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 10:11:40 - 🧹 Limpando campos...
+2025-08-15 10:11:52 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf
+2025-08-15 10:12:04 - ✅ Número preenchido: 102
+2025-08-15 10:12:18 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:12:23 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:12:41 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:12:41 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:12:41 - ✅ Documento '5-AUTO PECAS BAIXO ATERRADO LTDA-072025' publicado com sucesso
+2025-08-15 10:12:42 - 🎉 Processamento concluído!
+2025-08-15 10:33:40 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 10:33:41 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 10:33:41 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 10:33:41 - ✅ Foco definido na janela principal
+2025-08-15 10:33:47 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 10:33:50 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 10:34:02 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 10:34:14 - ✅ Número preenchido: 102
+2025-08-15 10:34:18 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:34:22 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:34:41 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:34:41 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:34:41 - ✅ Documento 'CANELLA - Taxa GMS' publicado com sucesso
+2025-08-15 10:34:42 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 10:34:53 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf
+2025-08-15 10:35:17 - ✅ Número preenchido: 102
+2025-08-15 10:35:20 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:35:25 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:35:43 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:35:43 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:35:43 - ✅ Documento '5-AUTO PECAS BAIXO ATERRADO LTDA-072025' publicado com sucesso
+2025-08-15 10:35:44 - 🎉 Processamento concluído!
+2025-08-15 10:38:40 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 10:38:40 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 10:38:40 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 10:38:41 - ✅ Foco definido na janela principal
+2025-08-15 10:38:46 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 10:38:48 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 10:39:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 10:39:14 - ✅ Número preenchido: 102
+2025-08-15 10:39:28 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:39:33 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:39:33 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:39:33 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:39:33 - ✅ Documento 'CANELLA - Taxa GMS' publicado com sucesso
+2025-08-15 10:39:34 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 10:39:45 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf
+2025-08-15 10:40:09 - ✅ Número preenchido: 102
+2025-08-15 10:40:12 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 10:40:17 - 🔍 Procurando janela de confirmação...
+2025-08-15 10:40:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 10:40:17 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 10:40:17 - ✅ Documento '5-AUTO PECAS BAIXO ATERRADO LTDA-072025' publicado com sucesso
+2025-08-15 10:40:18 - 🎉 Processamento concluído!
+2025-08-15 11:04:15 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 11:04:16 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 11:04:16 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 11:04:16 - ✅ Foco definido na janela principal
+2025-08-15 11:04:19 - ❌ Janela de Publicação de Documentos Externos não encontrada ou não visível
+2025-08-15 11:05:08 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 11:05:08 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 11:05:08 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 11:05:09 - ✅ Foco definido na janela principal
+2025-08-15 11:05:16 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 11:05:28 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 11:05:40 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 11:05:53 - ✅ Número preenchido: 102
+2025-08-15 11:05:56 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 11:06:11 - 🔍 Procurando janela de confirmação...
+2025-08-15 11:06:11 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 11:06:11 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 11:06:11 - ✅ Documento 'CANELLA - Taxa GMS' publicado com sucesso
+2025-08-15 11:06:12 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 11:06:24 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-072025.pdf
+2025-08-15 11:06:36 - ✅ Número preenchido: 102
+2025-08-15 11:06:50 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 11:06:55 - 🔍 Procurando janela de confirmação...
+2025-08-15 11:06:55 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 11:06:55 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 11:06:55 - ✅ Documento '5-AUTO PECAS BAIXO ATERRADO LTDA-072025' publicado com sucesso
+2025-08-15 11:06:56 - 🎉 Processamento concluído! 2/2 documentos publicados com sucesso.
+2025-08-15 11:07:51 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 11:07:51 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 11:07:51 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 11:07:52 - ✅ Foco definido na janela principal
+2025-08-15 11:07:57 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 11:08:00 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 11:08:12 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 11:08:35 - ✅ Número preenchido: 102
+2025-08-15 11:08:38 - 📤 Clicando no botão 'Publicar'...
+2025-08-15 11:08:43 - 🔍 Procurando janela de confirmação...
+2025-08-15 11:08:43 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-08-15 11:08:43 - ✅ Botão 'OK' clicado com sucesso
+2025-08-15 11:08:43 - ✅ Documento 'CANELLA - Taxa GMS' publicado com sucesso
+2025-08-15 11:08:44 - 📂 Processando linha 2: 5-AUTO PECAS BAIXO ATERRADO LTDA-072025
+2025-08-15 11:13:02 - ✅ Conectado à janela principal do Domínio Folha
+2025-08-15 11:13:02 - 📊 Arquivo contém 2 linhas de dados
+2025-08-15 11:13:02 - ✅ Todas as colunas obrigatórias encontradas
+2025-08-15 11:13:03 - ✅ Foco definido na janela principal
+2025-08-15 11:13:08 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-08-15 11:13:11 - 📂 Processando linha 1: CANELLA - Taxa GMS
+2025-08-15 11:13:23 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\CANELLA - Taxa GMS.pdf
+2025-08-15 11:13:37 - ✅ Número preenchido: 102
+2025-08-15 11:13:38 - ⏹️ Processo interrompido pelo usuário
+2025-08-15 11:13:38 - ⏹️ Processo interrompido! 0/1 documentos publicados.
+2025-09-04 15:52:00 - ✅ Conectado à janela principal do Domínio Folha
+2025-09-04 15:52:00 - 📊 Arquivo contém 48 linhas de dados
+2025-09-04 15:52:00 - ✅ Todas as colunas obrigatórias encontradas
+2025-09-04 15:52:00 - ✅ Foco definido na janela principal
+2025-09-04 15:52:06 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-09-04 15:52:08 - 📂 Processando linha 1: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-082025
+2025-09-04 15:52:21 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-082025.pdf
+2025-09-04 15:52:33 - ✅ Número preenchido: 5
+2025-09-04 15:52:36 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:52:42 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:52:42 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:52:43 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:52:43 - ✅ Documento '5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:52:44 - 📂 Processando linha 2: 24-JOFEL CALCADOS LTDA - ME-082025
+2025-09-04 15:52:56 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\24-JOFEL CALCADOS LTDA - ME-082025.pdf
+2025-09-04 15:53:09 - ✅ Número preenchido: 24
+2025-09-04 15:53:12 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:53:17 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:53:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:53:19 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:53:19 - ✅ Documento '24-JOFEL CALCADOS LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:53:20 - 📂 Processando linha 3: 31-PAPELARIA VIDAL BRITO EIRELI - ME-082025
+2025-09-04 15:53:32 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\31-PAPELARIA VIDAL BRITO EIRELI - ME-082025.pdf
+2025-09-04 15:53:45 - ✅ Número preenchido: 31
+2025-09-04 15:53:49 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:53:54 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:53:54 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:53:54 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:53:54 - ✅ Documento '31-PAPELARIA VIDAL BRITO EIRELI - ME-082025' publicado com sucesso
+2025-09-04 15:53:55 - 📂 Processando linha 4: 36-GUEPP BOUTIQUE LTDA - ME-082025
+2025-09-04 15:54:07 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\36-GUEPP BOUTIQUE LTDA - ME-082025.pdf
+2025-09-04 15:54:22 - ✅ Número preenchido: 36
+2025-09-04 15:54:25 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:54:30 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:54:31 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:54:31 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:54:31 - ✅ Documento '36-GUEPP BOUTIQUE LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:54:32 - 📂 Processando linha 5: 39-GIOVANI PEREIRA DOS SANTOS - ME-082025
+2025-09-04 15:54:44 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\39-GIOVANI PEREIRA DOS SANTOS - ME-082025.pdf
+2025-09-04 15:54:57 - ✅ Número preenchido: 39
+2025-09-04 15:55:00 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:55:05 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:55:05 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:55:05 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:55:05 - ✅ Documento '39-GIOVANI PEREIRA DOS SANTOS - ME-082025' publicado com sucesso
+2025-09-04 15:55:06 - 📂 Processando linha 6: 41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-082025
+2025-09-04 15:55:18 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-082025.pdf
+2025-09-04 15:55:30 - ✅ Número preenchido: 41
+2025-09-04 15:55:34 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:55:39 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:55:39 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:55:39 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:55:39 - ✅ Documento '41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:55:40 - 📂 Processando linha 7: 42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-082025
+2025-09-04 15:55:53 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-082025.pdf
+2025-09-04 15:56:05 - ✅ Número preenchido: 42
+2025-09-04 15:56:09 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:56:14 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:56:14 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:56:14 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:56:14 - ✅ Documento '42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-082025' publicado com sucesso
+2025-09-04 15:56:15 - 📂 Processando linha 8: 64-MARCENARIA VITORIA DE VOLTA REDONDA LTDA - ME-082025
+2025-09-04 15:56:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\64-MARCENARIA VITORIA DE VOLTA REDONDA LTDA - ME-082025.pdf
+2025-09-04 15:56:41 - ✅ Número preenchido: 64
+2025-09-04 15:56:44 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:56:49 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:56:49 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:56:49 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:56:49 - ✅ Documento '64-MARCENARIA VITORIA DE VOLTA REDONDA LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:56:50 - 📂 Processando linha 9: 81-TIETI BOUTIQUE LTDA-082025
+2025-09-04 15:57:02 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\81-TIETI BOUTIQUE LTDA-082025.pdf
+2025-09-04 15:57:14 - ✅ Número preenchido: 81
+2025-09-04 15:57:18 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:57:24 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:57:24 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:57:24 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:57:24 - ✅ Documento '81-TIETI BOUTIQUE LTDA-082025' publicado com sucesso
+2025-09-04 15:57:25 - 📂 Processando linha 10: 92-AUTO PECAS BAIXO ATERRADO LTDA-082025
+2025-09-04 15:57:37 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\92-AUTO PECAS BAIXO ATERRADO LTDA-082025.pdf
+2025-09-04 15:57:50 - ✅ Número preenchido: 92
+2025-09-04 15:57:53 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:57:58 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:57:58 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:57:58 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:57:58 - ✅ Documento '92-AUTO PECAS BAIXO ATERRADO LTDA-082025' publicado com sucesso
+2025-09-04 15:57:59 - 📂 Processando linha 11: 97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-082025
+2025-09-04 15:58:12 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-082025.pdf
+2025-09-04 15:58:25 - ✅ Número preenchido: 97
+2025-09-04 15:58:28 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:58:33 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:58:33 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:58:33 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:58:33 - ✅ Documento '97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-082025' publicado com sucesso
+2025-09-04 15:58:34 - 📂 Processando linha 12: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-082025
+2025-09-04 15:58:46 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-082025.pdf
+2025-09-04 15:59:01 - ✅ Número preenchido: 123
+2025-09-04 15:59:04 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:59:09 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:59:09 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:59:09 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:59:09 - ✅ Documento '123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-082025' publicado com sucesso
+2025-09-04 15:59:10 - 📂 Processando linha 13: 141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-082025
+2025-09-04 15:59:23 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-082025.pdf
+2025-09-04 15:59:36 - ✅ Número preenchido: 141
+2025-09-04 15:59:39 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 15:59:44 - 🔍 Procurando janela de confirmação...
+2025-09-04 15:59:44 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 15:59:44 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 15:59:44 - ✅ Documento '141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-082025' publicado com sucesso
+2025-09-04 15:59:45 - 📂 Processando linha 14: 142-C W PROMOCAO DE VENDAS LTDA - ME-082025
+2025-09-04 15:59:58 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\142-C W PROMOCAO DE VENDAS LTDA - ME-082025.pdf
+2025-09-04 16:00:11 - ✅ Número preenchido: 142
+2025-09-04 16:00:15 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:00:20 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:00:20 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:00:20 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:00:20 - ✅ Documento '142-C W PROMOCAO DE VENDAS LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:00:21 - 📂 Processando linha 15: 191-LAVA JATO TA LIMPO LTDA-082025
+2025-09-04 16:00:33 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\191-LAVA JATO TA LIMPO LTDA-082025.pdf
+2025-09-04 16:00:46 - ✅ Número preenchido: 191
+2025-09-04 16:00:49 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:00:54 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:00:54 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:00:54 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:00:54 - ✅ Documento '191-LAVA JATO TA LIMPO LTDA-082025' publicado com sucesso
+2025-09-04 16:00:55 - 📂 Processando linha 16: 214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-082025
+2025-09-04 16:01:07 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-082025.pdf
+2025-09-04 16:01:20 - ✅ Número preenchido: 214
+2025-09-04 16:01:23 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:01:28 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:01:28 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:01:28 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:01:28 - ✅ Documento '214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-082025' publicado com sucesso
+2025-09-04 16:01:29 - 📂 Processando linha 17: 318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-082025
+2025-09-04 16:01:41 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-082025.pdf
+2025-09-04 16:01:53 - ✅ Número preenchido: 318
+2025-09-04 16:01:57 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:02:02 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:02:02 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:02:02 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:02:02 - ✅ Documento '318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-082025' publicado com sucesso
+2025-09-04 16:02:03 - 📂 Processando linha 18: 355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-082025
+2025-09-04 16:02:15 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-082025.pdf
+2025-09-04 16:02:28 - ✅ Número preenchido: 355
+2025-09-04 16:02:32 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:02:36 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:02:36 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:02:36 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:02:36 - ✅ Documento '355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-082025' publicado com sucesso
+2025-09-04 16:02:38 - 📂 Processando linha 19: 356-MARIA DE LOURDES SOARES FELIPPE - ME-082025
+2025-09-04 16:02:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\356-MARIA DE LOURDES SOARES FELIPPE - ME-082025.pdf
+2025-09-04 16:03:03 - ✅ Número preenchido: 356
+2025-09-04 16:03:06 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:03:11 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:03:11 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:03:11 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:03:11 - ✅ Documento '356-MARIA DE LOURDES SOARES FELIPPE - ME-082025' publicado com sucesso
+2025-09-04 16:03:12 - 📂 Processando linha 20: 359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-082025
+2025-09-04 16:03:24 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-082025.pdf
+2025-09-04 16:03:44 - ✅ Número preenchido: 359
+2025-09-04 16:03:48 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:03:53 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:03:53 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:03:53 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:03:53 - ✅ Documento '359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:03:54 - 📂 Processando linha 21: 361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-082025
+2025-09-04 16:04:06 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-082025.pdf
+2025-09-04 16:04:19 - ✅ Número preenchido: 361
+2025-09-04 16:04:22 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:04:27 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:04:27 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:04:27 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:04:27 - ✅ Documento '361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:04:28 - 📂 Processando linha 22: 382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-082025
+2025-09-04 16:04:41 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-082025.pdf
+2025-09-04 16:04:54 - ✅ Número preenchido: 382
+2025-09-04 16:04:57 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:05:02 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:05:02 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:05:02 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:05:02 - ✅ Documento '382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:05:03 - 📂 Processando linha 23: 409-DSREIS COMERCIO LTDA - ME-082025
+2025-09-04 16:05:17 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\409-DSREIS COMERCIO LTDA - ME-082025.pdf
+2025-09-04 16:05:29 - ✅ Número preenchido: 409
+2025-09-04 16:05:33 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:05:38 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:05:38 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:05:38 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:05:38 - ✅ Documento '409-DSREIS COMERCIO LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:05:39 - 📂 Processando linha 24: 458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-082025
+2025-09-04 16:05:51 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-082025.pdf
+2025-09-04 16:06:03 - ✅ Número preenchido: 458
+2025-09-04 16:06:07 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:06:12 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:06:12 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:06:12 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:06:12 - ✅ Documento '458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-082025' publicado com sucesso
+2025-09-04 16:06:13 - 📂 Processando linha 25: 467-ROCHA'S CAR LTDA-082025
+2025-09-04 16:06:25 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\467-ROCHA'S CAR LTDA-082025.pdf
+2025-09-04 16:06:37 - ✅ Número preenchido: 467
+2025-09-04 16:06:41 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:06:46 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:06:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:06:46 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:06:46 - ✅ Documento '467-ROCHA'S CAR LTDA-082025' publicado com sucesso
+2025-09-04 16:06:47 - 📂 Processando linha 26: 476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-082025
+2025-09-04 16:07:00 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-082025.pdf
+2025-09-04 16:07:12 - ✅ Número preenchido: 476
+2025-09-04 16:07:15 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:07:20 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:07:20 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:07:20 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:07:20 - ✅ Documento '476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-082025' publicado com sucesso
+2025-09-04 16:07:21 - 📂 Processando linha 27: 478-GW COMÉRCIO DE VEÍCULOS LTDA-082025
+2025-09-04 16:07:33 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\478-GW COMÉRCIO DE VEÍCULOS LTDA-082025.pdf
+2025-09-04 16:07:46 - ✅ Número preenchido: 478
+2025-09-04 16:07:49 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:07:54 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:07:54 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:07:54 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:07:54 - ✅ Documento '478-GW COMÉRCIO DE VEÍCULOS LTDA-082025' publicado com sucesso
+2025-09-04 16:07:55 - 📂 Processando linha 28: 518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-082025
+2025-09-04 16:08:07 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-082025.pdf
+2025-09-04 16:08:19 - ✅ Número preenchido: 518
+2025-09-04 16:08:22 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:08:28 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:08:28 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:08:28 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:08:28 - ✅ Documento '518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-082025' publicado com sucesso
+2025-09-04 16:08:29 - 📂 Processando linha 29: 523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-082025
+2025-09-04 16:08:41 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-082025.pdf
+2025-09-04 16:08:53 - ✅ Número preenchido: 523
+2025-09-04 16:08:57 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:09:01 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:09:01 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:09:01 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:09:01 - ✅ Documento '523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-082025' publicado com sucesso
+2025-09-04 16:09:02 - 📂 Processando linha 30: 642-COMERCIAL SARAH LTDA-082025
+2025-09-04 16:09:14 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\642-COMERCIAL SARAH LTDA-082025.pdf
+2025-09-04 16:09:27 - ✅ Número preenchido: 642
+2025-09-04 16:09:30 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:09:35 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:09:35 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:09:35 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:09:35 - ✅ Documento '642-COMERCIAL SARAH LTDA-082025' publicado com sucesso
+2025-09-04 16:09:36 - 📂 Processando linha 31: 644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-082025
+2025-09-04 16:09:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-082025.pdf
+2025-09-04 16:10:02 - ✅ Número preenchido: 644
+2025-09-04 16:10:05 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:10:10 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:10:10 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:10:10 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:10:10 - ✅ Documento '644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-082025' publicado com sucesso
+2025-09-04 16:10:11 - 📂 Processando linha 32: 655-MARVIN PEIXARIA LTDA-082025
+2025-09-04 16:10:23 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\655-MARVIN PEIXARIA LTDA-082025.pdf
+2025-09-04 16:10:37 - ✅ Número preenchido: 655
+2025-09-04 16:10:40 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:10:45 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:10:45 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:10:45 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:10:45 - ✅ Documento '655-MARVIN PEIXARIA LTDA-082025' publicado com sucesso
+2025-09-04 16:10:46 - 📂 Processando linha 33: 663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-082025
+2025-09-04 16:10:58 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-082025.pdf
+2025-09-04 16:11:11 - ✅ Número preenchido: 663
+2025-09-04 16:11:15 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:11:20 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:11:20 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:11:20 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:11:20 - ✅ Documento '663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-082025' publicado com sucesso
+2025-09-04 16:11:21 - 📂 Processando linha 34: 665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-082025
+2025-09-04 16:11:34 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-082025.pdf
+2025-09-04 16:11:47 - ✅ Número preenchido: 665
+2025-09-04 16:11:51 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:11:56 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:11:56 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:11:56 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:11:56 - ✅ Documento '665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-082025' publicado com sucesso
+2025-09-04 16:11:57 - 📂 Processando linha 35: 683-TUDO EM CASA VR LTDA-082025
+2025-09-04 16:12:09 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\683-TUDO EM CASA VR LTDA-082025.pdf
+2025-09-04 16:12:23 - ✅ Número preenchido: 683
+2025-09-04 16:12:26 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:12:31 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:12:31 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:12:31 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:12:31 - ✅ Documento '683-TUDO EM CASA VR LTDA-082025' publicado com sucesso
+2025-09-04 16:12:32 - 📂 Processando linha 36: 713-BASTOS SOUTO VETERINARIA LTDA-082025
+2025-09-04 16:12:44 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\713-BASTOS SOUTO VETERINARIA LTDA-082025.pdf
+2025-09-04 16:12:56 - ✅ Número preenchido: 713
+2025-09-04 16:13:00 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:13:05 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:13:05 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:13:05 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:13:05 - ✅ Documento '713-BASTOS SOUTO VETERINARIA LTDA-082025' publicado com sucesso
+2025-09-04 16:13:07 - 📂 Processando linha 37: 729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-082025
+2025-09-04 16:13:20 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-082025.pdf
+2025-09-04 16:13:33 - ✅ Número preenchido: 729
+2025-09-04 16:13:36 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:13:41 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:13:41 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:13:41 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:13:41 - ✅ Documento '729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-082025' publicado com sucesso
+2025-09-04 16:13:42 - 📂 Processando linha 38: 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-082025
+2025-09-04 16:13:54 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-082025.pdf
+2025-09-04 16:14:07 - ✅ Número preenchido: 753
+2025-09-04 16:14:10 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:14:15 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:14:15 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:14:15 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:14:15 - ✅ Documento '753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-082025' publicado com sucesso
+2025-09-04 16:14:16 - 📂 Processando linha 39: 773-SBCA CONSULTORIA DE COMERCIO LTDA-082025
+2025-09-04 16:14:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\773-SBCA CONSULTORIA DE COMERCIO LTDA-082025.pdf
+2025-09-04 16:14:42 - ✅ Número preenchido: 773
+2025-09-04 16:14:45 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:14:50 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:14:50 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:14:50 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:14:50 - ✅ Documento '773-SBCA CONSULTORIA DE COMERCIO LTDA-082025' publicado com sucesso
+2025-09-04 16:14:51 - 📂 Processando linha 40: 779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-082025
+2025-09-04 16:15:04 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-082025.pdf
+2025-09-04 16:15:16 - ✅ Número preenchido: 779
+2025-09-04 16:15:20 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:15:25 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:15:25 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:15:25 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:15:25 - ✅ Documento '779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-082025' publicado com sucesso
+2025-09-04 16:15:26 - 📂 Processando linha 41: 788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-082025
+2025-09-04 16:15:38 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-082025.pdf
+2025-09-04 16:15:52 - ✅ Número preenchido: 788
+2025-09-04 16:15:55 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:16:00 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:16:01 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:16:01 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:16:01 - ✅ Documento '788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-082025' publicado com sucesso
+2025-09-04 16:16:02 - 📂 Processando linha 42: 811-SHINE CORTINAS E PERSIANAS LTDA-082025
+2025-09-04 16:16:15 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\811-SHINE CORTINAS E PERSIANAS LTDA-082025.pdf
+2025-09-04 16:16:27 - ✅ Número preenchido: 811
+2025-09-04 16:16:30 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:16:35 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:16:35 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:16:35 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:16:35 - ✅ Documento '811-SHINE CORTINAS E PERSIANAS LTDA-082025' publicado com sucesso
+2025-09-04 16:16:36 - 📂 Processando linha 43: 861-MVR AUTOMOVEIS LTDA-082025
+2025-09-04 16:16:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\861-MVR AUTOMOVEIS LTDA-082025.pdf
+2025-09-04 16:17:01 - ✅ Número preenchido: 861
+2025-09-04 16:17:04 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:17:09 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:17:09 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:17:09 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:17:09 - ✅ Documento '861-MVR AUTOMOVEIS LTDA-082025' publicado com sucesso
+2025-09-04 16:17:10 - 📂 Processando linha 44: 868-HIPO MERCADO ROMUALDO LTDA M E-082025
+2025-09-04 16:17:23 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\868-HIPO MERCADO ROMUALDO LTDA M E-082025.pdf
+2025-09-04 16:17:35 - ✅ Número preenchido: 868
+2025-09-04 16:17:40 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:17:44 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:17:44 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:17:44 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:17:44 - ✅ Documento '868-HIPO MERCADO ROMUALDO LTDA M E-082025' publicado com sucesso
+2025-09-04 16:17:45 - 📂 Processando linha 45: 872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-082025
+2025-09-04 16:17:57 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-082025.pdf
+2025-09-04 16:18:10 - ✅ Número preenchido: 872
+2025-09-04 16:18:13 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:18:18 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:18:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:18:18 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:18:18 - ✅ Documento '872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-082025' publicado com sucesso
+2025-09-04 16:18:19 - 📂 Processando linha 46: 876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-082025
+2025-09-04 16:18:32 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-082025.pdf
+2025-09-04 16:18:45 - ✅ Número preenchido: 876
+2025-09-04 16:18:48 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:18:53 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:18:53 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:18:53 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:18:53 - ✅ Documento '876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-082025' publicado com sucesso
+2025-09-04 16:18:54 - 📂 Processando linha 47: 881-VETRA CALCADOS LTDA-082025
+2025-09-04 16:19:06 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\881-VETRA CALCADOS LTDA-082025.pdf
+2025-09-04 16:19:20 - ✅ Número preenchido: 881
+2025-09-04 16:19:23 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:19:29 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:19:29 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:19:29 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:19:29 - ✅ Documento '881-VETRA CALCADOS LTDA-082025' publicado com sucesso
+2025-09-04 16:19:30 - 📂 Processando linha 48: 882-DARA CALCADOS LTDA-082025
+2025-09-04 16:19:43 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\882-DARA CALCADOS LTDA-082025.pdf
+2025-09-04 16:19:56 - ✅ Número preenchido: 882
+2025-09-04 16:19:59 - 📤 Clicando no botão 'Publicar'...
+2025-09-04 16:20:04 - 🔍 Procurando janela de confirmação...
+2025-09-04 16:20:04 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-09-04 16:20:04 - ✅ Botão 'OK' clicado com sucesso
+2025-09-04 16:20:04 - ✅ Documento '882-DARA CALCADOS LTDA-082025' publicado com sucesso
+2025-09-04 16:20:05 - 🎉 Processamento concluído! 48/48 documentos publicados com sucesso.
+2025-11-07 13:43:54 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 13:43:54 - 📊 Arquivo contém 63 linhas de dados
+2025-11-07 13:43:54 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 13:43:54 - ✅ Foco definido na janela principal
+2025-11-07 13:44:00 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 13:44:02 - 📂 Processando linha 1: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025
+2025-11-07 13:44:25 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025.pdf
+2025-11-07 13:44:36 - ✅ Número preenchido: 123.0
+2025-11-07 13:44:40 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:44:45 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:44:45 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:44:45 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:44:45 - ✅ Documento '123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025' publicado com sucesso
+2025-11-07 13:44:46 - 📂 Processando linha 2: 141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-102025
+2025-11-07 13:45:52 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 13:45:52 - 📊 Arquivo contém 63 linhas de dados
+2025-11-07 13:45:52 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 13:45:53 - ✅ Foco definido na janela principal
+2025-11-07 13:45:59 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 13:46:12 - 📂 Processando linha 1: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025
+2025-11-07 13:46:24 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025.pdf
+2025-11-07 13:46:36 - ✅ Número preenchido: 123.0
+2025-11-07 13:46:39 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:48:34 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 13:48:35 - 📊 Arquivo contém 63 linhas de dados
+2025-11-07 13:48:35 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 13:48:35 - ✅ Foco definido na janela principal
+2025-11-07 13:48:41 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 13:48:44 - 📂 Processando linha 1: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025
+2025-11-07 13:49:06 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025.pdf
+2025-11-07 13:49:18 - ✅ Número preenchido: 123.0
+2025-11-07 13:49:22 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:49:25 - ⚠️ Erro ao processar 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 13:49:25 - ⏹️ Processo interrompido pelo usuário
+2025-11-07 13:49:25 - ⏹️ Processo interrompido! 0/1 documentos publicados.
+2025-11-07 13:51:09 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 13:51:09 - 📊 Arquivo contém 62 linhas de dados
+2025-11-07 13:51:09 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 13:51:09 - ✅ Foco definido na janela principal
+2025-11-07 13:51:15 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 13:51:18 - 📂 Processando linha 1: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025
+2025-11-07 13:51:40 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025.pdf
+2025-11-07 13:51:53 - ✅ Número preenchido: 123
+2025-11-07 13:51:53 - ⏹️ Processo interrompido pelo usuário
+2025-11-07 13:51:53 - ⏹️ Processo interrompido! 0/1 documentos publicados.
+2025-11-07 13:53:53 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 13:53:53 - 📊 Arquivo contém 62 linhas de dados
+2025-11-07 13:53:53 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 13:53:53 - ✅ Foco definido na janela principal
+2025-11-07 13:53:59 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 13:54:02 - 📂 Processando linha 1: 123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025
+2025-11-07 13:54:24 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025.pdf
+2025-11-07 13:54:36 - ✅ Número preenchido: 123
+2025-11-07 13:54:40 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:54:45 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:54:45 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:54:45 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:54:45 - ✅ Documento '123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-102025' publicado com sucesso
+2025-11-07 13:54:46 - 📂 Processando linha 2: 141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-102025
+2025-11-07 13:55:08 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-102025.pdf
+2025-11-07 13:55:20 - ✅ Número preenchido: 141
+2025-11-07 13:55:24 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:55:29 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:55:29 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:55:29 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:55:29 - ✅ Documento '141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-102025' publicado com sucesso
+2025-11-07 13:55:30 - 📂 Processando linha 3: 142-C W PROMOCAO DE VENDAS LTDA - ME-102025
+2025-11-07 13:55:42 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\142-C W PROMOCAO DE VENDAS LTDA - ME-102025.pdf
+2025-11-07 13:55:55 - ✅ Número preenchido: 142
+2025-11-07 13:55:59 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:56:04 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:56:04 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:56:04 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:56:04 - ✅ Documento '142-C W PROMOCAO DE VENDAS LTDA - ME-102025' publicado com sucesso
+2025-11-07 13:56:05 - 📂 Processando linha 4: 144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-102025
+2025-11-07 13:56:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-102025.pdf
+2025-11-07 13:56:39 - ✅ Número preenchido: 144
+2025-11-07 13:56:43 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:56:48 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:56:48 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:56:48 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:56:48 - ✅ Documento '144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-102025' publicado com sucesso
+2025-11-07 13:56:49 - 📂 Processando linha 5: 191-LAVA JATO TA LIMPO LTDA-102025
+2025-11-07 13:57:11 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\191-LAVA JATO TA LIMPO LTDA-102025.pdf
+2025-11-07 13:57:23 - ✅ Número preenchido: 191
+2025-11-07 13:57:26 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:57:31 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:57:31 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:57:32 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:57:32 - ✅ Documento '191-LAVA JATO TA LIMPO LTDA-102025' publicado com sucesso
+2025-11-07 13:57:33 - 📂 Processando linha 6: 214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-102025
+2025-11-07 13:57:55 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-102025.pdf
+2025-11-07 13:58:08 - ✅ Número preenchido: 214
+2025-11-07 13:58:11 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:58:16 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:58:16 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:58:16 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:58:16 - ✅ Documento '214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-102025' publicado com sucesso
+2025-11-07 13:58:17 - 📂 Processando linha 7: 24-JOFEL CALCADOS LTDA - ME-102025
+2025-11-07 13:58:39 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\24-JOFEL CALCADOS LTDA - ME-102025.pdf
+2025-11-07 13:58:52 - ✅ Número preenchido: 24
+2025-11-07 13:58:55 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:59:00 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:59:00 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:59:00 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:59:00 - ✅ Documento '24-JOFEL CALCADOS LTDA - ME-102025' publicado com sucesso
+2025-11-07 13:59:01 - 📂 Processando linha 8: 31-PAPELARIA VIDAL BRITO EIRELI - ME-102025
+2025-11-07 13:59:23 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\31-PAPELARIA VIDAL BRITO EIRELI - ME-102025.pdf
+2025-11-07 13:59:36 - ✅ Número preenchido: 31
+2025-11-07 13:59:39 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 13:59:44 - 🔍 Procurando janela de confirmação...
+2025-11-07 13:59:44 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 13:59:44 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 13:59:44 - ✅ Documento '31-PAPELARIA VIDAL BRITO EIRELI - ME-102025' publicado com sucesso
+2025-11-07 13:59:45 - 📂 Processando linha 9: 318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-102025
+2025-11-07 14:00:08 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-102025.pdf
+2025-11-07 14:00:20 - ✅ Número preenchido: 318
+2025-11-07 14:00:23 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:00:39 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:00:39 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:00:39 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:00:39 - ✅ Documento '318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-102025' publicado com sucesso
+2025-11-07 14:00:40 - 📂 Processando linha 10: 356-MARIA DE LOURDES SOARES FELIPPE - ME-102025
+2025-11-07 14:00:53 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\356-MARIA DE LOURDES SOARES FELIPPE - ME-102025.pdf
+2025-11-07 14:01:06 - ✅ Número preenchido: 356
+2025-11-07 14:01:29 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:01:34 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:01:34 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:01:34 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:01:34 - ✅ Documento '356-MARIA DE LOURDES SOARES FELIPPE - ME-102025' publicado com sucesso
+2025-11-07 14:01:35 - 📂 Processando linha 11: 359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-102025
+2025-11-07 14:01:47 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-102025.pdf
+2025-11-07 14:02:11 - ✅ Número preenchido: 359
+2025-11-07 14:02:14 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:02:19 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:02:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:02:19 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:02:19 - ✅ Documento '359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:02:20 - 📂 Processando linha 12: 361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-102025
+2025-11-07 14:02:32 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-102025.pdf
+2025-11-07 14:02:54 - ✅ Número preenchido: 361
+2025-11-07 14:02:58 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:03:03 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:03:03 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:03:03 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:03:03 - ✅ Documento '361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:03:04 - 📂 Processando linha 13: 382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-102025
+2025-11-07 14:03:37 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-102025.pdf
+2025-11-07 14:03:50 - ✅ Número preenchido: 382
+2025-11-07 14:04:03 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:04:08 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:04:08 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:04:08 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:04:08 - ✅ Documento '382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:04:09 - 📂 Processando linha 14: 39-GIOVANI PEREIRA DOS SANTOS - ME-102025
+2025-11-07 14:04:21 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\39-GIOVANI PEREIRA DOS SANTOS - ME-102025.pdf
+2025-11-07 14:04:34 - ✅ Número preenchido: 39
+2025-11-07 14:04:37 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:04:53 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:04:53 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:04:53 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:04:53 - ✅ Documento '39-GIOVANI PEREIRA DOS SANTOS - ME-102025' publicado com sucesso
+2025-11-07 14:04:54 - 📂 Processando linha 15: 41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-102025
+2025-11-07 14:05:07 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-102025.pdf
+2025-11-07 14:05:39 - ✅ Número preenchido: 41
+2025-11-07 14:05:43 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:05:47 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:05:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:05:48 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:05:48 - ✅ Documento '41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:05:49 - 📂 Processando linha 16: 42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-102025
+2025-11-07 14:06:12 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-102025.pdf
+2025-11-07 14:06:24 - ✅ Número preenchido: 42
+2025-11-07 14:06:28 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:06:33 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:06:33 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:06:33 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:06:33 - ✅ Documento '42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-102025' publicado com sucesso
+2025-11-07 14:06:34 - 📂 Processando linha 17: 458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-102025
+2025-11-07 14:06:56 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-102025.pdf
+2025-11-07 14:07:09 - ✅ Número preenchido: 458
+2025-11-07 14:07:22 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:07:27 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:07:27 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:07:27 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:07:27 - ✅ Documento '458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:07:28 - 📂 Processando linha 18: 467-ROCHA'S CAR LTDA-102025
+2025-11-07 14:07:41 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\467-ROCHA'S CAR LTDA-102025.pdf
+2025-11-07 14:07:54 - ✅ Número preenchido: 467
+2025-11-07 14:08:07 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:08:12 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:08:12 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:08:12 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:08:12 - ✅ Documento '467-ROCHA'S CAR LTDA-102025' publicado com sucesso
+2025-11-07 14:08:13 - 📂 Processando linha 19: 476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-102025
+2025-11-07 14:08:25 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-102025.pdf
+2025-11-07 14:08:48 - ✅ Número preenchido: 476
+2025-11-07 14:08:52 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:08:57 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:08:57 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:08:57 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:08:57 - ✅ Documento '476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-102025' publicado com sucesso
+2025-11-07 14:08:58 - 📂 Processando linha 20: 478-GW COMÉRCIO DE VEÍCULOS LTDA-102025
+2025-11-07 14:09:12 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\478-GW COMÉRCIO DE VEÍCULOS LTDA-102025.pdf
+2025-11-07 14:09:34 - ✅ Número preenchido: 478
+2025-11-07 14:09:38 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:09:42 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:09:42 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:09:42 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:09:42 - ✅ Documento '478-GW COMÉRCIO DE VEÍCULOS LTDA-102025' publicado com sucesso
+2025-11-07 14:09:44 - 📂 Processando linha 21: 518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025
+2025-11-07 14:09:56 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025.pdf
+2025-11-07 14:10:18 - ✅ Número preenchido: 518
+2025-11-07 14:10:22 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:10:27 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:10:27 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:10:27 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:10:27 - ✅ Documento '518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025' publicado com sucesso
+2025-11-07 14:10:28 - 📂 Processando linha 22: 523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-102025
+2025-11-07 14:10:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-102025.pdf
+2025-11-07 14:11:03 - ✅ Número preenchido: 523
+2025-11-07 14:11:06 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:11:11 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:11:11 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:11:11 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:11:11 - ✅ Documento '523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-102025' publicado com sucesso
+2025-11-07 14:11:13 - 📂 Processando linha 23: 644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-102025
+2025-11-07 14:11:35 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-102025.pdf
+2025-11-07 14:11:47 - ✅ Número preenchido: 644
+2025-11-07 14:11:50 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:11:57 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:11:57 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:11:57 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:11:57 - ✅ Documento '644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-102025' publicado com sucesso
+2025-11-07 14:11:58 - 📂 Processando linha 24: 663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-102025
+2025-11-07 14:12:20 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-102025.pdf
+2025-11-07 14:12:32 - ✅ Número preenchido: 663
+2025-11-07 14:12:36 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:12:41 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:12:42 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:12:42 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:12:42 - ✅ Documento '663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-102025' publicado com sucesso
+2025-11-07 14:12:43 - 📂 Processando linha 25: 683-TUDO EM CASA VR LTDA-102025
+2025-11-07 14:13:05 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\683-TUDO EM CASA VR LTDA-102025.pdf
+2025-11-07 14:13:17 - ✅ Número preenchido: 683
+2025-11-07 14:13:20 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:13:26 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:13:26 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:13:26 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:13:26 - ✅ Documento '683-TUDO EM CASA VR LTDA-102025' publicado com sucesso
+2025-11-07 14:13:27 - 📂 Processando linha 26: 769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-102025
+2025-11-07 14:13:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-102025.pdf
+2025-11-07 14:14:02 - ✅ Número preenchido: 769
+2025-11-07 14:14:06 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:14:11 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:14:11 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:14:11 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:14:11 - ✅ Documento '769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-102025' publicado com sucesso
+2025-11-07 14:14:12 - 📂 Processando linha 27: 788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-102025
+2025-11-07 14:14:38 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-102025.pdf
+2025-11-07 14:15:05 - ✅ Número preenchido: 788
+2025-11-07 14:15:08 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:15:15 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:15:15 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:15:17 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:15:17 - ✅ Documento '788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-102025' publicado com sucesso
+2025-11-07 14:15:18 - 📂 Processando linha 28: 805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-102025
+2025-11-07 14:15:46 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-102025.pdf
+2025-11-07 14:16:05 - ✅ Número preenchido: 805
+2025-11-07 14:16:18 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:16:25 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:16:26 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:16:28 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:16:28 - ✅ Documento '805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-102025' publicado com sucesso
+2025-11-07 14:16:29 - 📂 Processando linha 29: 809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025
+2025-11-07 14:16:47 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025.pdf
+2025-11-07 14:17:16 - ✅ Número preenchido: 809
+2025-11-07 14:17:29 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:17:36 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:17:36 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:17:38 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:17:38 - ✅ Documento '809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-102025' publicado com sucesso
+2025-11-07 14:17:39 - 📂 Processando linha 30: 861-MVR AUTOMOVEIS LTDA-102025
+2025-11-07 14:17:57 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\861-MVR AUTOMOVEIS LTDA-102025.pdf
+2025-11-07 14:18:16 - ✅ Número preenchido: 861
+2025-11-07 14:18:19 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:18:26 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:18:26 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:18:28 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:18:28 - ✅ Documento '861-MVR AUTOMOVEIS LTDA-102025' publicado com sucesso
+2025-11-07 14:18:29 - 📂 Processando linha 31: 868-HIPO MERCADO ROMUALDO LTDA M E-102025
+2025-11-07 14:18:47 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\868-HIPO MERCADO ROMUALDO LTDA M E-102025.pdf
+2025-11-07 14:19:16 - ✅ Número preenchido: 868
+2025-11-07 14:19:19 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:19:26 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:19:26 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:19:29 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:19:29 - ✅ Documento '868-HIPO MERCADO ROMUALDO LTDA M E-102025' publicado com sucesso
+2025-11-07 14:19:30 - 📂 Processando linha 32: 876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-102025
+2025-11-07 14:19:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-102025.pdf
+2025-11-07 14:20:07 - ✅ Número preenchido: 876
+2025-11-07 14:20:11 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:20:18 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:20:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:20:20 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:20:20 - ✅ Documento '876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-102025' publicado com sucesso
+2025-11-07 14:20:21 - 📂 Processando linha 33: 881-VETRA CALCADOS LTDA-102025
+2025-11-07 14:20:39 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\881-VETRA CALCADOS LTDA-102025.pdf
+2025-11-07 14:20:57 - ✅ Número preenchido: 881
+2025-11-07 14:21:01 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:21:08 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:21:08 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:21:10 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:21:10 - ✅ Documento '881-VETRA CALCADOS LTDA-102025' publicado com sucesso
+2025-11-07 14:21:11 - 📂 Processando linha 34: 882-DARA CALCADOS LTDA-102025
+2025-11-07 14:21:29 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\882-DARA CALCADOS LTDA-102025.pdf
+2025-11-07 14:21:58 - ✅ Número preenchido: 882
+2025-11-07 14:22:02 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:22:09 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:22:09 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:22:11 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:22:11 - ✅ Documento '882-DARA CALCADOS LTDA-102025' publicado com sucesso
+2025-11-07 14:22:12 - 📂 Processando linha 35: 92-AUTO PECAS BAIXO ATERRADO LTDA-102025
+2025-11-07 14:22:39 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\92-AUTO PECAS BAIXO ATERRADO LTDA-102025.pdf
+2025-11-07 14:23:09 - ✅ Número preenchido: 92
+2025-11-07 14:23:12 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:23:19 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:23:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:23:21 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:23:21 - ✅ Documento '92-AUTO PECAS BAIXO ATERRADO LTDA-102025' publicado com sucesso
+2025-11-07 14:23:22 - 📂 Processando linha 36: 97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-102025
+2025-11-07 14:23:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-102025.pdf
+2025-11-07 14:24:19 - ✅ Número preenchido: 97
+2025-11-07 14:24:23 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:24:29 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:24:30 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:24:32 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:24:32 - ✅ Documento '97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-102025' publicado com sucesso
+2025-11-07 14:24:33 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\1013-LILI SAPATARIA LTDA-102025.pdf
+2025-11-07 14:24:33 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\1019-J M DA SILVA ALMEIDA-102025.pdf
+2025-11-07 14:24:33 - 📂 Processando linha 39: 355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-102025
+2025-11-07 14:25:00 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-102025.pdf
+2025-11-07 14:25:19 - ✅ Número preenchido: 355
+2025-11-07 14:25:22 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:25:40 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:25:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:25:42 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:25:42 - ✅ Documento '355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-102025' publicado com sucesso
+2025-11-07 14:25:43 - 📂 Processando linha 40: 36-GUEPP BOUTIQUE LTDA - ME-102025
+2025-11-07 14:26:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\36-GUEPP BOUTIQUE LTDA - ME-102025.pdf
+2025-11-07 14:26:30 - ✅ Número preenchido: 36
+2025-11-07 14:26:33 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:26:40 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:26:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:26:42 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:26:42 - ✅ Documento '36-GUEPP BOUTIQUE LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:26:43 - 📂 Processando linha 41: 409-DSREIS COMERCIO LTDA - ME-102025
+2025-11-07 14:27:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\409-DSREIS COMERCIO LTDA - ME-102025.pdf
+2025-11-07 14:27:20 - ✅ Número preenchido: 409
+2025-11-07 14:27:33 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:27:40 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:27:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:27:42 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:27:42 - ✅ Documento '409-DSREIS COMERCIO LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:27:43 - 📂 Processando linha 42: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-102025
+2025-11-07 14:28:02 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-102025.pdf
+2025-11-07 14:28:21 - ✅ Número preenchido: 5
+2025-11-07 14:28:24 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:28:31 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:28:31 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:28:33 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:28:33 - ✅ Documento '5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-102025' publicado com sucesso
+2025-11-07 14:28:34 - 📂 Processando linha 43: 517-LOCARJET LOCACOES LTDA-102025
+2025-11-07 14:29:02 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\517-LOCARJET LOCACOES LTDA-102025.pdf
+2025-11-07 14:29:31 - ✅ Número preenchido: 517
+2025-11-07 14:29:35 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:29:42 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:29:42 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:29:44 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:29:44 - ✅ Documento '517-LOCARJET LOCACOES LTDA-102025' publicado com sucesso
+2025-11-07 14:29:45 - 📂 Processando linha 44: 642-COMERCIAL SARAH LTDA-102025
+2025-11-07 14:30:14 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\642-COMERCIAL SARAH LTDA-102025.pdf
+2025-11-07 14:30:32 - ✅ Número preenchido: 642
+2025-11-07 14:30:45 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:30:52 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:30:52 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:30:54 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:30:54 - ✅ Documento '642-COMERCIAL SARAH LTDA-102025' publicado com sucesso
+2025-11-07 14:30:55 - 📂 Processando linha 45: 655-MARVIN PEIXARIA LTDA-102025
+2025-11-07 14:31:14 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\655-MARVIN PEIXARIA LTDA-102025.pdf
+2025-11-07 14:31:33 - ✅ Número preenchido: 655
+2025-11-07 14:31:36 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:31:43 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:31:44 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:31:46 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:31:46 - ✅ Documento '655-MARVIN PEIXARIA LTDA-102025' publicado com sucesso
+2025-11-07 14:31:47 - 📂 Processando linha 46: 665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-102025
+2025-11-07 14:32:15 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-102025.pdf
+2025-11-07 14:32:35 - ✅ Número preenchido: 665
+2025-11-07 14:32:48 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:32:55 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:32:55 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:32:57 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:32:57 - ✅ Documento '665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-102025' publicado com sucesso
+2025-11-07 14:32:58 - 📂 Processando linha 47: 676-STF ROUPAS E ACESSORIOS LTDA-102025
+2025-11-07 14:33:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\676-STF ROUPAS E ACESSORIOS LTDA-102025.pdf
+2025-11-07 14:33:52 - ✅ Número preenchido: 676
+2025-11-07 14:34:05 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:34:12 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:34:50 - ⚠️ Timeout: Nenhuma janela de confirmação encontrada
+2025-11-07 14:34:50 - ⚠️ Janela de confirmação não encontrada para '676-STF ROUPAS E ACESSORIOS LTDA-102025'
+2025-11-07 14:34:50 - 📂 Processando linha 48: 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-102025
+2025-11-07 14:35:03 - ⚠️ Erro ao processar 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:35:03 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\773-SBCA CONSULTORIA DE COMERCIO LTDA-102025.pdf
+2025-11-07 14:35:03 - 📂 Processando linha 50: 806-MULTI CHOPP LTDA-102025
+2025-11-07 14:35:15 - ⚠️ Erro ao processar 806-MULTI CHOPP LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:35:15 - 📂 Processando linha 51: 81-TIETI BOUTIQUE LTDA-102025
+2025-11-07 14:35:27 - ⚠️ Erro ao processar 81-TIETI BOUTIQUE LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:35:27 - 📂 Processando linha 52: 811-SHINE CORTINAS E PERSIANAS LTDA-102025
+2025-11-07 14:35:39 - ⚠️ Erro ao processar 811-SHINE CORTINAS E PERSIANAS LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:35:39 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\865-ARTE MOVEIS VR LTDA-102025.pdf
+2025-11-07 14:35:39 - 📂 Processando linha 54: 872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-102025
+2025-11-07 14:35:51 - ⚠️ Erro ao processar 872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:35:51 - 📂 Processando linha 55: 895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-102025
+2025-11-07 14:36:04 - ⚠️ Erro ao processar 895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:36:04 - 📂 Processando linha 56: 947-SANDALIAS SHOPPING33 LTDA-102025
+2025-11-07 14:36:17 - ⚠️ Erro ao processar 947-SANDALIAS SHOPPING33 LTDA-102025: (-2147220992, None, (None, None, None, 0, None))
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\52-UNIAUTO DE VOLTA REDONDA PECAS E SERVICOS LTDA - ME-102025.pdf
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\588-I BRUM COMERCIO DE VEICULOS-102025.pdf
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\1017-FERREIRA MARTINS PADARIA E CONFEITARIA LTDA-102025.pdf
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-102025.pdf
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-102025.pdf
+2025-11-07 14:36:17 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-102025.pdf
+2025-11-07 14:36:17 - 🎉 Processamento concluído! 44/62 documentos publicados com sucesso.
+2025-11-07 14:41:00 - ✅ Conectado à janela principal do Domínio Folha
+2025-11-07 14:41:00 - 📊 Arquivo contém 16 linhas de dados
+2025-11-07 14:41:00 - ✅ Todas as colunas obrigatórias encontradas
+2025-11-07 14:41:01 - ✅ Foco definido na janela principal
+2025-11-07 14:41:06 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-11-07 14:41:09 - 📂 Processando linha 1: 676-STF ROUPAS E ACESSORIOS LTDA-102025
+2025-11-07 14:41:20 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\676-STF ROUPAS E ACESSORIOS LTDA-102025.pdf
+2025-11-07 14:41:43 - ✅ Número preenchido: 676
+2025-11-07 14:41:46 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:41:52 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:41:52 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:41:52 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:41:52 - ✅ Documento '676-STF ROUPAS E ACESSORIOS LTDA-102025' publicado com sucesso
+2025-11-07 14:41:53 - 📂 Processando linha 2: 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-102025
+2025-11-07 14:42:16 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-102025.pdf
+2025-11-07 14:42:28 - ✅ Número preenchido: 753
+2025-11-07 14:42:31 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:42:36 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:42:37 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:42:37 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:42:37 - ✅ Documento '753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-102025' publicado com sucesso
+2025-11-07 14:42:38 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\773-SBCA CONSULTORIA DE COMERCIO LTDA-102025.pdf
+2025-11-07 14:42:38 - 📂 Processando linha 4: 806-MULTI CHOPP LTDA-102025
+2025-11-07 14:43:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\806-MULTI CHOPP LTDA-102025.pdf
+2025-11-07 14:43:13 - ✅ Número preenchido: 806
+2025-11-07 14:43:16 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:43:23 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:43:23 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:43:23 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:43:23 - ✅ Documento '806-MULTI CHOPP LTDA-102025' publicado com sucesso
+2025-11-07 14:43:24 - 📂 Processando linha 5: 81-TIETI BOUTIQUE LTDA-102025
+2025-11-07 14:43:45 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\81-TIETI BOUTIQUE LTDA-102025.pdf
+2025-11-07 14:43:58 - ✅ Número preenchido: 81
+2025-11-07 14:44:02 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:44:07 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:44:07 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:44:07 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:44:07 - ✅ Documento '81-TIETI BOUTIQUE LTDA-102025' publicado com sucesso
+2025-11-07 14:44:08 - 📂 Processando linha 6: 811-SHINE CORTINAS E PERSIANAS LTDA-102025
+2025-11-07 14:44:20 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\811-SHINE CORTINAS E PERSIANAS LTDA-102025.pdf
+2025-11-07 14:44:32 - ✅ Número preenchido: 811
+2025-11-07 14:44:35 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:44:40 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:44:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:44:40 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:44:40 - ✅ Documento '811-SHINE CORTINAS E PERSIANAS LTDA-102025' publicado com sucesso
+2025-11-07 14:44:41 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\865-ARTE MOVEIS VR LTDA-102025.pdf
+2025-11-07 14:44:41 - 📂 Processando linha 8: 872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-102025
+2025-11-07 14:45:04 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-102025.pdf
+2025-11-07 14:45:17 - ✅ Número preenchido: 872
+2025-11-07 14:45:20 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:45:25 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:45:25 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:45:25 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:45:25 - ✅ Documento '872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-102025' publicado com sucesso
+2025-11-07 14:45:26 - 📂 Processando linha 9: 895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-102025
+2025-11-07 14:45:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-102025.pdf
+2025-11-07 14:46:01 - ✅ Número preenchido: 895
+2025-11-07 14:46:04 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:46:09 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:46:10 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:46:10 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:46:10 - ✅ Documento '895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-102025' publicado com sucesso
+2025-11-07 14:46:11 - 📂 Processando linha 10: 947-SANDALIAS SHOPPING33 LTDA-102025
+2025-11-07 14:46:33 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\947-SANDALIAS SHOPPING33 LTDA-102025.pdf
+2025-11-07 14:46:46 - ✅ Número preenchido: 947
+2025-11-07 14:46:49 - 📤 Clicando no botão 'Publicar'...
+2025-11-07 14:46:54 - 🔍 Procurando janela de confirmação...
+2025-11-07 14:46:55 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-11-07 14:46:55 - ✅ Botão 'OK' clicado com sucesso
+2025-11-07 14:46:55 - ✅ Documento '947-SANDALIAS SHOPPING33 LTDA-102025' publicado com sucesso
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\52-UNIAUTO DE VOLTA REDONDA PECAS E SERVICOS LTDA - ME-102025.pdf
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\588-I BRUM COMERCIO DE VEICULOS-102025.pdf
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\1017-FERREIRA MARTINS PADARIA E CONFEITARIA LTDA-102025.pdf
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-102025.pdf
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-102025.pdf
+2025-11-07 14:46:57 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-102025.pdf
+2025-11-07 14:46:57 - 🎉 Processamento concluído! 8/16 documentos publicados com sucesso.
+2025-12-08 08:50:49 - 🔍 Procurando janela do Domínio Folha...
+2025-12-08 08:50:49 - 📋 Total de janelas abertas: 19
+2025-12-08 08:50:49 - 🪟 Janela encontrada: 'DomBot_Pub - Publicador Domínio Folha'
+2025-12-08 08:50:49 - ✅ Janela do Domínio Folha localizada!
+2025-12-08 08:50:49 - ✅ Conectado ao Domínio Folha com sucesso
+2025-12-08 08:50:49 - 📊 Arquivo contém 68 linhas de dados
+2025-12-08 08:50:49 - ✅ Todas as colunas obrigatórias encontradas
+2025-12-08 08:50:49 - ✅ Foco definido na janela principal
+2025-12-08 08:50:50 - ❌ Janela de Publicação de Documentos Externos não encontrada ou não visível
+2025-12-08 08:51:08 - 🔍 Procurando janela do Domínio Folha...
+2025-12-08 08:51:08 - 📋 Total de janelas abertas: 19
+2025-12-08 08:51:08 - 🪟 Janela encontrada: 'DomBot_Pub - Publicador Domínio Folha'
+2025-12-08 08:51:08 - ✅ Janela do Domínio Folha localizada!
+2025-12-08 08:51:09 - ✅ Conectado ao Domínio Folha com sucesso
+2025-12-08 08:51:09 - 📊 Arquivo contém 68 linhas de dados
+2025-12-08 08:51:09 - ✅ Todas as colunas obrigatórias encontradas
+2025-12-08 08:51:09 - ✅ Foco definido na janela principal
+2025-12-08 08:51:10 - ❌ Janela de Publicação de Documentos Externos não encontrada ou não visível
+2025-12-08 08:51:21 - 🔍 Procurando janela do Domínio Folha...
+2025-12-08 08:51:21 - 📋 Total de janelas abertas: 19
+2025-12-08 08:51:21 - 🪟 Janela encontrada: 'DomBot_Pub - Publicador Domínio Folha'
+2025-12-08 08:51:21 - ✅ Janela do Domínio Folha localizada!
+2025-12-08 08:51:22 - ✅ Conectado ao Domínio Folha com sucesso
+2025-12-08 08:51:22 - 📊 Arquivo contém 68 linhas de dados
+2025-12-08 08:51:22 - ✅ Todas as colunas obrigatórias encontradas
+2025-12-08 08:51:22 - ✅ Foco definido na janela principal
+2025-12-08 08:51:22 - ❌ Janela de Publicação de Documentos Externos não encontrada ou não visível
+2025-12-08 08:56:40 - 🔍 Procurando janela do Domínio Folha...
+2025-12-08 08:56:40 - 📋 Total de janelas abertas: 19
+2025-12-08 08:56:40 - ⏩ Ignorando janela do DomBot: 'DomBot_Pub - Publicador Domínio Folha'
+2025-12-08 08:56:40 - ⏩ Ignorando janela do DomBot: 'DomBot_Pub_V1.0.py - DomBot-GMS - Visual Studio Code'
+2025-12-08 08:56:40 - 🪟 Janela encontrada: 'Domínio Folha - Versão: 10.5A-11 - 05'
+2025-12-08 08:56:40 - ✅ Janela do Domínio Folha localizada!
+2025-12-08 08:56:41 - ✅ Conectado ao Domínio Folha com sucesso
+2025-12-08 08:56:41 - 📊 Arquivo contém 68 linhas de dados
+2025-12-08 08:56:41 - ✅ Todas as colunas obrigatórias encontradas
+2025-12-08 08:56:41 - ✅ Foco definido na janela principal
+2025-12-08 08:56:46 - ✅ Janela de Publicação de Documentos Externos encontrada
+2025-12-08 08:56:48 - 📂 Processando linha 1: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-112025
+2025-12-08 08:56:58 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-112025.pdf
+2025-12-08 08:57:09 - ✅ Número preenchido: 5
+2025-12-08 08:57:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 08:57:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 08:57:28 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 08:57:28 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 08:57:28 - ✅ Documento '5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-112025' publicado com sucesso
+2025-12-08 08:57:29 - 📂 Processando linha 2: 24-JOFEL CALCADOS LTDA - ME-112025
+2025-12-08 08:57:45 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\24-JOFEL CALCADOS LTDA - ME-112025.pdf
+2025-12-08 08:57:56 - ✅ Número preenchido: 24
+2025-12-08 08:58:00 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 08:58:04 - 🔍 Procurando janela de confirmação...
+2025-12-08 08:58:04 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 08:58:04 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 08:58:04 - ✅ Documento '24-JOFEL CALCADOS LTDA - ME-112025' publicado com sucesso
+2025-12-08 08:58:05 - 📂 Processando linha 3: 31-PAPELARIA VIDAL BRITO EIRELI - ME-112025
+2025-12-08 08:58:16 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\31-PAPELARIA VIDAL BRITO EIRELI - ME-112025.pdf
+2025-12-08 08:58:26 - ✅ Número preenchido: 31
+2025-12-08 08:58:29 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 08:58:34 - 🔍 Procurando janela de confirmação...
+2025-12-08 08:58:34 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 08:58:34 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 08:58:34 - ✅ Documento '31-PAPELARIA VIDAL BRITO EIRELI - ME-112025' publicado com sucesso
+2025-12-08 08:58:35 - 📂 Processando linha 4: 36-GUEPP BOUTIQUE LTDA - ME-112025
+2025-12-08 08:58:46 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\36-GUEPP BOUTIQUE LTDA - ME-112025.pdf
+2025-12-08 08:58:57 - ✅ Número preenchido: 36
+2025-12-08 08:59:00 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 08:59:05 - 🔍 Procurando janela de confirmação...
+2025-12-08 08:59:05 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 08:59:05 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 08:59:05 - ✅ Documento '36-GUEPP BOUTIQUE LTDA - ME-112025' publicado com sucesso
+2025-12-08 08:59:06 - 📂 Processando linha 5: 39-GIOVANI PEREIRA DOS SANTOS - ME-112025
+2025-12-08 08:59:17 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\39-GIOVANI PEREIRA DOS SANTOS - ME-112025.pdf
+2025-12-08 08:59:30 - ✅ Número preenchido: 39
+2025-12-08 08:59:33 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 08:59:37 - 🔍 Procurando janela de confirmação...
+2025-12-08 08:59:37 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 08:59:37 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 08:59:37 - ✅ Documento '39-GIOVANI PEREIRA DOS SANTOS - ME-112025' publicado com sucesso
+2025-12-08 08:59:38 - 📂 Processando linha 6: 41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-112025
+2025-12-08 08:59:49 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-112025.pdf
+2025-12-08 08:59:59 - ✅ Número preenchido: 41
+2025-12-08 09:00:02 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:00:07 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:00:07 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:00:07 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:00:07 - ✅ Documento '41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:00:08 - 📂 Processando linha 7: 42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-112025
+2025-12-08 09:00:18 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-112025.pdf
+2025-12-08 09:00:28 - ✅ Número preenchido: 42
+2025-12-08 09:00:31 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:00:36 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:00:36 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:00:36 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:00:36 - ✅ Documento '42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-112025' publicado com sucesso
+2025-12-08 09:00:37 - 📂 Processando linha 8: 81-TIETI BOUTIQUE LTDA-112025
+2025-12-08 09:00:47 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\81-TIETI BOUTIQUE LTDA-112025.pdf
+2025-12-08 09:00:58 - ✅ Número preenchido: 81
+2025-12-08 09:01:02 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:01:07 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:01:07 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:01:07 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:01:07 - ✅ Documento '81-TIETI BOUTIQUE LTDA-112025' publicado com sucesso
+2025-12-08 09:01:08 - 📂 Processando linha 9: 92-AUTO PECAS BAIXO ATERRADO LTDA-112025
+2025-12-08 09:01:18 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\92-AUTO PECAS BAIXO ATERRADO LTDA-112025.pdf
+2025-12-08 09:01:29 - ✅ Número preenchido: 92
+2025-12-08 09:01:32 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:01:36 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:01:36 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:01:36 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:01:36 - ✅ Documento '92-AUTO PECAS BAIXO ATERRADO LTDA-112025' publicado com sucesso
+2025-12-08 09:01:37 - 📂 Processando linha 10: 97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-112025
+2025-12-08 09:01:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-112025.pdf
+2025-12-08 09:01:58 - ✅ Número preenchido: 97
+2025-12-08 09:02:01 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:02:06 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:02:06 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:02:06 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:02:06 - ✅ Documento '97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-112025' publicado com sucesso
+2025-12-08 09:02:07 - 📂 Processando linha 11: 141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-112025
+2025-12-08 09:02:17 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-112025.pdf
+2025-12-08 09:02:28 - ✅ Número preenchido: 141
+2025-12-08 09:02:31 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:02:36 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:02:36 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:02:36 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:02:36 - ✅ Documento '141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-112025' publicado com sucesso
+2025-12-08 09:02:37 - 📂 Processando linha 12: 142-C W PROMOCAO DE VENDAS LTDA - ME-112025
+2025-12-08 09:02:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\142-C W PROMOCAO DE VENDAS LTDA - ME-112025.pdf
+2025-12-08 09:03:01 - ✅ Número preenchido: 142
+2025-12-08 09:03:04 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:03:09 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:03:09 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:03:09 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:03:09 - ✅ Documento '142-C W PROMOCAO DE VENDAS LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:03:10 - 📂 Processando linha 13: 144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-112025
+2025-12-08 09:03:21 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-112025.pdf
+2025-12-08 09:03:31 - ✅ Número preenchido: 144
+2025-12-08 09:03:34 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:03:39 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:03:39 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:03:39 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:03:39 - ✅ Documento '144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:03:40 - 📂 Processando linha 14: 153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-112025
+2025-12-08 09:03:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-112025.pdf
+2025-12-08 09:04:01 - ✅ Número preenchido: 153
+2025-12-08 09:04:04 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:04:08 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:04:09 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:04:09 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:04:09 - ✅ Documento '153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-112025' publicado com sucesso
+2025-12-08 09:04:10 - 📂 Processando linha 15: 191-LAVA JATO TA LIMPO LTDA-112025
+2025-12-08 09:04:21 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\191-LAVA JATO TA LIMPO LTDA-112025.pdf
+2025-12-08 09:04:32 - ✅ Número preenchido: 191
+2025-12-08 09:04:35 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:04:39 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:04:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:04:40 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:04:40 - ✅ Documento '191-LAVA JATO TA LIMPO LTDA-112025' publicado com sucesso
+2025-12-08 09:04:41 - 📂 Processando linha 16: 318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025
+2025-12-08 09:04:51 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025.pdf
+2025-12-08 09:05:02 - ✅ Número preenchido: 318
+2025-12-08 09:05:05 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:05:09 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:05:10 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:05:10 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:05:10 - ✅ Documento '318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025' publicado com sucesso
+2025-12-08 09:05:11 - 📂 Processando linha 17: 323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025
+2025-12-08 09:05:21 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025.pdf
+2025-12-08 09:05:32 - ✅ Número preenchido: 323
+2025-12-08 09:05:35 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:05:40 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:05:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:05:40 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:05:40 - ✅ Documento '323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-112025' publicado com sucesso
+2025-12-08 09:05:41 - 📂 Processando linha 18: 342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-112025
+2025-12-08 09:05:52 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-112025.pdf
+2025-12-08 09:06:03 - ✅ Número preenchido: 342
+2025-12-08 09:06:06 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:06:11 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:06:11 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:06:11 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:06:11 - ✅ Documento '342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-112025' publicado com sucesso
+2025-12-08 09:06:12 - 📂 Processando linha 19: 355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-112025
+2025-12-08 09:06:22 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-112025.pdf
+2025-12-08 09:06:33 - ✅ Número preenchido: 355
+2025-12-08 09:06:36 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:06:40 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:06:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:06:40 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:06:40 - ✅ Documento '355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-112025' publicado com sucesso
+2025-12-08 09:06:41 - 📂 Processando linha 20: 356-MARIA DE LOURDES SOARES FELIPPE - ME-112025
+2025-12-08 09:06:52 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\356-MARIA DE LOURDES SOARES FELIPPE - ME-112025.pdf
+2025-12-08 09:07:03 - ✅ Número preenchido: 356
+2025-12-08 09:07:06 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:07:10 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:07:10 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:07:10 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:07:10 - ✅ Documento '356-MARIA DE LOURDES SOARES FELIPPE - ME-112025' publicado com sucesso
+2025-12-08 09:07:11 - 📂 Processando linha 21: 359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-112025
+2025-12-08 09:07:22 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-112025.pdf
+2025-12-08 09:07:33 - ✅ Número preenchido: 359
+2025-12-08 09:07:36 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:07:40 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:07:40 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:07:41 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:07:41 - ✅ Documento '359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:07:42 - 📂 Processando linha 22: 361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-112025
+2025-12-08 09:07:52 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-112025.pdf
+2025-12-08 09:08:02 - ✅ Número preenchido: 361
+2025-12-08 09:08:05 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:08:10 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:08:10 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:08:10 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:08:10 - ✅ Documento '361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:08:11 - 📂 Processando linha 23: 382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-112025
+2025-12-08 09:08:22 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-112025.pdf
+2025-12-08 09:08:35 - ✅ Número preenchido: 382
+2025-12-08 09:08:38 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:08:43 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:08:43 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:08:43 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:08:43 - ✅ Documento '382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:08:44 - 📂 Processando linha 24: 409-DSREIS COMERCIO LTDA - ME-112025
+2025-12-08 09:08:54 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\409-DSREIS COMERCIO LTDA - ME-112025.pdf
+2025-12-08 09:09:06 - ✅ Número preenchido: 409
+2025-12-08 09:09:08 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:09:13 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:09:13 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:09:13 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:09:13 - ✅ Documento '409-DSREIS COMERCIO LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:09:14 - 📂 Processando linha 25: 458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-112025
+2025-12-08 09:09:24 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-112025.pdf
+2025-12-08 09:09:35 - ✅ Número preenchido: 458
+2025-12-08 09:09:38 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:09:42 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:09:42 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:09:42 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:09:42 - ✅ Documento '458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-112025' publicado com sucesso
+2025-12-08 09:09:43 - 📂 Processando linha 26: 467-ROCHA'S CAR LTDA-112025
+2025-12-08 09:09:53 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\467-ROCHA'S CAR LTDA-112025.pdf
+2025-12-08 09:10:04 - ✅ Número preenchido: 467
+2025-12-08 09:10:07 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:10:12 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:10:13 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:10:13 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:10:13 - ✅ Documento '467-ROCHA'S CAR LTDA-112025' publicado com sucesso
+2025-12-08 09:10:14 - 📂 Processando linha 27: 476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-112025
+2025-12-08 09:10:25 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-112025.pdf
+2025-12-08 09:10:36 - ✅ Número preenchido: 476
+2025-12-08 09:10:40 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:10:45 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:10:45 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:10:45 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:10:45 - ✅ Documento '476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-112025' publicado com sucesso
+2025-12-08 09:10:46 - 📂 Processando linha 28: 478-GW COMÉRCIO DE VEÍCULOS LTDA-112025
+2025-12-08 09:10:56 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\478-GW COMÉRCIO DE VEÍCULOS LTDA-112025.pdf
+2025-12-08 09:11:07 - ✅ Número preenchido: 478
+2025-12-08 09:11:10 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:11:14 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:11:15 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:11:15 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:11:15 - ✅ Documento '478-GW COMÉRCIO DE VEÍCULOS LTDA-112025' publicado com sucesso
+2025-12-08 09:11:16 - 📂 Processando linha 29: 517-LOCARJET LOCACOES LTDA-112025
+2025-12-08 09:11:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\517-LOCARJET LOCACOES LTDA-112025.pdf
+2025-12-08 09:11:38 - ✅ Número preenchido: 517
+2025-12-08 09:11:41 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:11:45 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:11:45 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:11:45 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:11:45 - ✅ Documento '517-LOCARJET LOCACOES LTDA-112025' publicado com sucesso
+2025-12-08 09:11:46 - 📂 Processando linha 30: 518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025
+2025-12-08 09:11:57 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025.pdf
+2025-12-08 09:12:07 - ✅ Número preenchido: 518
+2025-12-08 09:12:11 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:12:15 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:12:15 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:12:15 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:12:15 - ✅ Documento '518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025' publicado com sucesso
+2025-12-08 09:12:16 - 📂 Processando linha 31: 523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-112025
+2025-12-08 09:12:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-112025.pdf
+2025-12-08 09:12:38 - ✅ Número preenchido: 523
+2025-12-08 09:12:41 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:12:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:12:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:12:46 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:12:46 - ✅ Documento '523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-112025' publicado com sucesso
+2025-12-08 09:12:47 - 📂 Processando linha 32: 529-PRECIOSO CHOCOLATE FORTINI EIRELI-112025
+2025-12-08 09:12:57 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\529-PRECIOSO CHOCOLATE FORTINI EIRELI-112025.pdf
+2025-12-08 09:13:08 - ✅ Número preenchido: 529
+2025-12-08 09:13:11 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:13:16 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:13:16 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:13:16 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:13:16 - ✅ Documento '529-PRECIOSO CHOCOLATE FORTINI EIRELI-112025' publicado com sucesso
+2025-12-08 09:13:17 - 📂 Processando linha 33: 617-PONTUAL SHOPPING CHOCOLATES LTDA-112025
+2025-12-08 09:13:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\617-PONTUAL SHOPPING CHOCOLATES LTDA-112025.pdf
+2025-12-08 09:13:38 - ✅ Número preenchido: 617
+2025-12-08 09:13:41 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:13:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:13:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:13:46 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:13:46 - ✅ Documento '617-PONTUAL SHOPPING CHOCOLATES LTDA-112025' publicado com sucesso
+2025-12-08 09:13:47 - 📂 Processando linha 34: 642-COMERCIAL SARAH LTDA-112025
+2025-12-08 09:14:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\642-COMERCIAL SARAH LTDA-112025.pdf
+2025-12-08 09:14:12 - ✅ Número preenchido: 642
+2025-12-08 09:14:15 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:14:20 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:14:20 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:14:20 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:14:20 - ✅ Documento '642-COMERCIAL SARAH LTDA-112025' publicado com sucesso
+2025-12-08 09:14:21 - 📂 Processando linha 35: 644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-112025
+2025-12-08 09:14:31 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-112025.pdf
+2025-12-08 09:14:41 - ✅ Número preenchido: 644
+2025-12-08 09:14:44 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:14:49 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:14:49 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:14:49 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:14:49 - ✅ Documento '644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-112025' publicado com sucesso
+2025-12-08 09:14:50 - 📂 Processando linha 36: 655-MARVIN PEIXARIA LTDA-112025
+2025-12-08 09:15:00 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\655-MARVIN PEIXARIA LTDA-112025.pdf
+2025-12-08 09:15:11 - ✅ Número preenchido: 655
+2025-12-08 09:15:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:15:18 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:15:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:15:18 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:15:18 - ✅ Documento '655-MARVIN PEIXARIA LTDA-112025' publicado com sucesso
+2025-12-08 09:15:19 - 📂 Processando linha 37: 663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-112025
+2025-12-08 09:15:30 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-112025.pdf
+2025-12-08 09:15:42 - ✅ Número preenchido: 663
+2025-12-08 09:15:45 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:15:49 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:15:49 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:15:49 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:15:49 - ✅ Documento '663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-112025' publicado com sucesso
+2025-12-08 09:15:50 - 📂 Processando linha 38: 665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-112025
+2025-12-08 09:16:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-112025.pdf
+2025-12-08 09:16:11 - ✅ Número preenchido: 665
+2025-12-08 09:16:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:16:19 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:16:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:16:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:16:19 - ✅ Documento '665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-112025' publicado com sucesso
+2025-12-08 09:16:20 - 📂 Processando linha 39: 676-STF ROUPAS E ACESSORIOS LTDA-112025
+2025-12-08 09:16:30 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\676-STF ROUPAS E ACESSORIOS LTDA-112025.pdf
+2025-12-08 09:16:40 - ✅ Número preenchido: 676
+2025-12-08 09:16:44 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:16:48 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:16:48 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:16:48 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:16:48 - ✅ Documento '676-STF ROUPAS E ACESSORIOS LTDA-112025' publicado com sucesso
+2025-12-08 09:16:49 - 📂 Processando linha 40: 683-TUDO EM CASA VR LTDA-112025
+2025-12-08 09:16:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\683-TUDO EM CASA VR LTDA-112025.pdf
+2025-12-08 09:17:11 - ✅ Número preenchido: 683
+2025-12-08 09:17:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:17:18 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:17:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:17:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:17:19 - ✅ Documento '683-TUDO EM CASA VR LTDA-112025' publicado com sucesso
+2025-12-08 09:17:20 - 📂 Processando linha 41: 729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-112025
+2025-12-08 09:17:29 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-112025.pdf
+2025-12-08 09:17:40 - ✅ Número preenchido: 729
+2025-12-08 09:17:43 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:17:47 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:17:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:17:48 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:17:48 - ✅ Documento '729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-112025' publicado com sucesso
+2025-12-08 09:17:49 - 📂 Processando linha 42: 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-112025
+2025-12-08 09:17:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-112025.pdf
+2025-12-08 09:18:09 - ✅ Número preenchido: 753
+2025-12-08 09:18:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:18:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:18:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:18:17 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:18:17 - ✅ Documento '753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-112025' publicado com sucesso
+2025-12-08 09:18:18 - 📂 Processando linha 43: 769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-112025
+2025-12-08 09:18:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-112025.pdf
+2025-12-08 09:18:39 - ✅ Número preenchido: 769
+2025-12-08 09:18:42 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:18:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:18:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:18:46 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:18:46 - ✅ Documento '769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-112025' publicado com sucesso
+2025-12-08 09:18:47 - 📂 Processando linha 44: 773-SBCA CONSULTORIA DE COMERCIO LTDA-112025
+2025-12-08 09:18:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\773-SBCA CONSULTORIA DE COMERCIO LTDA-112025.pdf
+2025-12-08 09:19:10 - ✅ Número preenchido: 773
+2025-12-08 09:19:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:19:19 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:19:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:19:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:19:19 - ✅ Documento '773-SBCA CONSULTORIA DE COMERCIO LTDA-112025' publicado com sucesso
+2025-12-08 09:19:20 - 📂 Processando linha 45: 788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-112025
+2025-12-08 09:19:31 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-112025.pdf
+2025-12-08 09:19:42 - ✅ Número preenchido: 788
+2025-12-08 09:19:45 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:19:50 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:19:50 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:19:50 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:19:50 - ✅ Documento '788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-112025' publicado com sucesso
+2025-12-08 09:19:51 - 📂 Processando linha 46: 805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-112025
+2025-12-08 09:20:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-112025.pdf
+2025-12-08 09:20:12 - ✅ Número preenchido: 805
+2025-12-08 09:20:15 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:20:19 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:20:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:20:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:20:19 - ✅ Documento '805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-112025' publicado com sucesso
+2025-12-08 09:20:20 - 📂 Processando linha 47: 806-MULTI CHOPP LTDA-112025
+2025-12-08 09:20:31 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\806-MULTI CHOPP LTDA-112025.pdf
+2025-12-08 09:20:42 - ✅ Número preenchido: 806
+2025-12-08 09:20:45 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:20:49 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:20:49 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:20:49 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:20:49 - ✅ Documento '806-MULTI CHOPP LTDA-112025' publicado com sucesso
+2025-12-08 09:20:50 - 📂 Processando linha 48: 809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025
+2025-12-08 09:21:01 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025.pdf
+2025-12-08 09:21:11 - ✅ Número preenchido: 809
+2025-12-08 09:21:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:21:19 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:21:19 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:21:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:21:19 - ✅ Documento '809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-112025' publicado com sucesso
+2025-12-08 09:21:20 - 📂 Processando linha 49: 811-SHINE CORTINAS E PERSIANAS LTDA-112025
+2025-12-08 09:21:30 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\811-SHINE CORTINAS E PERSIANAS LTDA-112025.pdf
+2025-12-08 09:21:41 - ✅ Número preenchido: 811
+2025-12-08 09:21:44 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:21:48 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:21:48 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:21:48 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:21:48 - ✅ Documento '811-SHINE CORTINAS E PERSIANAS LTDA-112025' publicado com sucesso
+2025-12-08 09:21:49 - 📂 Processando linha 50: 854-DROGARIA SENA LTDA-112025
+2025-12-08 09:21:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\854-DROGARIA SENA LTDA-112025.pdf
+2025-12-08 09:22:11 - ✅ Número preenchido: 854
+2025-12-08 09:22:14 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:22:18 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:22:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:22:19 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:22:19 - ✅ Documento '854-DROGARIA SENA LTDA-112025' publicado com sucesso
+2025-12-08 09:22:20 - 📂 Processando linha 51: 861-MVR AUTOMOVEIS LTDA-112025
+2025-12-08 09:22:30 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\861-MVR AUTOMOVEIS LTDA-112025.pdf
+2025-12-08 09:22:40 - ✅ Número preenchido: 861
+2025-12-08 09:22:43 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:22:47 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:22:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:22:48 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:22:48 - ✅ Documento '861-MVR AUTOMOVEIS LTDA-112025' publicado com sucesso
+2025-12-08 09:22:49 - 📂 Processando linha 52: 865-ARTE MOVEIS VR LTDA-112025
+2025-12-08 09:22:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\865-ARTE MOVEIS VR LTDA-112025.pdf
+2025-12-08 09:23:09 - ✅ Número preenchido: 865
+2025-12-08 09:23:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:23:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:23:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:23:17 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:23:17 - ✅ Documento '865-ARTE MOVEIS VR LTDA-112025' publicado com sucesso
+2025-12-08 09:23:18 - 📂 Processando linha 53: 868-HIPO MERCADO ROMUALDO LTDA M E-112025
+2025-12-08 09:23:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\868-HIPO MERCADO ROMUALDO LTDA M E-112025.pdf
+2025-12-08 09:23:38 - ✅ Número preenchido: 868
+2025-12-08 09:23:41 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:23:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:23:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:23:46 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:23:46 - ✅ Documento '868-HIPO MERCADO ROMUALDO LTDA M E-112025' publicado com sucesso
+2025-12-08 09:23:47 - 📂 Processando linha 54: 872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-112025
+2025-12-08 09:23:58 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-112025.pdf
+2025-12-08 09:24:08 - ✅ Número preenchido: 872
+2025-12-08 09:24:11 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:24:16 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:24:16 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:24:16 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:24:16 - ✅ Documento '872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-112025' publicado com sucesso
+2025-12-08 09:24:17 - 📂 Processando linha 55: 876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-112025
+2025-12-08 09:24:27 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-112025.pdf
+2025-12-08 09:24:38 - ✅ Número preenchido: 876
+2025-12-08 09:24:42 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:24:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:24:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:24:47 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:24:47 - ✅ Documento '876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-112025' publicado com sucesso
+2025-12-08 09:24:48 - 📂 Processando linha 56: 881-VETRA CALCADOS LTDA-112025
+2025-12-08 09:24:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\881-VETRA CALCADOS LTDA-112025.pdf
+2025-12-08 09:25:10 - ✅ Número preenchido: 881
+2025-12-08 09:25:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:25:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:25:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:25:17 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:25:17 - ✅ Documento '881-VETRA CALCADOS LTDA-112025' publicado com sucesso
+2025-12-08 09:25:18 - 📂 Processando linha 57: 882-DARA CALCADOS LTDA-112025
+2025-12-08 09:25:29 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\882-DARA CALCADOS LTDA-112025.pdf
+2025-12-08 09:25:40 - ✅ Número preenchido: 882
+2025-12-08 09:25:43 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:25:47 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:25:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:25:47 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:25:47 - ✅ Documento '882-DARA CALCADOS LTDA-112025' publicado com sucesso
+2025-12-08 09:25:48 - 📂 Processando linha 58: 895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-112025
+2025-12-08 09:25:58 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-112025.pdf
+2025-12-08 09:26:09 - ✅ Número preenchido: 895
+2025-12-08 09:26:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:26:16 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:26:16 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:26:16 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:26:16 - ✅ Documento '895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-112025' publicado com sucesso
+2025-12-08 09:26:17 - 📂 Processando linha 59: 898-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025
+2025-12-08 09:26:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\898-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025.pdf
+2025-12-08 09:26:38 - ✅ Número preenchido: 898
+2025-12-08 09:26:41 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:26:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:26:46 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:26:46 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:26:46 - ✅ Documento '898-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025' publicado com sucesso
+2025-12-08 09:26:47 - 📂 Processando linha 60: 899-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025
+2025-12-08 09:26:57 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\899-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025.pdf
+2025-12-08 09:27:09 - ✅ Número preenchido: 899
+2025-12-08 09:27:12 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:27:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:27:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:27:17 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:27:17 - ✅ Documento '899-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-112025' publicado com sucesso
+2025-12-08 09:27:18 - 📂 Processando linha 61: 947-SANDALIAS SHOPPING33 LTDA-112025
+2025-12-08 09:27:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\947-SANDALIAS SHOPPING33 LTDA-112025.pdf
+2025-12-08 09:27:39 - ✅ Número preenchido: 947
+2025-12-08 09:27:42 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:27:46 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:27:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:27:47 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:27:47 - ✅ Documento '947-SANDALIAS SHOPPING33 LTDA-112025' publicado com sucesso
+2025-12-08 09:27:48 - 📂 Processando linha 62: 1013-LILI SAPATARIA LTDA-112025
+2025-12-08 09:27:59 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\1013-LILI SAPATARIA LTDA-112025.pdf
+2025-12-08 09:28:10 - ✅ Número preenchido: 1013
+2025-12-08 09:28:13 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:28:17 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:28:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:28:17 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:28:17 - ✅ Documento '1013-LILI SAPATARIA LTDA-112025' publicado com sucesso
+2025-12-08 09:28:19 - 📂 Processando linha 63: 1019-J M DA SILVA ALMEIDA-112025
+2025-12-08 09:28:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\1019-J M DA SILVA ALMEIDA-112025.pdf
+2025-12-08 09:28:39 - ✅ Número preenchido: 1019
+2025-12-08 09:28:42 - 📤 Clicando no botão 'Publicar'...
+2025-12-08 09:28:47 - 🔍 Procurando janela de confirmação...
+2025-12-08 09:28:47 - ✅ Janela do sistema encontrada: 'Atenção'
+2025-12-08 09:28:47 - ✅ Botão 'OK' clicado com sucesso
+2025-12-08 09:28:47 - ✅ Documento '1019-J M DA SILVA ALMEIDA-112025' publicado com sucesso
+2025-12-08 09:28:48 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\52-UNIAUTO DE VOLTA REDONDA PECAS E SERVICOS LTDA - ME-112025.pdf
+2025-12-08 09:28:48 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\214-E. B. VIEIRA SCHNEIDER W. VIANNA DECORACAO EM GERAL - ME-112025.pdf
+2025-12-08 09:28:49 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\588-I BRUM COMERCIO DE VEICULOS-112025.pdf
+2025-12-08 09:28:49 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-112025.pdf
+2025-12-08 09:28:49 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-112025.pdf
+2025-12-08 09:28:49 - 🎉 Processamento concluído! 63/68 documentos publicados com sucesso.
+2026-01-05 14:27:42 - 🔍 Procurando janela do Domínio Folha...
+2026-01-05 14:27:42 - 📋 Total de janelas abertas: 23
+2026-01-05 14:27:42 - ⏩ Ignorando janela do DomBot: 'DomBot_Pub - Publicador Domínio Folha'
+2026-01-05 14:27:42 - ⏩ Ignorando janela do DomBot: 'DomBot_Pub_V1.0.py - DomBot-GMS - Visual Studio Code'
+2026-01-05 14:27:42 - 🪟 Janela encontrada: 'Domínio Folha - Versão: 10.5A-12 - 00'
+2026-01-05 14:27:43 - ✅ Janela do Domínio Folha localizada!
+2026-01-05 14:27:43 - ✅ Conectado ao Domínio Folha com sucesso
+2026-01-05 14:27:43 - 📊 Arquivo contém 68 linhas de dados
+2026-01-05 14:27:43 - ✅ Todas as colunas obrigatórias encontradas
+2026-01-05 14:27:43 - ✅ Foco definido na janela principal
+2026-01-05 14:27:49 - ✅ Janela de Publicação de Documentos Externos encontrada
+2026-01-05 14:27:52 - 📂 Processando linha 1: 1013-LILI SAPATARIA LTDA-122025
+2026-01-05 14:28:05 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\1013-LILI SAPATARIA LTDA-122025.pdf
+2026-01-05 14:28:19 - ✅ Número preenchido: 1013
+2026-01-05 14:28:21 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:28:26 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:28:26 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:28:27 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:28:27 - ✅ Documento '1013-LILI SAPATARIA LTDA-122025' publicado com sucesso
+2026-01-05 14:28:28 - 📂 Processando linha 2: 1019-J M DA SILVA ALMEIDA-122025
+2026-01-05 14:28:39 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\1019-J M DA SILVA ALMEIDA-122025.pdf
+2026-01-05 14:28:51 - ✅ Número preenchido: 1019
+2026-01-05 14:28:56 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:29:02 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:29:13 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:29:14 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:29:14 - ✅ Documento '1019-J M DA SILVA ALMEIDA-122025' publicado com sucesso
+2026-01-05 14:29:15 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\123-VR INFLAVEIS PROMOCIONAIS LTDA - ME-122025.pdf
+2026-01-05 14:29:15 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\141-VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA-122025.pdf
+2026-01-05 14:29:15 - 📂 Processando linha 5: 142-C W PROMOCAO DE VENDAS LTDA - ME-122025
+2026-01-05 14:29:28 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\142-C W PROMOCAO DE VENDAS LTDA - ME-122025.pdf
+2026-01-05 14:29:43 - ✅ Número preenchido: 142
+2026-01-05 14:29:47 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:29:53 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:29:53 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:29:53 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:29:53 - ✅ Documento '142-C W PROMOCAO DE VENDAS LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:29:54 - 📂 Processando linha 6: 144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-122025
+2026-01-05 14:30:08 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-122025.pdf
+2026-01-05 14:30:22 - ✅ Número preenchido: 144
+2026-01-05 14:30:26 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:30:31 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:30:31 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:30:31 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:30:31 - ✅ Documento '144-PADARIA E MERCEARIA VERDE VALE LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:30:33 - 📂 Processando linha 7: 153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-122025
+2026-01-05 14:30:45 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-122025.pdf
+2026-01-05 14:31:01 - ✅ Número preenchido: 153
+2026-01-05 14:31:04 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:31:10 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:31:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:31:19 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:31:19 - ✅ Documento '153-GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS-122025' publicado com sucesso
+2026-01-05 14:31:20 - 📂 Processando linha 8: 191-LAVA JATO TA LIMPO LTDA-122025
+2026-01-05 14:31:32 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\191-LAVA JATO TA LIMPO LTDA-122025.pdf
+2026-01-05 14:31:45 - ✅ Número preenchido: 191
+2026-01-05 14:31:48 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:31:54 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:31:55 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:31:55 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:31:55 - ✅ Documento '191-LAVA JATO TA LIMPO LTDA-122025' publicado com sucesso
+2026-01-05 14:31:56 - 📂 Processando linha 9: 24-JOFEL CALCADOS LTDA - ME-122025
+2026-01-05 14:32:13 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\24-JOFEL CALCADOS LTDA - ME-122025.pdf
+2026-01-05 14:32:32 - ✅ Número preenchido: 24
+2026-01-05 14:32:35 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:32:41 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:32:41 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:32:41 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:32:41 - ✅ Documento '24-JOFEL CALCADOS LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:32:42 - 📂 Processando linha 10: 31-PAPELARIA VIDAL BRITO EIRELI - ME-122025
+2026-01-05 14:32:55 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\31-PAPELARIA VIDAL BRITO EIRELI - ME-122025.pdf
+2026-01-05 14:33:09 - ✅ Número preenchido: 31
+2026-01-05 14:33:13 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:33:17 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:33:18 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:33:18 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:33:18 - ✅ Documento '31-PAPELARIA VIDAL BRITO EIRELI - ME-122025' publicado com sucesso
+2026-01-05 14:33:19 - 📂 Processando linha 11: 318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025
+2026-01-05 14:33:31 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025.pdf
+2026-01-05 14:33:45 - ✅ Número preenchido: 318
+2026-01-05 14:33:48 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:33:54 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:33:54 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:33:54 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:33:54 - ✅ Documento '318-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025' publicado com sucesso
+2026-01-05 14:33:55 - 📂 Processando linha 12: 323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025
+2026-01-05 14:34:10 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025.pdf
+2026-01-05 14:34:23 - ✅ Número preenchido: 323
+2026-01-05 14:34:27 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:34:32 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:34:32 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:34:32 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:34:32 - ✅ Documento '323-RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP-122025' publicado com sucesso
+2026-01-05 14:34:33 - 📂 Processando linha 13: 342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-122025
+2026-01-05 14:34:48 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-122025.pdf
+2026-01-05 14:35:04 - ✅ Número preenchido: 342
+2026-01-05 14:35:08 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:35:14 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:35:14 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:35:14 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:35:14 - ✅ Documento '342-R. DE OLIVEIRA BALTAZAR COM DE TINTAS-122025' publicado com sucesso
+2026-01-05 14:35:15 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\355-CARLOS EDUARDO DE SOUZA COSMETICOS - ME-122025.pdf
+2026-01-05 14:35:15 - 📂 Processando linha 15: 356-MARIA DE LOURDES SOARES FELIPPE - ME-122025
+2026-01-05 14:35:33 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\356-MARIA DE LOURDES SOARES FELIPPE - ME-122025.pdf
+2026-01-05 14:35:46 - ✅ Número preenchido: 356
+2026-01-05 14:35:50 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:35:55 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:35:55 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:35:55 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:35:55 - ✅ Documento '356-MARIA DE LOURDES SOARES FELIPPE - ME-122025' publicado com sucesso
+2026-01-05 14:35:56 - 📂 Processando linha 16: 359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-122025
+2026-01-05 14:36:08 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-122025.pdf
+2026-01-05 14:36:19 - ✅ Número preenchido: 359
+2026-01-05 14:36:22 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:36:27 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:36:27 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:36:27 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:36:27 - ✅ Documento '359-NELCON MATERIAL DE CONSTRUCAO LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:36:28 - 📂 Processando linha 17: 36-GUEPP BOUTIQUE LTDA - ME-122025
+2026-01-05 14:36:38 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\36-GUEPP BOUTIQUE LTDA - ME-122025.pdf
+2026-01-05 14:36:51 - ✅ Número preenchido: 36
+2026-01-05 14:36:55 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:37:00 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:37:00 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:37:00 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:37:00 - ✅ Documento '36-GUEPP BOUTIQUE LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:37:01 - 📂 Processando linha 18: 361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-122025
+2026-01-05 14:37:19 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-122025.pdf
+2026-01-05 14:37:35 - ✅ Número preenchido: 361
+2026-01-05 14:37:39 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:37:44 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:37:44 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:37:44 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:37:44 - ✅ Documento '361-MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:37:46 - 📂 Processando linha 19: 382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-122025
+2026-01-05 14:38:02 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-122025.pdf
+2026-01-05 14:38:17 - ✅ Número preenchido: 382
+2026-01-05 14:38:20 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:38:25 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:38:25 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:38:25 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:38:25 - ✅ Documento '382-HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:38:26 - 📂 Processando linha 20: 39-GIOVANI PEREIRA DOS SANTOS - ME-122025
+2026-01-05 14:38:39 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\39-GIOVANI PEREIRA DOS SANTOS - ME-122025.pdf
+2026-01-05 14:38:50 - ✅ Número preenchido: 39
+2026-01-05 14:38:53 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:38:57 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:38:57 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:38:58 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:38:58 - ✅ Documento '39-GIOVANI PEREIRA DOS SANTOS - ME-122025' publicado com sucesso
+2026-01-05 14:38:59 - 📂 Processando linha 21: 409-DSREIS COMERCIO LTDA - ME-122025
+2026-01-05 14:39:10 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\409-DSREIS COMERCIO LTDA - ME-122025.pdf
+2026-01-05 14:39:24 - ✅ Número preenchido: 409
+2026-01-05 14:39:29 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:39:33 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:39:33 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:39:33 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:39:33 - ✅ Documento '409-DSREIS COMERCIO LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:39:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\41-A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME-122025.pdf
+2026-01-05 14:39:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\42-COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME-122025.pdf
+2026-01-05 14:39:35 - 📂 Processando linha 24: 458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-122025
+2026-01-05 14:39:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-122025.pdf
+2026-01-05 14:40:07 - ✅ Número preenchido: 458
+2026-01-05 14:40:11 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:40:17 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:40:17 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:40:17 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:40:17 - ✅ Documento '458-PODEROSA MODA INTIMA COMERCIO DE ROUPAS LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:40:19 - 📂 Processando linha 25: 467-ROCHA'S CAR LTDA-122025
+2026-01-05 14:40:33 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\467-ROCHA'S CAR LTDA-122025.pdf
+2026-01-05 14:40:50 - ✅ Número preenchido: 467
+2026-01-05 14:40:54 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:40:59 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:40:59 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:40:59 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:40:59 - ✅ Documento '467-ROCHA'S CAR LTDA-122025' publicado com sucesso
+2026-01-05 14:41:00 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\476-AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA-122025.pdf
+2026-01-05 14:41:00 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\478-GW COMÉRCIO DE VEÍCULOS LTDA-122025.pdf
+2026-01-05 14:41:00 - 📂 Processando linha 28: 5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-122025
+2026-01-05 14:41:13 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-122025.pdf
+2026-01-05 14:41:23 - ✅ Número preenchido: 5
+2026-01-05 14:41:26 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:41:32 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:41:32 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:41:32 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:41:32 - ✅ Documento '5-CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME-122025' publicado com sucesso
+2026-01-05 14:41:33 - 📂 Processando linha 29: 517-LOCARJET LOCACOES LTDA-122025
+2026-01-05 14:41:43 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\517-LOCARJET LOCACOES LTDA-122025.pdf
+2026-01-05 14:41:57 - ✅ Número preenchido: 517
+2026-01-05 14:42:01 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:42:07 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:42:08 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:42:08 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:42:08 - ✅ Documento '517-LOCARJET LOCACOES LTDA-122025' publicado com sucesso
+2026-01-05 14:42:09 - 📂 Processando linha 30: 518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-122025
+2026-01-05 14:42:26 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-122025.pdf
+2026-01-05 14:42:42 - ✅ Número preenchido: 518
+2026-01-05 14:42:46 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:42:53 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:42:53 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:42:53 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:42:53 - ✅ Documento '518-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-122025' publicado com sucesso
+2026-01-05 14:42:54 - 📂 Processando linha 31: 523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-122025
+2026-01-05 14:43:11 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-122025.pdf
+2026-01-05 14:43:27 - ✅ Número preenchido: 523
+2026-01-05 14:43:32 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:43:38 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:44:06 - ⚠️ Timeout: Nenhuma janela de confirmação encontrada
+2026-01-05 14:44:06 - ⚠️ Janela de confirmação não encontrada para '523-BIG NEGOCIOS COMERCIO E SERVICO LTDA-122025'
+2026-01-05 14:44:06 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\529-PRECIOSO CHOCOLATE FORTINI EIRELI-122025.pdf
+2026-01-05 14:44:07 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\617-PONTUAL SHOPPING CHOCOLATES LTDA-122025.pdf
+2026-01-05 14:44:07 - 📂 Processando linha 34: 642-COMERCIAL SARAH LTDA-122025
+2026-01-05 14:44:16 - ⚠️ Erro ao processar 642-COMERCIAL SARAH LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:44:16 - 📂 Processando linha 35: 644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-122025
+2026-01-05 14:44:26 - ⚠️ Erro ao processar 644-J LEONE COMERCIO DE AUTOMOVEIS LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:44:26 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\655-MARVIN PEIXARIA LTDA-122025.pdf
+2026-01-05 14:44:26 - 📂 Processando linha 37: 663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-122025
+2026-01-05 14:44:40 - ⚠️ Erro ao processar 663-INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:44:41 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\665-CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA-122025.pdf
+2026-01-05 14:44:41 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\676-STF ROUPAS E ACESSORIOS LTDA-122025.pdf
+2026-01-05 14:44:41 - 📂 Processando linha 40: 683-TUDO EM CASA VR LTDA-122025
+2026-01-05 14:44:56 - ⚠️ Erro ao processar 683-TUDO EM CASA VR LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:44:57 - 📂 Processando linha 41: 729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-122025
+2026-01-05 14:45:12 - ⚠️ Erro ao processar 729-S B COMERCIO DE ELETRONICOS TABACARIA E VESTUARIO LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:45:12 - 📂 Processando linha 42: 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-122025
+2026-01-05 14:45:29 - ⚠️ Erro ao processar 753-OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:45:29 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\769-J M DE SOUZA DISTRIBUDORA DE BEBIDAS E ALIMENTOS-122025.pdf
+2026-01-05 14:45:29 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\773-SBCA CONSULTORIA DE COMERCIO LTDA-122025.pdf
+2026-01-05 14:45:29 - 📂 Processando linha 45: 788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-122025
+2026-01-05 14:45:44 - ⚠️ Erro ao processar 788-PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:45:44 - 📂 Processando linha 46: 805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-122025
+2026-01-05 14:46:00 - ⚠️ Erro ao processar 805-LR SADDE OLIVEIRA CENTRO DE ESTETICA ESPECIALIZADA COMERCIO DE EQUIPAMENTOS E CURSOS LIVRES LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:46:00 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\806-MULTI CHOPP LTDA-122025.pdf
+2026-01-05 14:46:00 - 📂 Processando linha 48: 809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-122025
+2026-01-05 14:46:15 - ⚠️ Erro ao processar 809-PERFUMARIA DA VILA DE VOLTA REDONDA LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:46:15 - 📂 Processando linha 49: 81-TIETI BOUTIQUE LTDA-122025
+2026-01-05 14:46:29 - ⚠️ Erro ao processar 81-TIETI BOUTIQUE LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:46:29 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\811-SHINE CORTINAS E PERSIANAS LTDA-122025.pdf
+2026-01-05 14:46:29 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\861-MVR AUTOMOVEIS LTDA-122025.pdf
+2026-01-05 14:46:29 - 📂 Processando linha 52: 865-ARTE MOVEIS VR LTDA-122025
+2026-01-05 14:46:40 - ⚠️ Erro ao processar 865-ARTE MOVEIS VR LTDA-122025: (-2147220992, None, (None, None, None, 0, None))
+2026-01-05 14:46:40 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\868-HIPO MERCADO ROMUALDO LTDA M E-122025.pdf
+2026-01-05 14:46:40 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\872-TAMIRAO MATERIAIS DE CONSTRUCAO LTDA-122025.pdf
+2026-01-05 14:46:40 - 📂 Processando linha 55: 876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-122025
+2026-01-05 14:46:51 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-122025.pdf
+2026-01-05 14:47:01 - ✅ Número preenchido: 876
+2026-01-05 14:47:04 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:47:08 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:47:08 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:47:08 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:47:08 - ✅ Documento '876-INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA-122025' publicado com sucesso
+2026-01-05 14:47:09 - 📂 Processando linha 56: 881-VETRA CALCADOS LTDA-122025
+2026-01-05 14:47:22 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\881-VETRA CALCADOS LTDA-122025.pdf
+2026-01-05 14:47:39 - ✅ Número preenchido: 881
+2026-01-05 14:47:44 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:47:49 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:47:49 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:47:49 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:47:49 - ✅ Documento '881-VETRA CALCADOS LTDA-122025' publicado com sucesso
+2026-01-05 14:47:50 - 📂 Processando linha 57: 882-DARA CALCADOS LTDA-122025
+2026-01-05 14:48:07 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\882-DARA CALCADOS LTDA-122025.pdf
+2026-01-05 14:48:23 - ✅ Número preenchido: 882
+2026-01-05 14:48:27 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:48:34 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:48:34 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:48:34 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:48:34 - ✅ Documento '882-DARA CALCADOS LTDA-122025' publicado com sucesso
+2026-01-05 14:48:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\895-TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA-122025.pdf
+2026-01-05 14:48:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\898-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS LTDA-122025.pdf
+2026-01-05 14:48:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\899-G V COUTINHO DISTRIBUIDORA DE ALIMENTOS-122025.pdf
+2026-01-05 14:48:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\92-AUTO PECAS BAIXO ATERRADO LTDA-122025.pdf
+2026-01-05 14:48:35 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\947-SANDALIAS SHOPPING33 LTDA-122025.pdf
+2026-01-05 14:48:35 - 📂 Processando linha 63: 97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-122025
+2026-01-05 14:48:50 - ✅ Caminho preenchido: Z:\Pessoal\2025\GMS\97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-122025.pdf
+2026-01-05 14:49:05 - ✅ Número preenchido: 97
+2026-01-05 14:49:08 - 📤 Clicando no botão 'Publicar'...
+2026-01-05 14:49:13 - 🔍 Procurando janela de confirmação...
+2026-01-05 14:49:13 - ✅ Janela do sistema encontrada: 'Atenção'
+2026-01-05 14:49:13 - ✅ Botão 'OK' clicado com sucesso
+2026-01-05 14:49:13 - ✅ Documento '97-ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI-122025' publicado com sucesso
+2026-01-05 14:49:14 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\52-UNIAUTO DE VOLTA REDONDA PECAS E SERVICOS LTDA - ME-122025.pdf
+2026-01-05 14:49:14 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\588-I BRUM COMERCIO DE VEICULOS-122025.pdf
+2026-01-05 14:49:14 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\779-H2M REPRESENTACOES SUL FLUMINENSE LTDA-122025.pdf
+2026-01-05 14:49:14 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\854-DROGARIA SENA LTDA-122025.pdf
+2026-01-05 14:49:15 - ⚠️ Arquivo PDF não encontrado: Z:\Pessoal\2025\GMS\948-DROGARIA SENA LTDA-122025.pdf
+2026-01-05 14:49:15 - 🎉 Processamento concluído! 27/68 documentos publicados com sucesso.

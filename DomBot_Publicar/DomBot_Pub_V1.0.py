@@ -7,27 +7,20 @@ import time
 import pandas as pd
 from pywinauto import Application, findwindows
 from pywinauto.findwindows import ElementNotFoundError
+import win32gui
+import win32con
 
 class DomBot:
     def __init__(self, log_callback=None, progress_callback=None, ui_reference=None):
         self.log_callback = log_callback or print
         self.progress_callback = progress_callback
         self.ui_reference = ui_reference  # Referência para verificar is_running
-        try:
-            self.app = Application(backend="uia").connect(
-                title="Domínio Folha - Versão: 10.5A-07 - 08",
-                class_name="FNWND3190",
-                timeout=10
-            )
-            self.main_window = self.app.window(
-                title="Domínio Folha - Versão: 10.5A-07 - 08",
-                class_name="FNWND3190"
-            )
-            self.main_window.set_focus()
-            self.log("✅ Conectado à janela principal do Domínio Folha")
-        except Exception as e:
-            self.log(f"❌ Erro ao conectar à janela principal: {str(e)}")
-            raise
+        self.app = None
+        self.main_window = None
+
+        # Conectar usando método robusto
+        if not self.connect_to_dominio():
+            raise Exception("Não foi possível conectar ao Domínio Folha")
 
     def log(self, mensagem):
         if callable(self.log_callback):
@@ -35,6 +28,78 @@ class DomBot:
         # Opcional: salvar logs em arquivo para depuração
         with open("publicacao_log.txt", "a", encoding="utf-8") as f:
             f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {mensagem}\n")
+
+    def find_dominio_window(self):
+        """Encontra a janela do Domínio Folha de forma robusta"""
+        try:
+            self.log("🔍 Procurando janela do Domínio Folha...")
+
+            # Listar todas as janelas abertas para debug
+            try:
+                all_windows = findwindows.find_windows()
+                self.log(f"📋 Total de janelas abertas: {len(all_windows)}")
+
+                # Tentar encontrar janelas com "Domínio" no título
+                for hwnd in all_windows:
+                    try:
+                        title = win32gui.GetWindowText(hwnd)
+                        # Ignorar a própria janela do DomBot e buscar apenas o software Domínio
+                        if "DomBot" in title or "Publicador" in title:
+                            self.log(f"⏩ Ignorando janela do DomBot: '{title}'")
+                            continue
+
+                        if "Domínio" in title and title:
+                            self.log(f"🪟 Janela encontrada: '{title}'")
+                            if "Folha" in title or "Versão" in title:
+                                self.log(f"✅ Janela do Domínio Folha localizada!")
+                                return hwnd
+                    except Exception:
+                        continue
+            except Exception as e:
+                self.log(f"⚠️ Erro ao listar janelas: {str(e)}")
+
+            # Fallback: tentar o método original com regex (excluindo DomBot)
+            windows = findwindows.find_windows(title_re=".*Domínio Folha.*")
+            for window in windows:
+                try:
+                    title = win32gui.GetWindowText(window)
+                    if "DomBot" not in title and "Publicador" not in title:
+                        self.log(f"✅ Janela do Domínio encontrada via regex: '{title}'")
+                        return window
+                except Exception:
+                    continue
+
+            self.log("❌ Nenhuma janela do Domínio Folha encontrada")
+            return None
+        except Exception as e:
+            self.log(f"❌ Erro ao procurar janela do Domínio: {str(e)}")
+            return None
+
+    def connect_to_dominio(self):
+        """Conecta à aplicação Domínio de forma robusta"""
+        try:
+            handle = self.find_dominio_window()
+            if not handle:
+                self.log("❌ Janela do Domínio Folha não encontrada. Verifique se o programa está aberto.")
+                return False
+
+            # Restaura e foca a janela
+            if win32gui.IsIconic(handle):
+                win32gui.ShowWindow(handle, win32con.SW_RESTORE)
+                time.sleep(1)
+
+            win32gui.SetForegroundWindow(handle)
+            time.sleep(0.5)
+
+            self.app = Application(backend="uia").connect(handle=handle)
+            self.main_window = self.app.window(handle=handle)
+
+            self.log("✅ Conectado ao Domínio Folha com sucesso")
+            return True
+
+        except Exception as e:
+            self.log(f"❌ Erro ao conectar ao Domínio: {str(e)}")
+            return False
 
     def update_progress(self, current, total, status=""):
         if callable(self.progress_callback):
@@ -446,10 +511,39 @@ class AppUI(ctk.CTk):
             messagebox.showwarning("Aviso", "Selecione um arquivo Excel primeiro.")
             return
 
-        # Verifica se o software está aberto
+        # Verifica se o software está aberto usando método robusto
         try:
-            app = Application(backend="uia")
-            app.connect(title="Domínio Folha - Versão: 10.5A-07 - 08", timeout=5)
+            all_windows = findwindows.find_windows()
+            dominio_found = False
+
+            for hwnd in all_windows:
+                try:
+                    title = win32gui.GetWindowText(hwnd)
+                    # Ignorar a própria janela do DomBot
+                    if "DomBot" in title or "Publicador" in title:
+                        continue
+                    if "Domínio" in title and ("Folha" in title or "Versão" in title):
+                        dominio_found = True
+                        break
+                except Exception:
+                    continue
+
+            if not dominio_found:
+                # Fallback: tentar com regex
+                windows = findwindows.find_windows(title_re=".*Domínio Folha.*")
+                found_valid = False
+                for window in windows:
+                    try:
+                        title = win32gui.GetWindowText(window)
+                        if "DomBot" not in title and "Publicador" not in title:
+                            found_valid = True
+                            break
+                    except Exception:
+                        continue
+
+                if not found_valid:
+                    messagebox.showerror("Erro", "O software Domínio Folha não está aberto.\nAbra-o e tente novamente.")
+                    return
         except Exception:
             messagebox.showerror("Erro", "O software Domínio Folha não está aberto.\nAbra-o e tente novamente.")
             return

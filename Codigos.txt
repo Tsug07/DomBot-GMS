@@ -1,0 +1,48 @@
+Publicação Direta
+
+# self.log("Clicando no ícone de publicação")
+                # self.main_window.set_focus()
+                # button_publicacao = self.main_window.child_window(auto_id="1005", class_name="FNUDO3190")
+                # button_publicacao.click_input()
+                # time.sleep(1)
+
+                # # Gerenciar janela de publicação
+                # try:
+                #     # # Encontrar a janela de publicação de documentos
+                #     pub_doc_window = self.main_window.child_window(
+                #         title="Publicação de Documentos",
+                #         class_name="FNWNS3190"
+                #     )
+                    
+                #     if not pub_doc_window.exists():
+                #         self.log("Janela 'Publicação de Documentos' não encontrada.")
+                #         return False
+                    
+                #     self.log("Janela de publicação localizada")
+
+                #     # Escolher pasta de destino
+                #     combo_box = pub_doc_window.child_window(auto_id="1007", class_name="ComboBox")
+                #     combo_box.click_input()
+                #     time.sleep(0.5)
+                #     send_keys("Pessoal/GMS{ENTER}")
+                #     time.sleep(0.5)
+
+                #     # Campo do nome do pdf
+                #     nome_pdf = str(row['Salvar Como'])
+                #     self.log(f"Definindo nome do PDF: {nome_pdf}")
+                #     edit_field = pub_doc_window.child_window(auto_id="1014", class_name="Edit")
+                #     edit_field.set_text(nome_pdf)
+                #     time.sleep(0.5)
+
+                #     # Botão gravar
+                #     self.log("Clicando em gravar")
+                #     button_gravar = pub_doc_window.child_window(auto_id="1016", class_name="Button")
+                #     button_gravar.click_input()
+                #     time.sleep(10)
+                    
+                #     # # Esperar até que a janela não esteja mais visível ou timeout
+                #     # self.wait_and_check_window_closed(pub_doc_window, "Publicação de Documentos")
+                
+                # except Exception as e:
+                #     self.log(f"Erro na publicação: {str(e)}")
+                #     return False
