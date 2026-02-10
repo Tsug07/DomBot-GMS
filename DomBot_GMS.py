@@ -11,11 +11,36 @@ from datetime import datetime
 import os
 import traceback
 import threading
-from pywinauto.timings import wait_until
 from typing import Optional, Tuple
 import tkinter.messagebox as messagebox
+from PIL import Image, ImageDraw
+
+
+# Handler de log separado da classe principal
+class GUILogHandler(logging.Handler):
+    def __init__(self, gui):
+        super().__init__()
+        self.gui = gui
+
+    def emit(self, record):
+        msg = self.format(record)
+        self.gui.window.after(0, lambda: self.gui.adicionar_log(msg, record.levelno))
+
 
 class AutomacaoGUI:
+    # Cores do tema
+    CORES = {
+        'sucesso': '#2ECC71',
+        'erro': '#E74C3C',
+        'aviso': '#F39C12',
+        'info': '#3498DB',
+        'texto': '#ECF0F1',
+        'fundo_card': '#2C3E50',
+        'fundo_escuro': '#1A252F',
+        'destaque': '#1ABC9C',
+        'processando': '#9B59B6',
+    }
+
     def __init__(self):
         # Configuração do tema
         ctk.set_appearance_mode("dark")
@@ -23,13 +48,26 @@ class AutomacaoGUI:
 
         self.window = ctk.CTk()
         self.window.title("DomBot - Taxa GMS v2.0")
-        self.window.geometry("800x600")
+        self.window.geometry("800x550")
+        self.window.minsize(750, 500)
         self.window.protocol("WM_DELETE_WINDOW", self.ao_fechar)
 
         # Flags para controle de execução
         self.executando = False
-        self.thread_automacao = None
         self.pausa_solicitada = False
+        self.thread_automacao = None
+
+        # Estatísticas
+        self.stats = {
+            'processados': 0,
+            'sucesso': 0,
+            'erros': 0,
+            'puladas': 0,
+            'tempo_inicio': None
+        }
+
+        # DataFrame carregado
+        self.df_carregado = None
 
         # Configurar ícone
         self.set_window_icon()
@@ -44,10 +82,10 @@ class AutomacaoGUI:
 
         # Variáveis da interface
         self.arquivo_excel = ctk.StringVar()
-        self.linha_inicial = ctk.StringVar(value="2")  # Corrigido: começa da linha 2 (primeira linha de dados)
+        self.linha_inicial = ctk.StringVar(value="2")
         self.status_var = ctk.StringVar(value="Aguardando início...")
 
-        # Variáveis de controle
+        # Variáveis de controle (mantidas para compatibilidade com DominioAutomation)
         self.total_linhas = 0
         self.linhas_processadas = 0
         self.linhas_com_erro = 0
@@ -58,8 +96,11 @@ class AutomacaoGUI:
         self.logger.setLevel(logging.INFO)
         self.logger.handlers = []
 
-        # Configurar GUI Handler
-        self.setup_gui_logging()
+        # Adicionar GUIHandler
+        self.gui_handler = GUILogHandler(self)
+        formatter = logging.Formatter('%(message)s')
+        self.gui_handler.setFormatter(formatter)
+        self.logger.addHandler(self.gui_handler)
 
         self.criar_interface()
 
@@ -93,236 +134,435 @@ class AutomacaoGUI:
             )
             self.error_logger.addHandler(error_handler)
 
-    def setup_gui_logging(self):
-        """Configura o logging para a interface gráfica"""
-        class GUIHandler(logging.Handler):
-            def __init__(self, gui):
-                super().__init__()
-                self.gui = gui
-
-            def emit(self, record):
-                msg = self.format(record)
-                # Usar after para thread-safety
-                self.gui.window.after(0, lambda: self.gui.adicionar_log(msg))
-
-        self.gui_handler = GUIHandler(self)
-        formatter = logging.Formatter('%(message)s')
-        self.gui_handler.setFormatter(formatter)
-        self.logger.addHandler(self.gui_handler)
-
     def set_window_icon(self):
         """Configura o ícone da janela"""
         try:
-            icon_path = os.path.join(os.path.dirname(__file__), "assets", "bot-folha-de-pagamento.ico")
+            icon_path = os.path.join(os.path.dirname(__file__), "assets", "favicon.ico")
             if os.name == 'nt' and os.path.exists(icon_path):
                 self.window.iconbitmap(icon_path)
         except Exception as e:
             print(f"Erro ao carregar ícone: {e}")
 
+    def criar_interface(self):
+        # Frame principal com grid
+        self.window.grid_columnconfigure(0, weight=1)
+        self.window.grid_rowconfigure(0, weight=1)
+
+        main_frame = ctk.CTkFrame(self.window, fg_color="transparent")
+        main_frame.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
+        main_frame.grid_columnconfigure(0, weight=1)
+        main_frame.grid_rowconfigure(3, weight=1)
+
+        # === HEADER ===
+        self.criar_header(main_frame)
+
+        # === PAINEL DE CONFIGURAÇÃO ===
+        self.criar_painel_config(main_frame)
+
+        # === PAINEL DE ESTATÍSTICAS ===
+        self.criar_painel_estatisticas(main_frame)
+
+        # === ÁREA DE CONTEÚDO (Abas) ===
+        self.criar_area_conteudo(main_frame)
+
+    def criar_header(self, parent):
+        """Cria o cabeçalho com título e status"""
+        header_frame = ctk.CTkFrame(parent, fg_color=self.CORES['fundo_card'], corner_radius=8)
+        header_frame.grid(row=0, column=0, sticky="ew", pady=(0, 6))
+        header_frame.grid_columnconfigure(1, weight=1)
+
+        # Ícone/Logo com fundo branco circular
+        logo_path = os.path.join(os.path.dirname(__file__), "assets", "DomBot_New.png")
+        if os.path.exists(logo_path):
+            size = 66
+            circle_size = 44
+            # Criar canvas transparente no tamanho total
+            bg = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+            # Criar círculo branco de 44px centralizado
+            circle_mask = Image.new("L", (circle_size, circle_size), 0)
+            ImageDraw.Draw(circle_mask).ellipse((0, 0, circle_size - 1, circle_size - 1), fill=255)
+            circle = Image.new("RGBA", (circle_size, circle_size), (255, 255, 255, 255))
+            circle_offset = (size - circle_size) // 2
+            bg.paste(circle, (circle_offset, circle_offset), circle_mask)
+            # Colar a logo no tamanho total por cima
+            original = Image.open(logo_path).convert("RGBA")
+            original = original.resize((size, size), Image.LANCZOS)
+            bg.paste(original, (0, 0), original)
+            logo_image = ctk.CTkImage(light_image=bg, dark_image=bg, size=(size, size))
+            ctk.CTkLabel(header_frame, image=logo_image, text="").grid(row=0, column=0, padx=10, pady=8)
+        else:
+            logo_frame = ctk.CTkFrame(header_frame, fg_color=self.CORES['destaque'],
+                                       width=44, height=44, corner_radius=22)
+            logo_frame.grid(row=0, column=0, padx=10, pady=8)
+            logo_frame.grid_propagate(False)
+            ctk.CTkLabel(logo_frame, text="🤖", font=("Segoe UI Emoji", 18)).place(relx=0.5, rely=0.5, anchor="center")
+
+        # Título
+        ctk.CTkLabel(
+            header_frame,
+            text="DomBot - GMS",
+            font=ctk.CTkFont(size=16, weight="bold"),
+            text_color=self.CORES['texto']
+        ).grid(row=0, column=1, sticky="w", padx=5)
+
+        # Status indicator
+        self.status_frame = ctk.CTkFrame(header_frame, fg_color="transparent")
+        self.status_frame.grid(row=0, column=2, padx=10)
+
+        self.status_indicator = ctk.CTkFrame(
+            self.status_frame,
+            fg_color="#7F8C8D",
+            width=10, height=10,
+            corner_radius=5
+        )
+        self.status_indicator.pack(side="left", padx=(0, 6))
+
+        self.status_label = ctk.CTkLabel(
+            self.status_frame,
+            textvariable=self.status_var,
+            font=ctk.CTkFont(size=11),
+            text_color="#95A5A6"
+        )
+        self.status_label.pack(side="left")
+
+    def criar_painel_config(self, parent):
+        """Cria o painel de configuração"""
+        config_frame = ctk.CTkFrame(parent, fg_color=self.CORES['fundo_card'], corner_radius=8)
+        config_frame.grid(row=1, column=0, sticky="ew", pady=(0, 6))
+        config_frame.grid_columnconfigure(1, weight=1)
+
+        # Linha única com tudo
+        inner_frame = ctk.CTkFrame(config_frame, fg_color="transparent")
+        inner_frame.grid(row=0, column=0, sticky="ew", padx=10, pady=8)
+        inner_frame.grid_columnconfigure(1, weight=1)
+
+        # Arquivo Excel
+        ctk.CTkLabel(
+            inner_frame, text="📁", font=ctk.CTkFont(size=14)
+        ).grid(row=0, column=0, padx=(0, 5))
+
+        self.entry_arquivo = ctk.CTkEntry(
+            inner_frame,
+            textvariable=self.arquivo_excel,
+            placeholder_text="Selecione o arquivo Excel...",
+            height=32,
+            font=ctk.CTkFont(size=11)
+        )
+        self.entry_arquivo.grid(row=0, column=1, sticky="ew", padx=(0, 8))
+
+        ctk.CTkButton(
+            inner_frame, text="Procurar", command=self.selecionar_arquivo,
+            width=80, height=32, font=ctk.CTkFont(size=11),
+            fg_color=self.CORES['info'], hover_color="#2980B9"
+        ).grid(row=0, column=2, padx=(0, 15))
+
+        # Linha inicial
+        ctk.CTkLabel(
+            inner_frame, text="Linha:", font=ctk.CTkFont(size=11), text_color="#BDC3C7"
+        ).grid(row=0, column=3, padx=(0, 3))
+
+        self.entry_linha = ctk.CTkEntry(
+            inner_frame, textvariable=self.linha_inicial,
+            width=50, height=32, font=ctk.CTkFont(size=11), justify="center"
+        )
+        self.entry_linha.grid(row=0, column=4, padx=(0, 15))
+
+        # Botões de controle
+        self.btn_iniciar = ctk.CTkButton(
+            inner_frame, text="▶ Iniciar", command=self.iniciar_automacao_thread,
+            width=90, height=32, font=ctk.CTkFont(size=11, weight="bold"),
+            fg_color=self.CORES['sucesso'], hover_color="#27AE60"
+        )
+        self.btn_iniciar.grid(row=0, column=5, padx=3)
+
+        self.btn_pausar = ctk.CTkButton(
+            inner_frame, text="⏸ Pausar", command=self.pausar_automacao,
+            width=90, height=32, font=ctk.CTkFont(size=11, weight="bold"),
+            fg_color=self.CORES['aviso'], hover_color="#E67E22", state="disabled"
+        )
+        self.btn_pausar.grid(row=0, column=6, padx=3)
+
+        self.btn_parar = ctk.CTkButton(
+            inner_frame, text="⏹ Parar", command=self.parar_automacao,
+            width=90, height=32, font=ctk.CTkFont(size=11, weight="bold"),
+            fg_color=self.CORES['erro'], hover_color="#C0392B", state="disabled"
+        )
+        self.btn_parar.grid(row=0, column=7, padx=(3, 0))
+
+    def criar_painel_estatisticas(self, parent):
+        """Cria o painel de estatísticas"""
+        stats_frame = ctk.CTkFrame(parent, fg_color=self.CORES['fundo_card'], corner_radius=8)
+        stats_frame.grid(row=2, column=0, sticky="ew", pady=(0, 6))
+
+        # Grid para os cards de estatísticas
+        for i in range(5):
+            stats_frame.grid_columnconfigure(i, weight=1)
+
+        # Cards de estatísticas
+        self.criar_stat_card(stats_frame, 0, "📊", "Total", "total_label", "0")
+        self.criar_stat_card(stats_frame, 1, "✅", "Sucesso", "sucesso_label", "0", self.CORES['sucesso'])
+        self.criar_stat_card(stats_frame, 2, "❌", "Erros", "erros_label", "0", self.CORES['erro'])
+        self.criar_stat_card(stats_frame, 3, "🏢", "Empresa", "empresa_label", "-", self.CORES['info'])
+        self.criar_stat_card(stats_frame, 4, "⏱", "Tempo", "tempo_label", "00:00:00", self.CORES['aviso'])
+
+        # Barra de progresso
+        progress_frame = ctk.CTkFrame(stats_frame, fg_color="transparent")
+        progress_frame.grid(row=1, column=0, columnspan=5, sticky="ew", padx=10, pady=(2, 8))
+        progress_frame.grid_columnconfigure(0, weight=1)
+
+        self.progress_bar = ctk.CTkProgressBar(
+            progress_frame, height=6, corner_radius=3, progress_color=self.CORES['destaque']
+        )
+        self.progress_bar.grid(row=0, column=0, sticky="ew")
+        self.progress_bar.set(0)
+
+        self.progress_label = ctk.CTkLabel(
+            progress_frame, text="0%", font=ctk.CTkFont(size=10), text_color="#95A5A6"
+        )
+        self.progress_label.grid(row=0, column=1, padx=(8, 0))
+
+    def criar_stat_card(self, parent, col, icon, titulo, attr_name, valor_inicial, cor=None):
+        """Cria um card de estatística"""
+        card = ctk.CTkFrame(parent, fg_color="transparent")
+        card.grid(row=0, column=col, padx=5, pady=8)
+
+        ctk.CTkLabel(
+            card, text=f"{icon} {titulo}", font=ctk.CTkFont(size=10), text_color="#7F8C8D"
+        ).pack()
+
+        label = ctk.CTkLabel(
+            card, text=valor_inicial, font=ctk.CTkFont(size=14, weight="bold"),
+            text_color=cor if cor else self.CORES['texto']
+        )
+        label.pack()
+
+        setattr(self, attr_name, label)
+
+    def criar_area_conteudo(self, parent):
+        """Cria a área de conteúdo com abas"""
+        self.tabview = ctk.CTkTabview(
+            parent, fg_color=self.CORES['fundo_card'],
+            segmented_button_fg_color=self.CORES['fundo_escuro'],
+            segmented_button_selected_color=self.CORES['destaque'],
+            corner_radius=8, height=25
+        )
+        self.tabview.grid(row=3, column=0, sticky="nsew")
+
+        tab_logs = self.tabview.add("📋 Logs")
+        tab_preview = self.tabview.add("📊 Preview")
+
+        self.criar_aba_logs(tab_logs)
+        self.criar_aba_preview(tab_preview)
+
+    def criar_aba_logs(self, parent):
+        """Cria a aba de logs"""
+        parent.grid_columnconfigure(0, weight=1)
+        parent.grid_rowconfigure(0, weight=1)
+
+        log_container = ctk.CTkFrame(parent, fg_color="transparent")
+        log_container.grid(row=0, column=0, sticky="nsew", padx=3, pady=3)
+        log_container.grid_columnconfigure(0, weight=1)
+        log_container.grid_rowconfigure(0, weight=1)
+
+        self.log_text = ctk.CTkTextbox(
+            log_container, font=ctk.CTkFont(family="Consolas", size=11),
+            fg_color=self.CORES['fundo_escuro'], corner_radius=6
+        )
+        self.log_text.grid(row=0, column=0, sticky="nsew")
+
+        # Configurar tags de cores
+        self.log_text._textbox.tag_config("sucesso", foreground=self.CORES['sucesso'])
+        self.log_text._textbox.tag_config("erro", foreground=self.CORES['erro'])
+        self.log_text._textbox.tag_config("aviso", foreground=self.CORES['aviso'])
+        self.log_text._textbox.tag_config("info", foreground=self.CORES['info'])
+        self.log_text._textbox.tag_config("processando", foreground=self.CORES['processando'])
+
+        # Botões de controle do log
+        btn_frame = ctk.CTkFrame(log_container, fg_color="transparent")
+        btn_frame.grid(row=1, column=0, sticky="ew", pady=(5, 0))
+
+        ctk.CTkButton(
+            btn_frame, text="🗑 Limpar", command=self.limpar_logs,
+            width=90, height=26, font=ctk.CTkFont(size=10),
+            fg_color="#34495E", hover_color="#2C3E50"
+        ).pack(side="left")
+
+        ctk.CTkButton(
+            btn_frame, text="💾 Exportar", command=self.exportar_logs,
+            width=90, height=26, font=ctk.CTkFont(size=10),
+            fg_color="#34495E", hover_color="#2C3E50"
+        ).pack(side="left", padx=8)
+
+    def criar_aba_preview(self, parent):
+        """Cria a aba de preview do Excel"""
+        parent.grid_columnconfigure(0, weight=1)
+        parent.grid_rowconfigure(1, weight=1)
+
+        info_frame = ctk.CTkFrame(parent, fg_color="transparent")
+        info_frame.grid(row=0, column=0, sticky="ew", padx=3, pady=3)
+
+        self.preview_info_label = ctk.CTkLabel(
+            info_frame, text="Nenhum arquivo carregado",
+            font=ctk.CTkFont(size=11), text_color="#95A5A6"
+        )
+        self.preview_info_label.pack(side="left")
+
+        ctk.CTkButton(
+            info_frame, text="🔄 Recarregar", command=self.carregar_preview,
+            width=85, height=24, font=ctk.CTkFont(size=10),
+            fg_color="#34495E", hover_color="#2C3E50"
+        ).pack(side="right")
+
+        self.preview_text = ctk.CTkTextbox(
+            parent, font=ctk.CTkFont(family="Consolas", size=10),
+            fg_color=self.CORES['fundo_escuro'], corner_radius=6
+        )
+        self.preview_text.grid(row=1, column=0, sticky="nsew", padx=3, pady=(0, 3))
+
     def selecionar_arquivo(self):
-        """Seleciona arquivo Excel e mostra preview dos dados"""
+        """Abre diálogo para selecionar arquivo Excel"""
         filename = ctk.filedialog.askopenfilename(
             filetypes=[("Excel files", "*.xlsx *.xls")],
             title="Selecione o arquivo Excel"
         )
         if filename:
             self.arquivo_excel.set(filename)
-            self.adicionar_log(f"Arquivo selecionado: {filename}")
+            self.adicionar_log(f"Arquivo selecionado: {os.path.basename(filename)}", logging.INFO, "info")
+            self.carregar_preview()
 
-            # Preview dos dados
-            try:
-                df = pd.read_excel(filename)
-                self.adicionar_log(f"Arquivo contém {len(df)} linhas de dados")
+    def carregar_preview(self):
+        """Carrega preview do arquivo Excel"""
+        if not self.arquivo_excel.get():
+            return
 
-                # Mostrar colunas disponíveis
-                colunas = ", ".join(df.columns.tolist())
-                self.adicionar_log(f"Colunas: {colunas}")
+        try:
+            self.df_carregado = pd.read_excel(self.arquivo_excel.get())
+            total_linhas = len(self.df_carregado)
 
-                # Validar colunas necessárias
-                colunas_necessarias = ['Nº', 'Periodo', 'Salvar Como']
-                colunas_faltando = [col for col in colunas_necessarias if col not in df.columns]
+            # Atualizar info
+            self.preview_info_label.configure(
+                text=f"📄 {os.path.basename(self.arquivo_excel.get())} | {total_linhas} linhas | Colunas: {', '.join(self.df_carregado.columns[:5])}..."
+            )
 
-                if colunas_faltando:
-                    self.adicionar_log(f"⚠️ ATENÇÃO: Colunas obrigatórias não encontradas: {', '.join(colunas_faltando)}")
-                else:
-                    self.adicionar_log("✅ Todas as colunas obrigatórias encontradas")
+            # Atualizar estatística de total
+            self.total_label.configure(text=str(total_linhas))
 
-            except Exception as e:
-                self.adicionar_log(f"Erro ao ler arquivo: {str(e)}")
+            # Mostrar preview
+            self.preview_text.delete("1.0", "end")
 
-    def criar_interface(self):
-        # Frame principal com scroll
-        main_frame = ctk.CTkScrollableFrame(self.window)
-        main_frame.pack(fill="both", expand=True, padx=20, pady=20)
+            # Cabeçalho
+            header = " | ".join([f"{col:^15}" for col in self.df_carregado.columns[:6]])
+            self.preview_text.insert("end", f"{'─' * len(header)}\n")
+            self.preview_text.insert("end", f"{header}\n")
+            self.preview_text.insert("end", f"{'─' * len(header)}\n")
 
-        # Título
-        title_label = ctk.CTkLabel(
-            main_frame,
-            text="DomBot - Automação Taxa GMS",
-            font=ctk.CTkFont(size=20, weight="bold")
-        )
-        title_label.pack(pady=10)
+            # Dados (primeiras 50 linhas)
+            for idx, row in self.df_carregado.head(50).iterrows():
+                row_text = " | ".join([f"{str(val)[:15]:^15}" for val in row.values[:6]])
+                self.preview_text.insert("end", f"{row_text}\n")
 
-        # Frame de configurações
-        config_frame = ctk.CTkFrame(main_frame)
-        config_frame.pack(fill="x", padx=10, pady=10)
+            if total_linhas > 50:
+                self.preview_text.insert("end", f"\n... e mais {total_linhas - 50} linhas\n")
 
-        # ctk.CTkLabel(config_frame, text="Configurações", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=5)
+            # Validar colunas necessárias
+            colunas_necessarias = ['Nº', 'Periodo', 'Salvar Como']
+            colunas_faltando = [col for col in colunas_necessarias if col not in self.df_carregado.columns]
 
-        # Seleção do arquivo Excel
-        ctk.CTkLabel(config_frame, text="Arquivo Excel:", anchor="w").pack(fill="x", padx=10, pady=(10,2))
+            if colunas_faltando:
+                self.adicionar_log(f"Colunas obrigatórias não encontradas: {', '.join(colunas_faltando)}", logging.WARNING, "aviso")
+            else:
+                self.adicionar_log(f"Preview carregado: {total_linhas} linhas. Todas as colunas obrigatórias encontradas", logging.INFO, "sucesso")
 
-        file_frame = ctk.CTkFrame(config_frame)
-        file_frame.pack(fill="x", padx=10, pady=5)
-
-        self.arquivo_entry = ctk.CTkEntry(file_frame, textvariable=self.arquivo_excel, width=500)
-        self.arquivo_entry.pack(side="left", padx=5, fill="x", expand=True)
-
-        ctk.CTkButton(
-            file_frame,
-            text="Procurar",
-            command=self.selecionar_arquivo,
-            width=100
-        ).pack(side="right", padx=5)
-
-        # Frame para linha inicial e estatísticas
-        linha_stats_frame = ctk.CTkFrame(config_frame)
-        linha_stats_frame.pack(fill="x", padx=10, pady=10)
-
-        # Linha inicial
-        linha_frame = ctk.CTkFrame(linha_stats_frame)
-        linha_frame.pack(side="left", fill="x", expand=True, padx=5)
-
-        ctk.CTkLabel(linha_frame, text="Iniciar da linha (dados):").pack(pady=2)
-        linha_spinbox = ctk.CTkEntry(linha_frame, textvariable=self.linha_inicial, width=100, justify="center")
-        linha_spinbox.pack(pady=2)
-
-        # Informação sobre numeração
-        info_label = ctk.CTkLabel(
-            linha_frame,
-            text="Linha a se Iniciar o Excel",
-            font=ctk.CTkFont(size=10),
-            text_color="gray"
-        )
-        info_label.pack(pady=2)
-
-        # Frame de estatísticas
-        stats_frame = ctk.CTkFrame(linha_stats_frame)
-        stats_frame.pack(side="right", padx=5)
-
-        ctk.CTkLabel(stats_frame, text="Estatísticas da Sessão", font=ctk.CTkFont(weight="bold")).pack(pady=2)
-
-        self.stats_labels = {
-            'processadas': ctk.CTkLabel(stats_frame, text="Processadas: 0"),
-            'erros': ctk.CTkLabel(stats_frame, text="Erros: 0"),
-            'puladas': ctk.CTkLabel(stats_frame, text="Puladas: 0")
-        }
-
-        for label in self.stats_labels.values():
-            label.pack(pady=1)
-
-        # Botões de controle
-        buttons_frame = ctk.CTkFrame(main_frame)
-        buttons_frame.pack(fill="x", padx=10, pady=10)
-
-        # ctk.CTkLabel(buttons_frame, text="Controles", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=5)
-
-        control_buttons_frame = ctk.CTkFrame(buttons_frame)
-        control_buttons_frame.pack(fill="x", pady=10)
-
-        self.btn_iniciar = ctk.CTkButton(
-            control_buttons_frame,
-            text="▶ Iniciar",
-            command=self.iniciar_automacao_thread,
-            height=40,
-            font=ctk.CTkFont(size=14, weight="bold")
-        )
-        self.btn_iniciar.pack(side="left", expand=True, fill="x", padx=5)
-
-        self.btn_pausar = ctk.CTkButton(
-            control_buttons_frame,
-            text="⏸ Pausar",
-            command=self.pausar_automacao,
-            height=40,
-            state="disabled"
-        )
-        self.btn_pausar.pack(side="left", expand=True, fill="x", padx=5)
-
-        self.btn_parar = ctk.CTkButton(
-            control_buttons_frame,
-            text="⏹ Parar",
-            command=self.parar_automacao,
-            height=40,
-            state="disabled"
-        )
-        self.btn_parar.pack(side="left", expand=True, fill="x", padx=5)
-
-        # Barra de Progresso
-        progress_frame = ctk.CTkFrame(main_frame)
-        progress_frame.pack(fill="x", padx=10, pady=10)
-
-        # ctk.CTkLabel(progress_frame, text="Progresso", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=5)
-
-        self.progress_bar = ctk.CTkProgressBar(progress_frame, height=20)
-        self.progress_bar.pack(fill="x", padx=10, pady=5)
-        self.progress_bar.set(0)
-
-        # Status
-        self.status_label = ctk.CTkLabel(
-            progress_frame,
-            textvariable=self.status_var,
-            font=ctk.CTkFont(size=12)
-        )
-        self.status_label.pack(pady=5)
-
-        # Área de log
-        log_frame = ctk.CTkFrame(main_frame)
-        log_frame.pack(fill="both", expand=True, padx=10, pady=10)
-
-        log_header_frame = ctk.CTkFrame(log_frame)
-        log_header_frame.pack(fill="x", pady=(5,0))
-
-        ctk.CTkLabel(log_header_frame, text="Log de Execução", font=ctk.CTkFont(size=16, weight="bold")).pack(side="left", pady=5)
-
-        ctk.CTkButton(
-            log_header_frame,
-            text="🗑 Limpar",
-            command=self.limpar_logs,
-            width=80,
-            height=25
-        ).pack(side="right", padx=5, pady=5)
-
-        self.log_text = ctk.CTkTextbox(log_frame, height=250)
-        self.log_text.pack(fill="both", expand=True, padx=5, pady=5)
-
-    def atualizar_estatisticas(self):
-        """Atualiza as estatísticas na interface"""
-        self.stats_labels['processadas'].configure(text=f"Processadas: {self.linhas_processadas}")
-        self.stats_labels['erros'].configure(text=f"Erros: {self.linhas_com_erro}")
-        self.stats_labels['puladas'].configure(text=f"Puladas: {self.linhas_puladas}")
+        except Exception as e:
+            self.adicionar_log(f"Erro ao carregar preview: {str(e)}", logging.ERROR, "erro")
 
     def limpar_logs(self):
         """Limpa a área de logs"""
         self.log_text.delete("1.0", "end")
-        self.adicionar_log("📋 Log limpo")
+        self.adicionar_log("Log limpo", logging.INFO, "info")
+
+    def exportar_logs(self):
+        """Exporta logs para arquivo"""
+        try:
+            filename = ctk.filedialog.asksaveasfilename(
+                defaultextension=".txt",
+                filetypes=[("Text files", "*.txt"), ("All files", "*.*")],
+                initialfilename=f"logs_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+            )
+            if filename:
+                with open(filename, 'w', encoding='utf-8') as f:
+                    f.write(self.log_text.get("1.0", "end"))
+                self.adicionar_log(f"Logs exportados para: {filename}", logging.INFO, "sucesso")
+        except Exception as e:
+            self.adicionar_log(f"Erro ao exportar logs: {str(e)}", logging.ERROR, "erro")
 
     def atualizar_progresso(self, atual, total):
         """Atualiza a barra de progresso"""
-        if total > 0:
-            porcentagem = (atual / total)
-            self.progress_bar.set(porcentagem)
-            self.status_var.set(f"Processando: {atual}/{total} ({porcentagem*100:.1f}%)")
+        porcentagem = atual / total if total > 0 else 0
+        self.progress_bar.set(porcentagem)
+        self.progress_label.configure(text=f"{porcentagem * 100:.1f}%")
+        self.status_var.set(f"Processando: {atual}/{total}")
         self.window.update_idletasks()
 
-    def adicionar_log(self, mensagem):
-        """Adiciona mensagem ao log visual de forma thread-safe"""
+    def atualizar_estatisticas(self):
+        """Atualiza os cards de estatísticas"""
+        self.sucesso_label.configure(text=str(self.linhas_processadas))
+        self.erros_label.configure(text=str(self.linhas_com_erro))
+        self.stats['processados'] = self.linhas_processadas + self.linhas_com_erro
+
+    def atualizar_tempo(self):
+        """Atualiza o tempo decorrido"""
+        if self.stats['tempo_inicio'] and self.executando:
+            elapsed = datetime.now() - self.stats['tempo_inicio']
+            hours, remainder = divmod(int(elapsed.total_seconds()), 3600)
+            minutes, seconds = divmod(remainder, 60)
+            self.tempo_label.configure(text=f"{hours:02d}:{minutes:02d}:{seconds:02d}")
+            self.window.after(1000, self.atualizar_tempo)
+
+    def atualizar_status_indicator(self, status):
+        """Atualiza o indicador de status visual"""
+        cores = {
+            'aguardando': '#7F8C8D',
+            'executando': self.CORES['sucesso'],
+            'pausado': self.CORES['aviso'],
+            'erro': self.CORES['erro'],
+            'concluido': self.CORES['info']
+        }
+        self.status_indicator.configure(fg_color=cores.get(status, '#7F8C8D'))
+
+    def adicionar_log(self, mensagem, level=logging.INFO, tag=None):
+        """Adiciona mensagem ao log visual com cores"""
         try:
             timestamp = datetime.now().strftime('%H:%M:%S')
-            self.log_text.insert("end", f"[{timestamp}] {mensagem}\n")
+
+            # Determinar tag baseado no nível se não especificado
+            if tag is None:
+                if level >= logging.ERROR:
+                    tag = "erro"
+                elif level >= logging.WARNING:
+                    tag = "aviso"
+                elif "sucesso" in mensagem.lower() or "processad" in mensagem.lower():
+                    tag = "sucesso"
+                else:
+                    tag = "info"
+
+            # Prefixo visual
+            prefixos = {
+                "sucesso": "✅",
+                "erro": "❌",
+                "aviso": "⚠️",
+                "info": "ℹ️",
+                "processando": "⏳"
+            }
+            prefixo = prefixos.get(tag, "•")
+
+            # Inserir mensagem
+            self.log_text.insert("end", f"[{timestamp}] {prefixo} ", tag)
+            self.log_text.insert("end", f"{mensagem}\n", tag)
             self.log_text.see("end")
             self.window.update_idletasks()
         except Exception:
-            pass  # Ignora erros de thread safety
+            pass
 
     def validar_entrada(self) -> Tuple[bool, str]:
         """Valida os dados de entrada"""
@@ -363,13 +603,13 @@ class AutomacaoGUI:
     def iniciar_automacao_thread(self):
         """Inicia a automação em uma thread separada"""
         if self.executando:
-            self.adicionar_log("❌ Automação já em execução")
+            self.adicionar_log("Automação já em execução", logging.WARNING, "aviso")
             return
 
         # Validar entrada
         valido, mensagem = self.validar_entrada()
         if not valido:
-            self.adicionar_log(f"❌ Erro de validação: {mensagem}")
+            self.adicionar_log(f"Erro de validação: {mensagem}", logging.ERROR, "erro")
             messagebox.showerror("Erro de Validação", mensagem)
             return
 
@@ -377,7 +617,9 @@ class AutomacaoGUI:
         self.linhas_processadas = 0
         self.linhas_com_erro = 0
         self.linhas_puladas = 0
-        self.atualizar_estatisticas()
+        self.stats = {'processados': 0, 'sucesso': 0, 'erros': 0, 'puladas': 0, 'tempo_inicio': datetime.now()}
+        self.sucesso_label.configure(text="0")
+        self.erros_label.configure(text="0")
 
         self.thread_automacao = threading.Thread(target=self.iniciar_automacao)
         self.thread_automacao.daemon = True
@@ -387,35 +629,40 @@ class AutomacaoGUI:
         self.btn_iniciar.configure(state="disabled")
         self.btn_pausar.configure(state="normal")
         self.btn_parar.configure(state="normal")
+        self.atualizar_status_indicator('executando')
+
+        # Iniciar timer
+        self.atualizar_tempo()
 
     def pausar_automacao(self):
-        """Pausa/resume a automação"""
+        """Pausa/retoma a automação"""
         if self.executando:
             self.pausa_solicitada = not self.pausa_solicitada
             if self.pausa_solicitada:
-                self.btn_pausar.configure(text="▶ Retomar")
-                self.adicionar_log("⏸ Pausa solicitada - será pausado após a linha atual")
-                self.status_var.set("Pausando...")
+                self.btn_pausar.configure(text="▶  Retomar")
+                self.status_var.set("Pausado")
+                self.atualizar_status_indicator('pausado')
+                self.adicionar_log("Automação pausada", logging.INFO, "aviso")
             else:
-                self.btn_pausar.configure(text="⏸ Pausar")
-                self.adicionar_log("▶ Retomando execução")
+                self.btn_pausar.configure(text="⏸  Pausar")
+                self.status_var.set("Em execução...")
+                self.atualizar_status_indicator('executando')
+                self.adicionar_log("Automação retomada", logging.INFO, "info")
 
     def parar_automacao(self):
         """Para a execução da automação"""
         if self.executando:
             self.executando = False
             self.pausa_solicitada = False
-            self.adicionar_log("⏹ Solicitação de parada enviada - aguardando conclusão da linha atual...")
-            self.status_var.set("Parando...")
+            self.adicionar_log("Solicitação de parada enviada. Aguardando conclusão...", logging.INFO, "aviso")
+            self.status_var.set("Interrompendo...")
+            self.atualizar_status_indicator('erro')
 
     def ao_fechar(self):
         """Tratamento do fechamento da janela"""
         if self.executando:
-            resposta = messagebox.askyesno(
-                "Confirmação",
-                "Existe uma automação em execução.\n\nDeseja realmente sair?\nO processo será interrompido."
-            )
-            if resposta:
+            if messagebox.askyesno("Confirmação",
+                                   "Existe uma automação em execução. Deseja realmente sair?"):
                 self.executando = False
                 self.pausa_solicitada = False
                 self.window.after(1000, self.window.destroy)
@@ -427,8 +674,8 @@ class AutomacaoGUI:
         linha_inicial = int(self.linha_inicial.get())
 
         try:
-            self.adicionar_log("🚀 Iniciando automação...")
-            self.status_var.set("Carregando arquivo...")
+            self.adicionar_log("Iniciando automação...", logging.INFO, "processando")
+            self.status_var.set("Em execução...")
             self.executando = True
 
             # Carregar Excel
@@ -439,8 +686,9 @@ class AutomacaoGUI:
             df_processar = df.iloc[inicio_indice:]
 
             self.total_linhas = len(df_processar)
-            self.adicionar_log(f"📊 Arquivo carregado: {self.total_linhas} linhas para processar")
-            self.adicionar_log(f"📍 Iniciando da linha {linha_inicial} (índice {inicio_indice})")
+            self.adicionar_log(f"Arquivo carregado: {self.total_linhas} linhas para processar", logging.INFO, "info")
+            self.adicionar_log(f"Iniciando da linha {linha_inicial} (índice {inicio_indice})", logging.INFO, "info")
+            self.total_label.configure(text=str(self.total_linhas))
 
             # Resetar barra de progresso
             self.progress_bar.set(0)
@@ -450,20 +698,19 @@ class AutomacaoGUI:
 
             # Conectar ao Domínio
             if not automacao.connect_to_dominio():
-                self.adicionar_log("❌ Erro: Não foi possível conectar ao Domínio")
+                self.adicionar_log("Não foi possível conectar ao Domínio", logging.ERROR, "erro")
                 return
 
             # Processar linhas
             for idx, (original_index, row) in enumerate(df_processar.iterrows()):
                 # Verificar se deve parar
                 if not self.executando:
-                    self.adicionar_log("⏹ Automação interrompida pelo usuário")
+                    self.adicionar_log("Automação interrompida pelo usuário", logging.INFO, "aviso")
                     break
 
                 # Verificar pausa
                 while self.pausa_solicitada and self.executando:
-                    self.status_var.set("⏸ Pausado - clique em 'Retomar' para continuar")
-                    time.sleep(1)
+                    time.sleep(0.5)
 
                 if not self.executando:
                     break
@@ -473,45 +720,49 @@ class AutomacaoGUI:
 
                 linha_excel = original_index + 2  # +2 porque: +1 para base 1, +1 para cabeçalho
 
+                # Atualizar empresa no card
+                empresa_num = str(int(row['Nº']))
+                self.empresa_label.configure(text=empresa_num[:20])
+
                 try:
-                    self.adicionar_log(f"📝 Processando linha {linha_excel} - Empresa {row['Nº']} - {row.get('EMPRESAS', 'N/A')}")
+                    self.adicionar_log(f"Processando linha {linha_excel} - Empresa {row['Nº']} - {row.get('EMPRESAS', 'N/A')}", logging.INFO, "processando")
 
                     success = automacao.processar_linha(row, original_index, linha_excel)
 
                     if success:
                         self.linhas_processadas += 1
                         self.success_logger.info(f"Linha {linha_excel} - Empresa {row['Nº']} - processada com sucesso")
-                        self.adicionar_log(f"✅ Linha {linha_excel} processada com sucesso")
+                        self.adicionar_log(f"Linha {linha_excel} processada com sucesso", logging.INFO, "sucesso")
                     else:
                         self.linhas_com_erro += 1
                         self.error_logger.error(f"Linha {linha_excel} - Empresa {row['Nº']} - erro no processamento")
-                        self.adicionar_log(f"❌ Erro na linha {linha_excel}")
-
-                        # Opção de continuar ou parar em caso de erro
-                        # Por enquanto, continua
+                        self.adicionar_log(f"Erro na linha {linha_excel}", logging.ERROR, "erro")
 
                     self.atualizar_estatisticas()
-                    time.sleep(1)  # Reduzido tempo entre processamentos
+                    time.sleep(1)
 
                 except Exception as e:
                     self.linhas_com_erro += 1
                     erro_msg = f"Linha {linha_excel} - Erro: {str(e)}"
                     self.error_logger.error(erro_msg)
-                    self.adicionar_log(f"💥 {erro_msg}")
+                    self.adicionar_log(erro_msg, logging.ERROR, "erro")
                     self.atualizar_estatisticas()
 
             # Finalização
             if self.executando:
-                self.status_var.set("✅ Processamento concluído")
+                self.status_var.set("Processamento concluído")
                 self.progress_bar.set(1.0)
-                self.adicionar_log(f"🎉 Automação concluída!")
-                self.adicionar_log(f"📊 Resumo: {self.linhas_processadas} processadas, {self.linhas_com_erro} com erro, {self.linhas_puladas} puladas")
+                self.progress_label.configure(text="100%")
+                self.atualizar_status_indicator('concluido')
+                self.adicionar_log("Automação concluída!", logging.INFO, "sucesso")
+                self.adicionar_log(f"Resumo: {self.linhas_processadas} processadas, {self.linhas_com_erro} com erro, {self.linhas_puladas} puladas", logging.INFO, "info")
 
         except Exception as e:
-            erro_msg = f"💥 Erro crítico: {str(e)}"
+            erro_msg = f"Erro crítico: {str(e)}"
             self.error_logger.error(erro_msg)
-            self.adicionar_log(erro_msg)
-            self.status_var.set("❌ Erro no processamento")
+            self.adicionar_log(erro_msg, logging.ERROR, "erro")
+            self.status_var.set("Erro no processamento")
+            self.atualizar_status_indicator('erro')
         finally:
             self.executando = False
             self.pausa_solicitada = False
@@ -532,6 +783,29 @@ class DominioAutomation:
 
     def log(self, message):
         self.logger.info(message)
+
+    def should_stop(self) -> bool:
+        """Verifica se deve parar a execução"""
+        return not self.gui.executando
+
+    def check_pause(self):
+        """Verifica e aguarda se pausado"""
+        while self.gui.pausa_solicitada and self.gui.executando:
+            time.sleep(0.5)
+
+    def smart_sleep(self, seconds: float):
+        """Sleep interruptível que verifica pausa/parada"""
+        interval = 0.5
+        elapsed = 0
+        while elapsed < seconds:
+            if self.should_stop():
+                return False
+            self.check_pause()
+            if self.should_stop():
+                return False
+            time.sleep(min(interval, seconds - elapsed))
+            elapsed += interval
+        return True
 
     def find_dominio_window(self) -> Optional[int]:
         """Encontra a janela do Domínio Folha"""
@@ -601,12 +875,20 @@ class DominioAutomation:
         """Espera até que uma janela seja fechada"""
         start_time = time.time()
         while time.time() - start_time < timeout:
+            if self.should_stop():
+                return False
+            self.check_pause()
+
             try:
                 if not window.exists() or not window.is_visible():
                     self.log(f"✅ Janela '{window_title}' fechada")
                     return True
             except Exception:
                 return True
+
+            # Verificar se há diálogos de erro bloqueando
+            self.handle_error_dialogs()
+
             time.sleep(0.5)
 
         self.log(f"⚠️ Timeout aguardando fechamento da janela '{window_title}'")
@@ -615,16 +897,24 @@ class DominioAutomation:
     def handle_empresa_change(self, empresa_num: str) -> bool:
         """Gerencia a troca de empresa"""
         try:
+            if self.should_stop():
+                return False
+
             # Enviar F8 para troca de empresas
             self.log("📞 Solicitando troca de empresa (F8)")
             send_keys('{F8}')
-            time.sleep(2)
+            if not self.smart_sleep(2):
+                return False
 
             # Aguardar janela de troca
-            max_attempts = 5
+            max_attempts = 10
             troca_window = None
 
             for attempt in range(max_attempts):
+                if self.should_stop():
+                    return False
+                self.check_pause()
+
                 try:
                     troca_window = self.main_window.child_window(
                         title="Troca de empresas",
@@ -634,28 +924,38 @@ class DominioAutomation:
                     if troca_window.exists():
                         break
 
-                    time.sleep(0.5)
+                    # Verificar se há diálogos de erro bloqueando
+                    if not self.handle_error_dialogs():
+                        self.cleanup_windows()
+                        return False
+
+                    if not self.smart_sleep(0.5):
+                        return False
                 except Exception:
                     if attempt == max_attempts - 1:
-                        self.log("❌ Janela 'Troca de empresas' não encontrada")
+                        self.log("❌ Janela 'Troca de empresas' não encontrada (timeout)")
                         return False
-                    time.sleep(1)
+                    if not self.smart_sleep(1):
+                        return False
 
             if not troca_window:
+                self.log("❌ Janela 'Troca de empresas' não encontrada")
                 return False
 
             self.log(f"🏢 Alterando para empresa: {empresa_num}")
 
             # Enviar código da empresa
             send_keys(empresa_num)
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
             send_keys('{ENTER}')
-            time.sleep(3)
+            if not self.smart_sleep(3):
+                return False
 
             if not self.handle_error_dialogs():
                 self.cleanup_windows()
                 return False
-            
+
             # Aguardar fechamento da janela de troca
             self.wait_for_window_close(troca_window, "Troca de empresas")
 
@@ -689,6 +989,9 @@ class DominioAutomation:
     def processar_linha(self, row, index: int, linha_excel: int) -> bool:
         """Processa uma linha do Excel"""
         try:
+            if self.should_stop():
+                return False
+
             # Reconectar se necessário
             handle = self.find_dominio_window()
             if not handle:
@@ -706,27 +1009,37 @@ class DominioAutomation:
 
             if win32gui.IsIconic(handle):
                 win32gui.ShowWindow(handle, win32con.SW_RESTORE)
-                time.sleep(1)
+                if not self.smart_sleep(1):
+                    return False
 
             win32gui.SetForegroundWindow(handle)
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
 
             # Troca de empresa
             empresa_num = str(int(row['Nº']))
             if not self.handle_empresa_change(empresa_num):
                 return False
 
+            if self.should_stop():
+                return False
+            self.check_pause()
+
             # Acessar relatórios
             self.log("📊 Acessando relatórios")
             self.main_window.set_focus()
             send_keys('%r')  # ALT+R
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
             send_keys('i')  # Relatórios Integrados
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
             send_keys('i')  # Relatórios Integrados
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
             send_keys('{ENTER}')
-            time.sleep(1)
+            if not self.smart_sleep(1):
+                return False
 
             # Processar no Gerenciador de Relatórios
             return self.processar_relatorio_taxa_gms(row, linha_excel)
@@ -738,11 +1051,18 @@ class DominioAutomation:
     def processar_relatorio_taxa_gms(self, row, linha_excel: int) -> bool:
         """Processa o relatório de Taxa GMS"""
         try:
+            if self.should_stop():
+                return False
+
             # Aguardar Gerenciador de Relatórios
-            max_attempts = 5
+            max_attempts = 10
             relatorio_window = None
 
             for attempt in range(max_attempts):
+                if self.should_stop():
+                    return False
+                self.check_pause()
+
                 try:
                     relatorio_window = self.main_window.child_window(
                         title="Gerenciador de Relatórios",
@@ -752,16 +1072,27 @@ class DominioAutomation:
                     if relatorio_window.exists():
                         break
 
-                    time.sleep(1)
+                    # Verificar se há diálogos de erro bloqueando
+                    if not self.handle_error_dialogs():
+                        self.cleanup_windows()
+                        return False
+
+                    if not self.smart_sleep(1):
+                        return False
                 except Exception:
                     if attempt == max_attempts - 1:
-                        self.log("❌ Gerenciador de Relatórios não encontrado")
+                        self.log("❌ Gerenciador de Relatórios não encontrado (timeout)")
                         return False
 
             if not relatorio_window:
+                self.log("❌ Gerenciador de Relatórios não encontrado")
                 return False
 
             self.log("📋 Gerenciador de Relatórios localizado")
+
+            if self.should_stop():
+                return False
+            self.check_pause()
 
             # Navegar até Taxa GMS
             self.log("🎯 Navegando para Taxa GMS")
@@ -769,13 +1100,17 @@ class DominioAutomation:
             # Sequência de navegação otimizada
             navigation_keys = ['d'] * 6  # 6 vezes 'd' para navegar
             for key in navigation_keys:
+                if self.should_stop():
+                    return False
                 send_keys(key)
                 time.sleep(0.2)
 
             send_keys('{ENTER}')
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
             send_keys('c')  # Selecionar relatório
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
 
             # Preencher campos
             self.log("📝 Preenchendo parâmetros do relatório")
@@ -793,18 +1128,25 @@ class DominioAutomation:
             # Período
             periodo = str(row['Periodo'])
             send_keys('{TAB}' + periodo)
-            time.sleep(0.5)
+            if not self.smart_sleep(0.5):
+                return False
+
+            if self.should_stop():
+                return False
+            self.check_pause()
 
             # Executar relatório
             self.log("⚡ Executando relatório")
             try:
                 button_executar = relatorio_window.child_window(auto_id="1007", class_name="Button")
                 button_executar.click_input()
-                time.sleep(4)
+                if not self.smart_sleep(4):
+                    return False
             except Exception as e:
                 self.log(f"⚠️ Erro ao clicar em executar, tentando via teclado: {str(e)}")
                 send_keys('{F5}')  # Alternativa via teclado
-                time.sleep(4)
+                if not self.smart_sleep(4):
+                    return False
 
             # Gerar PDF
             return self.gerar_pdf(row, linha_excel)
@@ -816,23 +1158,21 @@ class DominioAutomation:
     def gerar_pdf(self, row, linha_excel: int) -> bool:
         """Gera e salva o PDF do relatório"""
         try:
+            if self.should_stop():
+                return False
+
             # Verificar e tratar janela de erro
             if not self.handle_error_dialogs():
                 self.cleanup_windows()
                 return False
-            
+
             self.log("📄 Gerando PDF")
 
-            # Clicar no botão PDF
-            try:
-                button_pdf = self.main_window.child_window(auto_id="1014", class_name="FNUDO3190")
-                button_pdf.click_input()
-                time.sleep(2)
-            except Exception as e:
-                self.log(f"⚠️ Erro ao clicar no botão PDF: {str(e)}")
-                # Alternativa via teclado
-                send_keys('^p')  # Ctrl+P
-                time.sleep(2)
+            # Salvar como PDF usando Ctrl+D
+            self.log("📄 Enviando Ctrl+D para salvar como PDF")
+            send_keys('^d')  # Ctrl+D
+            if not self.smart_sleep(2):
+                return False
 
             # Verificar e tratar janela de erro
             if not self.handle_error_dialogs():
@@ -843,89 +1183,109 @@ class DominioAutomation:
             self.log("💾 Configurando salvamento do PDF")
 
             try:
-                # Aguardar janela de salvamento aparecer
-                wait_until(
-                    timeout=15,
-                    retry_interval=0.5,
-                    func=lambda: self.main_window.child_window(
-                        title="Salvar em PDF",
-                        class_name="#32770"
-                    ).exists()
-                )
+                # Aguardar janela de salvamento aparecer com verificação de parada
+                max_wait = 15
+                elapsed = 0
+                save_window = None
 
-                save_window = self.main_window.child_window(
-                    title="Salvar em PDF",
-                    class_name="#32770"
-                )
+                while elapsed < max_wait:
+                    if self.should_stop():
+                        return False
+                    self.check_pause()
 
-                if save_window.exists():
-                    
-                    # Preencher campos
-                    self.log("📝 Indo até a pasta correta...")
+                    try:
+                        save_window = self.main_window.child_window(
+                            title="Salvar em PDF",
+                            class_name="#32770"
+                        )
+                        if save_window.exists():
+                            break
+                    except Exception:
+                        pass
 
-                    # Navegar pelos campos e preencher
-                    send_keys('{TAB}')  # Pular primeiro campo
-                    time.sleep(0.2)
+                    # Verificar se há diálogos de erro bloqueando
+                    if not self.handle_error_dialogs():
+                        self.cleanup_windows()
+                        return False
 
-                    send_keys('{TAB}')  # 
-                    time.sleep(0.3)
-
-                    send_keys('{TAB}')  # Próximo campo
-                    time.sleep(0.2)
-                    
-                    send_keys('{TAB}')  # Próximo campo
-                    time.sleep(0.2)
-
-                     # Preencher campos
-                    self.log("📝 Acessando a pasta GMS...")
-
-                    # Navegar pelos campos e preencher
-                    send_keys('G')  # Drive
-                    time.sleep(0.2)
-                    send_keys('P')  # Pessoal
-                    time.sleep(0.2)
-                    send_keys('G')  # GMS
-                    time.sleep(0.2)
-                            
-                    # Preencher campos
-                    self.log("📝 Nomeando PDF...")
-
-                    # Navegar pelos campos e preencher
-                    send_keys('{TAB}')  # Pular primeiro campo
-                    time.sleep(0.2)
-
-                    send_keys('{TAB}')  # 
-                    time.sleep(0.3)
-
-                    send_keys('{TAB}')  # Próximo campo
-                    time.sleep(0.2)
-                    
-                    send_keys('{TAB}')  # Próximo campo
-                    time.sleep(0.2)
-                    send_keys('{TAB}')  # Próximo campo
-                    time.sleep(0.2)
-
-                    
-                    nome_pdf = str(row['Salvar Como'])
-                    self.log(f"📝 Nome do arquivo: {nome_pdf}")
-
-                    # Definir nome do arquivo
                     time.sleep(0.5)
-                    name_field = save_window.child_window(auto_id="1148", class_name="Edit")
-                    name_field.set_text(nome_pdf)
-                    time.sleep(0.5)
+                    elapsed += 0.5
 
-                    # Salvar
-                    self.log("💾 Salvando PDF")
-                    button_salvar = save_window.child_window(auto_id="1", class_name="Button")
-                    button_salvar.click_input()
-                    time.sleep(10)  # Aguardar salvamento
-                
-                else:
-                    self.log("❌ Janela de salvamento não encontrada")
+                if not save_window or not save_window.exists():
+                    self.log("❌ Janela de salvamento não encontrada (timeout)")
                     return False
-                
-                
+
+                if self.should_stop():
+                    return False
+                self.check_pause()
+
+                # Preencher campos
+                self.log("📝 Indo até a pasta correta...")
+
+                # Navegar pelos campos e preencher
+                send_keys('{TAB}')  # Pular primeiro campo
+                time.sleep(0.2)
+
+                send_keys('{TAB}')
+                time.sleep(0.3)
+
+                send_keys('{TAB}')  # Próximo campo
+                time.sleep(0.2)
+
+                send_keys('{TAB}')  # Próximo campo
+                time.sleep(0.2)
+
+                # Preencher campos
+                self.log("📝 Acessando a pasta GMS...")
+
+                # Navegar pelos campos e preencher
+                send_keys('G')  # Drive
+                time.sleep(0.2)
+                send_keys('P')  # Pessoal
+                time.sleep(0.2)
+                send_keys('G')  # GMS
+                time.sleep(0.2)
+
+                # Preencher campos
+                self.log("📝 Nomeando PDF...")
+
+                # Navegar pelos campos e preencher
+                send_keys('{TAB}')  # Pular primeiro campo
+                time.sleep(0.2)
+
+                send_keys('{TAB}')
+                time.sleep(0.3)
+
+                send_keys('{TAB}')  # Próximo campo
+                time.sleep(0.2)
+
+                send_keys('{TAB}')  # Próximo campo
+                time.sleep(0.2)
+                send_keys('{TAB}')  # Próximo campo
+                time.sleep(0.2)
+
+                nome_pdf = str(row['Salvar Como'])
+                self.log(f"📝 Nome do arquivo: {nome_pdf}")
+
+                # Definir nome do arquivo
+                if not self.smart_sleep(0.5):
+                    return False
+                name_field = save_window.child_window(auto_id="1148", class_name="Edit")
+                name_field.set_text(nome_pdf)
+                if not self.smart_sleep(0.5):
+                    return False
+
+                if self.should_stop():
+                    return False
+                self.check_pause()
+
+                # Salvar
+                self.log("💾 Salvando PDF")
+                button_salvar = save_window.child_window(auto_id="1", class_name="Button")
+                button_salvar.click_input()
+                if not self.smart_sleep(10):  # Aguardar salvamento
+                    return False
+
             except Exception as e:
                 self.log(f"❌ Erro durante salvamento: {str(e)}")
                 return False
@@ -942,51 +1302,116 @@ class DominioAutomation:
     def handle_error_dialogs(self) -> bool:
         """Trata diálogos de erro que podem aparecer. Retorna True se deve continuar, False se deve abortar."""
         try:
-            # Lista de títulos possíveis de erro
-            error_titles = ["Erro", "Erro léxico", "Aviso", "Atenção", "Informação"]
+            # Lista de títulos possíveis de erro/aviso
+            error_titles = ["Erro", "Erro léxico", "Aviso", "Atenção", "Informação", "Alerta", "Warning", "Error"]
 
-            # Procurar erros críticos
+            # Procurar diálogos de erro/aviso
             for title in error_titles:
                 try:
-                    error_window = self.app.window(title=title, class_name="#32770")
-                    if error_window.exists() and error_window.is_visible():
-                        # Verificar se é o aviso "Sem dados para emitir!"
+                    # Tentar encontrar na janela principal
+                    error_window = None
+                    try:
+                        error_window = self.app.window(title=title, class_name="#32770")
+                    except Exception:
+                        pass
+
+                    # Tentar também como child window
+                    if not error_window or not error_window.exists():
+                        try:
+                            error_window = self.main_window.child_window(title=title, class_name="#32770")
+                        except Exception:
+                            pass
+
+                    # Tentar busca parcial no título
+                    if not error_window or not error_window.exists():
+                        try:
+                            error_window = self.app.window(title_re=f".*{title}.*", class_name="#32770")
+                        except Exception:
+                            pass
+
+                    if error_window and error_window.exists() and error_window.is_visible():
+                        # Tentar obter o texto da mensagem
+                        message = ""
                         try:
                             message = error_window.window_text()
-                            if "Sem dados para emitir!" in message:
-                                self.log("⚠️ Aviso: Sem dados para emitir!")
+                            # Também tentar pegar texto de controles estáticos dentro do diálogo
+                            try:
+                                static_texts = error_window.children(class_name="Static")
+                                for static in static_texts:
+                                    text = static.window_text()
+                                    if text:
+                                        message += " " + text
+                            except Exception:
+                                pass
+                        except Exception:
+                            pass
+
+                        self.log(f"⚠️ Diálogo detectado: '{title}' - {message[:100] if message else 'sem mensagem'}")
+
+                        # Verificar mensagens específicas que permitem continuar
+                        mensagens_continuar = [
+                            "Sem dados para emitir",
+                            "Nenhum registro encontrado",
+                            "Não há dados",
+                            "Registro não encontrado"
+                        ]
+
+                        for msg in mensagens_continuar:
+                            if msg.lower() in message.lower():
+                                self.log(f"⚠️ Aviso não crítico: {msg}")
                                 error_window.set_focus()
                                 send_keys('{ENTER}')
                                 time.sleep(1)
                                 # Limpar janelas e continuar para próxima linha
                                 for _ in range(4):
                                     send_keys('{ESC}')
-                                    time.sleep(1.5)
-                                return True
+                                    time.sleep(1)
+                                return False  # Pular esta linha mas não travar
+
+                        # Erro léxico - tentar fechar e continuar
+                        if title == "Erro léxico":
+                            self.log(f"⚠️ Erro léxico detectado, fechando...")
+                            error_window.set_focus()
+                            for _ in range(3):
+                                send_keys('{ESC}')
+                                time.sleep(1)
+                            return True
+
+                        # Para outros erros, tentar fechar com ENTER ou ESC
+                        self.log(f"⚠️ Fechando diálogo '{title}'...")
+                        error_window.set_focus()
+                        time.sleep(0.3)
+
+                        # Tentar clicar no botão OK se existir
+                        try:
+                            ok_button = error_window.child_window(title="OK", class_name="Button")
+                            if ok_button.exists():
+                                ok_button.click_input()
+                                time.sleep(1)
+                                continue
                         except Exception:
                             pass
 
-                        if title == "Erro léxico":
-                            self.log(f"⚠️ Janela de erro '{title}' detectada, fechando ...")
-                            for _ in range(3):
-                                send_keys('{ESC}')
-                                time.sleep(1.5)
-                                self.handle_error_dialogs()
-                            return True
-                        elif title == "Aviso":
-                            return False
-                            
-                        self.log(f"⚠️ Janela de erro '{title}' detectada, fechando")
-                        error_window.set_focus()
+                        # Senão, enviar ENTER
                         send_keys('{ENTER}')
                         time.sleep(1)
-                        return False  # erro crítico → aborta
-                except Exception:
+
+                        # Verificar se ainda existe e tentar ESC
+                        if error_window.exists():
+                            send_keys('{ESC}')
+                            time.sleep(0.5)
+
+                        # Para erros críticos como "Erro" ou "Aviso", abortar linha
+                        if title in ["Erro", "Aviso"]:
+                            return False
+
+                except Exception as e:
                     pass
 
             return True
 
-        except Exception:
+        except Exception as e:
+            self.log(f"⚠️ Exceção ao verificar diálogos: {str(e)}")
             return True
 
 
