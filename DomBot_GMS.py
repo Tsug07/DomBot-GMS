@@ -739,7 +739,6 @@ class AutomacaoGUI:
                         self.adicionar_log(f"Erro na linha {linha_excel}", logging.ERROR, "erro")
 
                     self.atualizar_estatisticas()
-                    time.sleep(1)
 
                 except Exception as e:
                     self.linhas_com_erro += 1
@@ -795,17 +794,93 @@ class DominioAutomation:
 
     def smart_sleep(self, seconds: float):
         """Sleep interruptível que verifica pausa/parada"""
-        interval = 0.5
-        elapsed = 0
+        interval = 0.15
+        elapsed = 0.0
         while elapsed < seconds:
             if self.should_stop():
                 return False
             self.check_pause()
             if self.should_stop():
                 return False
-            time.sleep(min(interval, seconds - elapsed))
-            elapsed += interval
+            sleep_time = min(interval, seconds - elapsed)
+            time.sleep(sleep_time)
+            elapsed += sleep_time
         return True
+
+    def wait_for_condition(self, condition_fn, timeout: float = 30, poll_interval: float = 0.15, description: str = "") -> bool:
+        """Polls condition_fn() até retornar True, ou timeout.
+        Retorna True se condição foi atendida, False se timeout ou stop."""
+        start = time.time()
+        while time.time() - start < timeout:
+            if self.should_stop():
+                return False
+            self.check_pause()
+            try:
+                if condition_fn():
+                    if description:
+                        self.log(f"{description} - concluido em {time.time() - start:.1f}s")
+                    return True
+            except Exception:
+                pass
+            time.sleep(poll_interval)
+        if description:
+            self.log(f"{description} - timeout apos {timeout}s")
+        return False
+
+    def _window_exists(self, title: str, class_name: str) -> bool:
+        """Verifica se janela com título/classe existe via win32gui (rápido)."""
+        try:
+            result = [False]
+            def callback(hwnd, _):
+                if win32gui.IsWindowVisible(hwnd):
+                    try:
+                        if (win32gui.GetWindowText(hwnd) == title and
+                                win32gui.GetClassName(hwnd) == class_name):
+                            result[0] = True
+                            return False
+                    except Exception:
+                        pass
+                return True
+            win32gui.EnumWindows(callback, None)
+            return result[0]
+        except Exception:
+            return False
+
+    def _any_error_dialog_visible(self) -> bool:
+        """Verifica se há diálogo de erro visível via win32gui (rápido)."""
+        error_keywords = ("erro", "aviso", "atenção", "alerta", "warning", "error", "informação")
+        try:
+            result = [False]
+            def callback(hwnd, _):
+                if win32gui.IsWindowVisible(hwnd):
+                    try:
+                        cls = win32gui.GetClassName(hwnd)
+                        if cls == "#32770":
+                            title = win32gui.GetWindowText(hwnd).lower()
+                            for kw in error_keywords:
+                                if kw in title:
+                                    result[0] = True
+                                    return False
+                    except Exception:
+                        pass
+                return True
+            win32gui.EnumWindows(callback, None)
+            return result[0]
+        except Exception:
+            return False
+
+    def _is_connection_alive(self) -> bool:
+        """Verifica se a conexão pywinauto ainda é válida."""
+        if self.app is None or self.main_window is None:
+            return False
+        try:
+            hwnd = self.main_window.handle
+            if not win32gui.IsWindow(hwnd):
+                return False
+            win32gui.GetWindowText(hwnd)
+            return True
+        except Exception:
+            return False
 
     def find_dominio_window(self) -> Optional[int]:
         """Encontra a janela do Domínio Folha"""
@@ -889,7 +964,7 @@ class DominioAutomation:
             # Verificar se há diálogos de erro bloqueando
             self.handle_error_dialogs()
 
-            time.sleep(0.5)
+            time.sleep(0.15)
 
         self.log(f"⚠️ Timeout aguardando fechamento da janela '{window_title}'")
         return False
@@ -949,7 +1024,7 @@ class DominioAutomation:
             if not self.smart_sleep(0.5):
                 return False
             send_keys('{ENTER}')
-            if not self.smart_sleep(3):
+            if not self.smart_sleep(1.5):
                 return False
 
             if not self.handle_error_dialogs():
@@ -992,29 +1067,29 @@ class DominioAutomation:
             if self.should_stop():
                 return False
 
-            # Reconectar se necessário
-            handle = self.find_dominio_window()
-            if not handle:
-                self.log("❌ Não foi possível localizar a janela do Domínio")
-                return False
+            # Só reconectar se a conexão existente estiver quebrada
+            if not self._is_connection_alive():
+                handle = self.find_dominio_window()
+                if not handle:
+                    self.log("❌ Não foi possível localizar a janela do Domínio")
+                    return False
+                try:
+                    self.app = Application(backend="uia").connect(handle=handle)
+                    self.main_window = self.app.window(handle=handle)
+                    self.log("✅ Reconectado ao Domínio com sucesso")
+                except Exception as e:
+                    self.log(f"❌ Erro ao reconectar: {str(e)}")
+                    return False
 
-            # Reconectar o app e main_window
-            try:
-                self.app = Application(backend="uia").connect(handle=handle)
-                self.main_window = self.app.window(handle=handle)
-                self.log("✅ Reconectado ao Domínio com sucesso")
-            except Exception as e:
-                self.log(f"❌ Erro ao reconectar: {str(e)}")
-                return False
+            handle = self.main_window.handle
 
             if win32gui.IsIconic(handle):
                 win32gui.ShowWindow(handle, win32con.SW_RESTORE)
-                if not self.smart_sleep(1):
+                if not self.smart_sleep(0.5):
                     return False
 
             win32gui.SetForegroundWindow(handle)
-            if not self.smart_sleep(0.5):
-                return False
+            time.sleep(0.2)
 
             # Troca de empresa
             empresa_num = str(int(row['Nº']))
@@ -1140,13 +1215,19 @@ class DominioAutomation:
             try:
                 button_executar = relatorio_window.child_window(auto_id="1007", class_name="Button")
                 button_executar.click_input()
-                if not self.smart_sleep(4):
-                    return False
             except Exception as e:
                 self.log(f"⚠️ Erro ao clicar em executar, tentando via teclado: {str(e)}")
                 send_keys('{F5}')  # Alternativa via teclado
-                if not self.smart_sleep(4):
-                    return False
+
+            # Aguardar resultado do relatório via polling (em vez de sleep fixo de 4s)
+            if not self.wait_for_condition(
+                lambda: self._window_exists("Salvar em PDF", "#32770") or self._any_error_dialog_visible(),
+                timeout=15,
+                poll_interval=0.15,
+                description="Aguardando resultado do relatório"
+            ):
+                self.log("⚠️ Timeout aguardando resultado do relatório")
+                return False
 
             # Gerar PDF
             return self.gerar_pdf(row, linha_excel)
@@ -1171,7 +1252,15 @@ class DominioAutomation:
             # Salvar como PDF usando Ctrl+D
             self.log("📄 Enviando Ctrl+D para salvar como PDF")
             send_keys('^d')  # Ctrl+D
-            if not self.smart_sleep(2):
+
+            # Esperar janela "Salvar em PDF" ou diálogo de erro aparecer (em vez de sleep fixo)
+            if not self.wait_for_condition(
+                lambda: self._window_exists("Salvar em PDF", "#32770") or self._any_error_dialog_visible(),
+                timeout=10,
+                poll_interval=0.15,
+                description="Aguardando janela Salvar em PDF"
+            ):
+                self.log("❌ Timeout aguardando janela de salvamento após Ctrl+D")
                 return False
 
             # Verificar e tratar janela de erro
@@ -1179,101 +1268,50 @@ class DominioAutomation:
                 self.cleanup_windows()
                 return False
 
-            # Aguardar janela de salvamento
+            # Localizar janela de salvamento
             self.log("💾 Configurando salvamento do PDF")
 
             try:
-                # Aguardar janela de salvamento aparecer com verificação de parada
-                max_wait = 15
-                elapsed = 0
-                save_window = None
+                save_window = self.main_window.child_window(
+                    title="Salvar em PDF",
+                    class_name="#32770"
+                )
 
-                while elapsed < max_wait:
-                    if self.should_stop():
-                        return False
-                    self.check_pause()
-
-                    try:
-                        save_window = self.main_window.child_window(
-                            title="Salvar em PDF",
-                            class_name="#32770"
-                        )
-                        if save_window.exists():
-                            break
-                    except Exception:
-                        pass
-
-                    # Verificar se há diálogos de erro bloqueando
-                    if not self.handle_error_dialogs():
-                        self.cleanup_windows()
-                        return False
-
-                    time.sleep(0.5)
-                    elapsed += 0.5
-
-                if not save_window or not save_window.exists():
-                    self.log("❌ Janela de salvamento não encontrada (timeout)")
+                if not save_window.exists():
+                    self.log("❌ Janela de salvamento não encontrada")
                     return False
 
                 if self.should_stop():
                     return False
                 self.check_pause()
 
-                # Preencher campos
+                # Navegar até a árvore de pastas (batch TABs)
                 self.log("📝 Indo até a pasta correta...")
-
-                # Navegar pelos campos e preencher
-                send_keys('{TAB}')  # Pular primeiro campo
-                time.sleep(0.2)
-
-                send_keys('{TAB}')
+                send_keys('{TAB}{TAB}{TAB}{TAB}')
                 time.sleep(0.3)
 
-                send_keys('{TAB}')  # Próximo campo
-                time.sleep(0.2)
-
-                send_keys('{TAB}')  # Próximo campo
-                time.sleep(0.2)
-
-                # Preencher campos
+                # Selecionar pasta: G > P > G (Drive > Pessoal > GMS)
                 self.log("📝 Acessando a pasta GMS...")
+                send_keys('G')
+                time.sleep(0.15)
+                send_keys('P')
+                time.sleep(0.15)
+                send_keys('G')
+                time.sleep(0.15)
 
-                # Navegar pelos campos e preencher
-                send_keys('G')  # Drive
-                time.sleep(0.2)
-                send_keys('P')  # Pessoal
-                time.sleep(0.2)
-                send_keys('G')  # GMS
-                time.sleep(0.2)
-
-                # Preencher campos
+                # Navegar até campo de nome (batch TABs)
                 self.log("📝 Nomeando PDF...")
-
-                # Navegar pelos campos e preencher
-                send_keys('{TAB}')  # Pular primeiro campo
-                time.sleep(0.2)
-
-                send_keys('{TAB}')
+                send_keys('{TAB}{TAB}{TAB}{TAB}{TAB}')
                 time.sleep(0.3)
-
-                send_keys('{TAB}')  # Próximo campo
-                time.sleep(0.2)
-
-                send_keys('{TAB}')  # Próximo campo
-                time.sleep(0.2)
-                send_keys('{TAB}')  # Próximo campo
-                time.sleep(0.2)
 
                 nome_pdf = str(row['Salvar Como'])
                 self.log(f"📝 Nome do arquivo: {nome_pdf}")
 
                 # Definir nome do arquivo
-                if not self.smart_sleep(0.5):
-                    return False
+                time.sleep(0.2)
                 name_field = save_window.child_window(auto_id="1148", class_name="Edit")
                 name_field.set_text(nome_pdf)
-                if not self.smart_sleep(0.5):
-                    return False
+                time.sleep(0.3)
 
                 if self.should_stop():
                     return False
@@ -1283,7 +1321,15 @@ class DominioAutomation:
                 self.log("💾 Salvando PDF")
                 button_salvar = save_window.child_window(auto_id="1", class_name="Button")
                 button_salvar.click_input()
-                if not self.smart_sleep(10):  # Aguardar salvamento
+
+                # Esperar janela de salvamento fechar (em vez de sleep fixo de 10s)
+                if not self.wait_for_condition(
+                    lambda: not save_window.exists() or not save_window.is_visible(),
+                    timeout=15,
+                    poll_interval=0.2,
+                    description="Aguardando salvamento do PDF"
+                ):
+                    self.log("⚠️ Timeout aguardando salvamento do PDF")
                     return False
 
             except Exception as e:
@@ -1300,113 +1346,124 @@ class DominioAutomation:
             return False
 
     def handle_error_dialogs(self) -> bool:
-        """Trata diálogos de erro que podem aparecer. Retorna True se deve continuar, False se deve abortar."""
+        """Trata diálogos de erro que podem aparecer.
+        Retorna True se deve continuar, False se deve abortar.
+        Otimizado: usa win32gui.EnumWindows (uma única passagem) em vez de múltiplas buscas UIA."""
         try:
-            # Lista de títulos possíveis de erro/aviso
-            error_titles = ["Erro", "Erro léxico", "Aviso", "Atenção", "Informação", "Alerta", "Warning", "Error"]
+            error_titles_lower = {"erro", "erro léxico", "aviso", "atenção",
+                                  "informação", "alerta", "warning", "error"}
 
-            # Procurar diálogos de erro/aviso
-            for title in error_titles:
+            # Passagem única: enumerar todas as janelas via Win32 API (rápido)
+            found_hwnd = None
+            found_title = None
+
+            def enum_callback(hwnd, _):
+                nonlocal found_hwnd, found_title
+                if not win32gui.IsWindowVisible(hwnd):
+                    return True
                 try:
-                    # Tentar encontrar na janela principal
-                    error_window = None
-                    try:
-                        error_window = self.app.window(title=title, class_name="#32770")
-                    except Exception:
-                        pass
-
-                    # Tentar também como child window
-                    if not error_window or not error_window.exists():
-                        try:
-                            error_window = self.main_window.child_window(title=title, class_name="#32770")
-                        except Exception:
-                            pass
-
-                    # Tentar busca parcial no título
-                    if not error_window or not error_window.exists():
-                        try:
-                            error_window = self.app.window(title_re=f".*{title}.*", class_name="#32770")
-                        except Exception:
-                            pass
-
-                    if error_window and error_window.exists() and error_window.is_visible():
-                        # Tentar obter o texto da mensagem
-                        message = ""
-                        try:
-                            message = error_window.window_text()
-                            # Também tentar pegar texto de controles estáticos dentro do diálogo
-                            try:
-                                static_texts = error_window.children(class_name="Static")
-                                for static in static_texts:
-                                    text = static.window_text()
-                                    if text:
-                                        message += " " + text
-                            except Exception:
-                                pass
-                        except Exception:
-                            pass
-
-                        self.log(f"⚠️ Diálogo detectado: '{title}' - {message[:100] if message else 'sem mensagem'}")
-
-                        # Verificar mensagens específicas que permitem continuar
-                        mensagens_continuar = [
-                            "Sem dados para emitir",
-                            "Nenhum registro encontrado",
-                            "Não há dados",
-                            "Registro não encontrado"
-                        ]
-
-                        for msg in mensagens_continuar:
-                            if msg.lower() in message.lower():
-                                self.log(f"⚠️ Aviso não crítico: {msg}")
-                                error_window.set_focus()
-                                send_keys('{ENTER}')
-                                time.sleep(1)
-                                # Limpar janelas e continuar para próxima linha
-                                for _ in range(4):
-                                    send_keys('{ESC}')
-                                    time.sleep(1)
-                                return False  # Pular esta linha mas não travar
-
-                        # Erro léxico - tentar fechar e continuar
-                        if title == "Erro léxico":
-                            self.log(f"⚠️ Erro léxico detectado, fechando...")
-                            error_window.set_focus()
-                            for _ in range(3):
-                                send_keys('{ESC}')
-                                time.sleep(1)
-                            return True
-
-                        # Para outros erros, tentar fechar com ENTER ou ESC
-                        self.log(f"⚠️ Fechando diálogo '{title}'...")
-                        error_window.set_focus()
-                        time.sleep(0.3)
-
-                        # Tentar clicar no botão OK se existir
-                        try:
-                            ok_button = error_window.child_window(title="OK", class_name="Button")
-                            if ok_button.exists():
-                                ok_button.click_input()
-                                time.sleep(1)
-                                continue
-                        except Exception:
-                            pass
-
-                        # Senão, enviar ENTER
-                        send_keys('{ENTER}')
-                        time.sleep(1)
-
-                        # Verificar se ainda existe e tentar ESC
-                        if error_window.exists():
-                            send_keys('{ESC}')
-                            time.sleep(0.5)
-
-                        # Para erros críticos como "Erro" ou "Aviso", abortar linha
-                        if title in ["Erro", "Aviso"]:
-                            return False
-
-                except Exception as e:
+                    title = win32gui.GetWindowText(hwnd)
+                    if not title:
+                        return True
+                    title_lower = title.strip().lower()
+                    for err_title in error_titles_lower:
+                        if title_lower == err_title or err_title in title_lower:
+                            if win32gui.GetClassName(hwnd) == "#32770":
+                                found_hwnd = hwnd
+                                found_title = title
+                                return False
+                except Exception:
                     pass
+                return True
+
+            win32gui.EnumWindows(enum_callback, None)
+
+            if found_hwnd is None:
+                return True  # Nenhum diálogo de erro, continuar normalmente
+
+            # Encontrou diálogo — agora usar pywinauto apenas para esta janela específica
+            try:
+                error_window = self.app.window(handle=found_hwnd)
+            except Exception:
+                win32gui.SetForegroundWindow(found_hwnd)
+                send_keys('{ENTER}')
+                time.sleep(0.3)
+                return True
+
+            # Ler texto da mensagem
+            message = ""
+            try:
+                message = error_window.window_text()
+                try:
+                    static_texts = error_window.children(class_name="Static")
+                    for static in static_texts:
+                        text = static.window_text()
+                        if text:
+                            message += " " + text
+                except Exception:
+                    pass
+            except Exception:
+                pass
+
+            self.log(f"⚠️ Diálogo detectado: '{found_title}' - {message[:100] if message else 'sem mensagem'}")
+
+            # Verificar mensagens não críticas (pular linha)
+            mensagens_continuar = [
+                "sem dados para emitir",
+                "nenhum registro encontrado",
+                "não há dados",
+                "registro não encontrado"
+            ]
+
+            message_lower = message.lower()
+            for msg in mensagens_continuar:
+                if msg in message_lower:
+                    self.log(f"⚠️ Aviso não crítico: {msg}")
+                    error_window.set_focus()
+                    send_keys('{ENTER}')
+                    time.sleep(0.5)
+                    for _ in range(4):
+                        send_keys('{ESC}')
+                        time.sleep(0.5)
+                    return False
+
+            # Erro léxico — fechar e continuar
+            if "léxico" in found_title.lower():
+                self.log("⚠️ Erro léxico detectado, fechando...")
+                error_window.set_focus()
+                for _ in range(3):
+                    send_keys('{ESC}')
+                    time.sleep(0.5)
+                return True
+
+            # Erro genérico: tentar OK, depois ENTER, depois ESC
+            self.log(f"⚠️ Fechando diálogo '{found_title}'...")
+            error_window.set_focus()
+            time.sleep(0.2)
+
+            try:
+                ok_button = error_window.child_window(title="OK", class_name="Button")
+                if ok_button.exists():
+                    ok_button.click_input()
+                    time.sleep(0.5)
+                    if found_title.lower() in ("erro", "aviso"):
+                        return False
+                    return True
+            except Exception:
+                pass
+
+            send_keys('{ENTER}')
+            time.sleep(0.5)
+
+            try:
+                if error_window.exists():
+                    send_keys('{ESC}')
+                    time.sleep(0.3)
+            except Exception:
+                pass
+
+            if found_title.lower() in ("erro", "aviso"):
+                return False
 
             return True
 
@@ -1426,7 +1483,7 @@ class DominioAutomation:
             # Enviar ESCs para garantir que todas as janelas sejam fechadas
             for _ in range(4):
                 send_keys('{ESC}')
-                time.sleep(1.5)
+                time.sleep(0.5)
 
             # Verificar se o Gerenciador de Relatórios ainda está aberto
             try:
@@ -1438,7 +1495,7 @@ class DominioAutomation:
                 if relatorio_window.exists() and relatorio_window.is_visible():
                     self.log("🔄 Fechando Gerenciador de Relatórios restante")
                     send_keys('{ESC}')
-                    time.sleep(1)
+                    time.sleep(0.5)
             except Exception:
                 pass
 
