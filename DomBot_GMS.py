@@ -11,6 +11,7 @@ from datetime import datetime
 import os
 import traceback
 import threading
+import requests
 from typing import Optional, Tuple
 import tkinter.messagebox as messagebox
 from PIL import Image, ImageDraw
@@ -755,6 +756,24 @@ class AutomacaoGUI:
                 self.atualizar_status_indicator('concluido')
                 self.adicionar_log("Automação concluída!", logging.INFO, "sucesso")
                 self.adicionar_log(f"Resumo: {self.linhas_processadas} processadas, {self.linhas_com_erro} com erro, {self.linhas_puladas} puladas", logging.INFO, "info")
+
+                # Enviar notificação ao Discord via webhook
+                try:
+                    diretorio_pdfs = os.path.dirname(os.path.abspath(self.arquivo_excel.get()))
+                    mensagem = (
+                        f"📋 **Emissão de Taxa GMS Finalizada**\n\n"
+                        f"📊 **Quantidade emitida:** {self.linhas_processadas}\n"
+                        f"❌ **Com erro:** {self.linhas_com_erro}\n"
+                        f"⏭️ **Puladas:** {self.linhas_puladas}\n"
+                        f"📂 **Diretório dos PDFs:** `{diretorio_pdfs}`\n\n"
+                        f"✅ Emissão finalizada com sucesso!\n\n"
+                        f"<@&1299044385899548752>"
+                    )
+                    webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
+                    requests.post(webhook_url, json={"content": mensagem}, timeout=10)
+                    self.adicionar_log("Notificação enviada ao Discord", logging.INFO, "sucesso")
+                except Exception as e:
+                    self.adicionar_log(f"Erro ao enviar notificação ao Discord: {str(e)}", logging.WARNING, "aviso")
 
         except Exception as e:
             erro_msg = f"Erro crítico: {str(e)}"
