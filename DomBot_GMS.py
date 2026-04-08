@@ -621,6 +621,7 @@ class AutomacaoGUI:
         self.linhas_processadas = 0
         self.linhas_com_erro = 0
         self.linhas_puladas = 0
+        self.erros_detalhados = []
         self.stats = {'processados': 0, 'sucesso': 0, 'erros': 0, 'puladas': 0, 'tempo_inicio': datetime.now()}
         self.sucesso_label.configure(text="0")
         self.erros_label.configure(text="0")
@@ -741,6 +742,11 @@ class AutomacaoGUI:
                         self.linhas_com_erro += 1
                         self.error_logger.error(f"Linha {linha_excel} - Empresa {row['Nº']} - erro no processamento")
                         self.adicionar_log(f"Erro na linha {linha_excel}", logging.ERROR, "erro")
+                        self.erros_detalhados.append({
+                            'empresa': row.get('EMPRESAS', 'N/A'),
+                            'numero': row['Nº'],
+                            'motivo': 'Erro no processamento'
+                        })
 
                     self.atualizar_estatisticas()
 
@@ -749,6 +755,11 @@ class AutomacaoGUI:
                     erro_msg = f"Linha {linha_excel} - Erro: {str(e)}"
                     self.error_logger.error(erro_msg)
                     self.adicionar_log(erro_msg, logging.ERROR, "erro")
+                    self.erros_detalhados.append({
+                        'empresa': row.get('EMPRESAS', 'N/A'),
+                        'numero': row['Nº'],
+                        'motivo': str(e)[:80]
+                    })
                     self.atualizar_estatisticas()
 
             # Finalização
@@ -772,6 +783,17 @@ class AutomacaoGUI:
                         f"✅ Emissão finalizada com sucesso!\n\n"
                         f"<@&1299044385899548752>"
                     )
+                    if self.erros_detalhados:
+                        tabela = "```\n"
+                        tabela += f"{'Nº':<6} {'Empresa':<35} {'Motivo'}\n"
+                        tabela += "-" * 80 + "\n"
+                        for erro in self.erros_detalhados:
+                            num = str(erro['numero'])[:5]
+                            empresa = str(erro['empresa'])[:34]
+                            motivo = str(erro['motivo'])[:38]
+                            tabela += f"{num:<6} {empresa:<35} {motivo}\n"
+                        tabela += "```"
+                        mensagem += f"\n\n❌ **Empresas com erro:**\n{tabela}"
                     webhook_url = os.getenv("DISCORD_WEBHOOK_URL")
                     requests.post(webhook_url, json={"content": mensagem}, timeout=10)
                     self.adicionar_log("Notificação enviada ao Discord", logging.INFO, "sucesso")
