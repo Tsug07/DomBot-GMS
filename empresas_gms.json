@@ -1,0 +1,317 @@
+[
+  {
+    "codigo": "5",
+    "nome": "CONTEMPORANEO MODA MASCULINA E TABACARIA LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "24",
+    "nome": "JOFEL CALCADOS LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "31",
+    "nome": "PAPELARIA VIDAL BRITO EIRELI - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "36",
+    "nome": "GUEPP BOUTIQUE LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "39",
+    "nome": "GIOVANI PEREIRA DOS SANTOS - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "41",
+    "nome": "A. ALVES MEDEIROS SERVICOS EM GERAL LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "42",
+    "nome": "COMASTEC COMERCIO E ASSISTENCIA TECNICA EIRELI - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "81",
+    "nome": "TIETI BOUTIQUE LTDA",
+    "ativo": true
+  },
+  {
+    "codigo": "97",
+    "nome": "ALVES E ALVES MUNDO DOS ESPORTES VR EIRELI",
+    "ativo": true
+  },
+  {
+    "codigo": "123",
+    "nome": "VR INFLAVEIS PROMOCIONAIS LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "141",
+    "nome": "VR PRINT PIONEIRA EVANGÉLICA COMÉRCIO E CONFECÇÃO LTDA",
+    "ativo": true
+  },
+  {
+    "codigo": "142",
+    "nome": "C W PROMOCAO DE VENDAS LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "144",
+    "nome": "PADARIA E MERCEARIA VERDE VALE LTDA - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "153",
+    "nome": "GUSTAVO EUSTAQUIO BATISTA COMERCIO DE ROUPAS E ACESSORIOS",
+    "ativo": true
+  },
+  {
+    "codigo": "191",
+    "nome": "LAVA JATO TA LIMPO LTDA",
+    "ativo": true
+  },
+  {
+    "codigo": "318",
+    "nome": "RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP",
+    "ativo": true
+  },
+  {
+    "codigo": "323",
+    "nome": "RIO PAIVA MATERIAIS PARA CONSTRUCOES LTDA - EPP",
+    "ativo": true
+  },
+  {
+    "codigo": "342",
+    "nome": "R. DE OLIVEIRA BALTAZAR COM DE TINTAS",
+    "ativo": true
+  },
+  {
+    "codigo": "355",
+    "nome": "CARLOS EDUARDO DE SOUZA COSMETICOS - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "356",
+    "nome": "MARIA DE LOURDES SOARES FELIPPE - ME",
+    "ativo": true
+  },
+  {
+    "codigo": "361",
+    "nome": "MUNDO DOS COSMETICOS DE VOLTA REDONDA LTDA - ME",
+    "ativo": false
+  },
+  {
+    "codigo": "382",
+    "nome": "HIDRAULICA MATA FOGO DE VOLTA REDONDA LTDA - ME",
+    "ativo": false
+  },
+  {
+    "codigo": "409",
+    "nome": "DSREIS COMERCIO LTDA - ME",
+    "ativo": false
+  },
+  {
+    "codigo": "467",
+    "nome": "ROCHA'S CAR LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "476",
+    "nome": "AUTOCOM3 TECNOLOGIA E SOFTWARES LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "478",
+    "nome": "GW COMÉRCIO DE VEÍCULOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "517",
+    "nome": "LOCARJET LOCACOES LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "518",
+    "nome": "PERFUMARIA DA VILA DE VOLTA REDONDA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "523",
+    "nome": "BIG NEGOCIOS COMERCIO E SERVICO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "529",
+    "nome": "PRECIOSO CHOCOLATE FORTINI EIRELI",
+    "ativo": false
+  },
+  {
+    "codigo": "588",
+    "nome": "I BRUM COMERCIO DE VEICULOS",
+    "ativo": false
+  },
+  {
+    "codigo": "617",
+    "nome": "PONTUAL SHOPPING CHOCOLATES LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "642",
+    "nome": "COMERCIAL SARAH LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "644",
+    "nome": "J LEONE COMERCIO DE AUTOMOVEIS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "655",
+    "nome": "MARVIN PEIXARIA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "663",
+    "nome": "INSPIRE-SE SERVICOS DE ORGANIZACAO FEIRAS EVENTOS COMPUTADORES MAQUINAS TREINAMENTOS PESSOAL SEGURANCA DO TRABALHO EM GERAL LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "665",
+    "nome": "CL VIDRACARIA, CONSTRUTORA E DISTRIBUIDORA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "676",
+    "nome": "STF ROUPAS E ACESSORIOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "683",
+    "nome": "TUDO EM CASA VR LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "729",
+    "nome": "S B COMERCIO DE ELETRONICOS PRIME LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "753",
+    "nome": "OMEGA DE VOLTA REDONDA COMERCIO DE MATERIAIS DE CONSTRUCAO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "773",
+    "nome": "SBCA CONSULTORIA DE COMERCIO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "779",
+    "nome": "H2M REPRESENTACOES SUL FLUMINENSE LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "788",
+    "nome": "PV SERVICE AGENCIAMENTO DE SERVICOS E NEGOCIOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "806",
+    "nome": "MULTI CHOPP LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "809",
+    "nome": "PERFUMARIA DA VILA DE VOLTA REDONDA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "811",
+    "nome": "SHINE CORTINAS E PERSIANAS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "854",
+    "nome": "DROGARIA SENA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "861",
+    "nome": "MVR AUTOMOVEIS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "872",
+    "nome": "TAMIRAO MATERIAIS DE CONSTRUCAO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "876",
+    "nome": "INOVARE COMERCIO E PLANEJAMENTO ADMINISTRATIVO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "881",
+    "nome": "VETRA CALCADOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "882",
+    "nome": "DARA CALCADOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "895",
+    "nome": "TEM DE TUDO PAPELARIA, PRESENTES E PERSONALIZADOS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "947",
+    "nome": "SANDALIAS SHOPPING33 LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "948",
+    "nome": "DROGARIA SENA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1013",
+    "nome": "LILI SAPATARIA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1019",
+    "nome": "J M DA SILVA ALMEIDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1020",
+    "nome": "PERFUMARIA SHOP 33 LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1030",
+    "nome": "MARQ SUL PNEUS LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1073",
+    "nome": "HIGISEG ENGENHARIA LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1074",
+    "nome": "HIGISEG MEDICINA E SEGURANCA DO TRABALHO LTDA",
+    "ativo": false
+  },
+  {
+    "codigo": "1076",
+    "nome": "HIGISEG SEGURANCA DO TRABALHO LTDA",
+    "ativo": false
+  }
+]

@@ -7,11 +7,13 @@ import win32gui
 import win32con
 import time
 import logging
+import json
 from datetime import datetime
 import os
 import traceback
 import threading
 import requests
+import ctypes
 from typing import Optional, Tuple
 import tkinter.messagebox as messagebox
 from PIL import Image, ImageDraw
@@ -70,9 +72,6 @@ class AutomacaoGUI:
             'tempo_inicio': None
         }
 
-        # DataFrame carregado
-        self.df_carregado = None
-
         # Configurar ícone
         self.set_window_icon()
 
@@ -85,9 +84,20 @@ class AutomacaoGUI:
         self.setup_file_logging()
 
         # Variáveis da interface
-        self.arquivo_excel = ctk.StringVar()
-        self.linha_inicial = ctk.StringVar(value="2")
         self.status_var = ctk.StringVar(value="Aguardando início...")
+        self.pasta_saida = ctk.StringVar()
+        self.competencia_var = ctk.StringVar(value=datetime.now().strftime("%m/%Y"))
+        self.data_vencimento_var = ctk.StringVar()
+        self.emitir_var = ctk.BooleanVar(value=True)
+        self.publicar_var = ctk.BooleanVar(value=True)
+
+        # Lista de empresas cadastradas (gerenciada pela interface e salva em JSON).
+        # Cada item: {"codigo": str, "nome": str, "ativo": bool}
+        self.empresas = []
+        self.empresas_json = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "empresas_gms.json"
+        )
+        self.empresa_widgets = []  # linhas (frame + checkbox var) renderizadas na aba
 
         # Variáveis de controle (mantidas para compatibilidade com DominioAutomation)
         self.total_linhas = 0
@@ -107,6 +117,8 @@ class AutomacaoGUI:
         self.logger.addHandler(self.gui_handler)
 
         self.criar_interface()
+        self.carregar_empresas_json()
+        self.render_lista_empresas()
 
     def setup_file_logging(self):
         """Configura o logging para arquivos"""
@@ -233,43 +245,31 @@ class AutomacaoGUI:
         """Cria o painel de configuração"""
         config_frame = ctk.CTkFrame(parent, fg_color=self.CORES['fundo_card'], corner_radius=8)
         config_frame.grid(row=1, column=0, sticky="ew", pady=(0, 6))
-        config_frame.grid_columnconfigure(1, weight=1)
+        config_frame.grid_columnconfigure(0, weight=1)
 
-        # Linha única com tudo
+        # --- Linha 1: resumo de empresas + competência + botões de controle ---
         inner_frame = ctk.CTkFrame(config_frame, fg_color="transparent")
-        inner_frame.grid(row=0, column=0, sticky="ew", padx=10, pady=8)
+        inner_frame.grid(row=0, column=0, sticky="ew", padx=10, pady=(8, 4))
         inner_frame.grid_columnconfigure(1, weight=1)
 
-        # Arquivo Excel
-        ctk.CTkLabel(
-            inner_frame, text="📁", font=ctk.CTkFont(size=14)
-        ).grid(row=0, column=0, padx=(0, 5))
+        ctk.CTkLabel(inner_frame, text="🏢", font=ctk.CTkFont(size=14)).grid(row=0, column=0, padx=(0, 5))
 
-        self.entry_arquivo = ctk.CTkEntry(
-            inner_frame,
-            textvariable=self.arquivo_excel,
-            placeholder_text="Selecione o arquivo Excel...",
-            height=32,
-            font=ctk.CTkFont(size=11)
+        self.lbl_resumo_empresas = ctk.CTkLabel(
+            inner_frame, text="Nenhuma empresa cadastrada",
+            font=ctk.CTkFont(size=11), text_color="#BDC3C7", anchor="w"
         )
-        self.entry_arquivo.grid(row=0, column=1, sticky="ew", padx=(0, 8))
+        self.lbl_resumo_empresas.grid(row=0, column=1, sticky="ew", padx=(0, 15))
 
-        ctk.CTkButton(
-            inner_frame, text="Procurar", command=self.selecionar_arquivo,
-            width=80, height=32, font=ctk.CTkFont(size=11),
-            fg_color=self.CORES['info'], hover_color="#2980B9"
-        ).grid(row=0, column=2, padx=(0, 15))
-
-        # Linha inicial
+        # Competência
         ctk.CTkLabel(
-            inner_frame, text="Linha:", font=ctk.CTkFont(size=11), text_color="#BDC3C7"
-        ).grid(row=0, column=3, padx=(0, 3))
+            inner_frame, text="Competência:", font=ctk.CTkFont(size=11), text_color="#BDC3C7"
+        ).grid(row=0, column=3, padx=(0, 5))
 
-        self.entry_linha = ctk.CTkEntry(
-            inner_frame, textvariable=self.linha_inicial,
-            width=50, height=32, font=ctk.CTkFont(size=11), justify="center"
-        )
-        self.entry_linha.grid(row=0, column=4, padx=(0, 15))
+        ctk.CTkEntry(
+            inner_frame, textvariable=self.competencia_var,
+            width=90, height=32, font=ctk.CTkFont(size=11), justify="center",
+            placeholder_text="MM/AAAA"
+        ).grid(row=0, column=4, padx=(0, 15))
 
         # Botões de controle
         self.btn_iniciar = ctk.CTkButton(
@@ -292,6 +292,373 @@ class AutomacaoGUI:
             fg_color=self.CORES['erro'], hover_color="#C0392B", state="disabled"
         )
         self.btn_parar.grid(row=0, column=7, padx=(3, 0))
+
+        # --- Linha 2: pasta de saída + vencimento + etapas (emitir/publicar) ---
+        row2 = ctk.CTkFrame(config_frame, fg_color="transparent")
+        row2.grid(row=1, column=0, sticky="ew", padx=10, pady=(0, 8))
+        row2.grid_columnconfigure(1, weight=1)
+
+        ctk.CTkLabel(row2, text="📂", font=ctk.CTkFont(size=14)).grid(row=0, column=0, padx=(0, 5))
+        ctk.CTkEntry(
+            row2, textvariable=self.pasta_saida, height=32, font=ctk.CTkFont(size=11),
+            placeholder_text="Pasta de saída dos PDFs..."
+        ).grid(row=0, column=1, sticky="ew", padx=(0, 8))
+        ctk.CTkButton(
+            row2, text="Pasta", command=self.selecionar_pasta_saida,
+            width=70, height=32, font=ctk.CTkFont(size=11),
+            fg_color=self.CORES['info'], hover_color="#2980B9"
+        ).grid(row=0, column=2, padx=(0, 15))
+
+        ctk.CTkLabel(row2, text="⏳", font=ctk.CTkFont(size=14)).grid(row=0, column=3, padx=(0, 5))
+        ctk.CTkLabel(row2, text="Vencimento:", font=ctk.CTkFont(size=11), text_color="#BDC3C7").grid(
+            row=0, column=4, padx=(0, 5)
+        )
+        ctk.CTkEntry(
+            row2, textvariable=self.data_vencimento_var,
+            width=100, height=32, font=ctk.CTkFont(size=11), justify="center",
+            placeholder_text="DD/MM/AAAA"
+        ).grid(row=0, column=5, padx=(0, 15))
+
+        ctk.CTkCheckBox(
+            row2, text="Emitir", variable=self.emitir_var,
+            font=ctk.CTkFont(size=11), checkbox_width=18, checkbox_height=18
+        ).grid(row=0, column=6, padx=(0, 12))
+
+        ctk.CTkCheckBox(
+            row2, text="Publicar", variable=self.publicar_var,
+            font=ctk.CTkFont(size=11), checkbox_width=18, checkbox_height=18
+        ).grid(row=0, column=7, padx=(0, 3))
+
+    def selecionar_pasta_saida(self):
+        """Abre o seletor de pasta nativo do Windows (SHBrowseForFolder) em uma
+        thread dedicada com COM em modo STA próprio.
+
+        Motivo: este app importa/usa pywinauto (backend uia), que deixa o COM da
+        thread principal em um estado incompatível com o diálogo de shell do
+        Windows. Chamar ctk.filedialog.askdirectory na thread da UI trava o
+        programa ('Não está respondendo') sem nunca abrir o diálogo. Rodar o
+        picker em uma thread separada que faz seu próprio CoInitialize (STA)
+        isola o COM e evita o travamento. A thread da UI apenas aguarda o
+        resultado sem bloquear o mainloop (usa update() em polling curto)."""
+        resultado = {'pasta': None, 'done': False}
+
+        inicial = self.pasta_saida.get().strip()
+        if not inicial or not os.path.isdir(inicial):
+            inicial = os.path.expanduser("~")
+
+        # HWND top-level da janela principal, para o diálogo abrir à frente (owner)
+        try:
+            owner_hwnd = win32gui.GetAncestor(self.window.winfo_id(), 2)  # GA_ROOT
+        except Exception:
+            owner_hwnd = 0
+
+        # BIF_NEWDIALOGSTYLE (0x40) não é exposto por shellcon nesta versão do
+        # pywin32, por isso usamos o literal. Ativa o diálogo moderno (com
+        # redimensionamento e botão "Nova pasta").
+        BIF_RETURNONLYFSDIRS = 0x00000001
+        BIF_NEWDIALOGSTYLE = 0x00000040
+
+        def _abrir_dialogo():
+            try:
+                import pythoncom
+                import win32com.shell.shell as shell
+                pythoncom.CoInitialize()
+                try:
+                    pidl, _display, _img = shell.SHBrowseForFolder(
+                        owner_hwnd,
+                        None,
+                        "Selecione a pasta de saída dos PDFs",
+                        BIF_RETURNONLYFSDIRS | BIF_NEWDIALOGSTYLE,
+                    )
+                    if pidl is not None:
+                        resultado['pasta'] = shell.SHGetPathFromIDList(pidl)
+                finally:
+                    pythoncom.CoUninitialize()
+            except Exception as e:
+                resultado['erro'] = str(e)
+            finally:
+                resultado['done'] = True
+
+        self.adicionar_log("Abrindo seletor de pasta...", logging.INFO, "info")
+        t = threading.Thread(target=_abrir_dialogo, daemon=True)
+        t.start()
+
+        # Aguarda o diálogo sem congelar o mainloop (mantém a UI responsiva)
+        while not resultado['done']:
+            try:
+                self.window.update()
+            except Exception:
+                pass
+            time.sleep(0.05)
+
+        if resultado.get('erro'):
+            self.adicionar_log(f"Erro ao selecionar pasta: {resultado['erro']}",
+                               logging.ERROR, "erro")
+            return
+
+        pasta = resultado['pasta']
+        if pasta:
+            if isinstance(pasta, bytes):
+                pasta = pasta.decode('utf-8', 'ignore')
+            pasta = pasta.replace("/", "\\")
+            self.pasta_saida.set(pasta)
+            self.adicionar_log(f"Pasta de saída: {pasta}", logging.INFO, "info")
+        else:
+            self.adicionar_log("Seleção de pasta cancelada (nenhuma pasta escolhida)",
+                               logging.INFO, "aviso")
+
+    # ── Gerenciamento de empresas (JSON + interface) ──────────────────────────
+
+    def carregar_empresas_json(self):
+        """Carrega a lista de empresas do arquivo JSON, se existir."""
+        try:
+            if os.path.exists(self.empresas_json):
+                with open(self.empresas_json, 'r', encoding='utf-8') as f:
+                    dados = json.load(f)
+                self.empresas = []
+                for item in dados:
+                    self.empresas.append({
+                        'codigo': str(item.get('codigo', '')).strip(),
+                        'nome': str(item.get('nome', '')).strip(),
+                        'ativo': bool(item.get('ativo', True)),
+                    })
+                self.adicionar_log(f"{len(self.empresas)} empresa(s) carregada(s) do cadastro.",
+                                   logging.INFO, "sucesso")
+        except Exception as e:
+            self.adicionar_log(f"Erro ao carregar cadastro de empresas: {e}", logging.ERROR, "erro")
+
+    def salvar_empresas_json(self):
+        """Grava a lista atual de empresas no arquivo JSON."""
+        try:
+            with open(self.empresas_json, 'w', encoding='utf-8') as f:
+                json.dump(self.empresas, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            self.adicionar_log(f"Erro ao salvar cadastro de empresas: {e}", logging.ERROR, "erro")
+
+    @staticmethod
+    def _chave_ordenacao_codigo(emp):
+        codigo = str(emp.get('codigo', '')).strip()
+        try:
+            return (0, int(codigo))
+        except ValueError:
+            return (1, codigo)
+
+    def ordenar_empresas(self):
+        """Ordena o cadastro em memória por código (numérico quando possível)."""
+        self.empresas.sort(key=self._chave_ordenacao_codigo)
+
+    def render_lista_empresas(self):
+        """Redesenha a lista rolável de empresas com base em self.empresas."""
+        self.ordenar_empresas()
+        for w in self.lista_empresas_frame.winfo_children():
+            w.destroy()
+        self.empresa_widgets = []
+
+        if not self.empresas:
+            ctk.CTkLabel(
+                self.lista_empresas_frame,
+                text="Nenhuma empresa cadastrada.\nUse ➕ Adicionar ou 📥 Importar do Excel.",
+                font=ctk.CTkFont(size=12), text_color="#7F8C8D", justify="center",
+            ).grid(row=0, column=0, pady=30)
+            self._atualizar_resumo_empresas()
+            return
+
+        for idx, emp in enumerate(self.empresas):
+            linha = ctk.CTkFrame(self.lista_empresas_frame, fg_color=self.CORES['fundo_card'],
+                                 corner_radius=6)
+            linha.grid(row=idx, column=0, sticky="ew", padx=2, pady=2)
+            linha.grid_columnconfigure(2, weight=1)
+
+            var = ctk.BooleanVar(value=emp.get('ativo', True))
+            chk = ctk.CTkCheckBox(
+                linha, text="", variable=var, width=24,
+                command=lambda i=idx, v=var: self._toggle_ativo(i, v),
+                checkbox_width=20, checkbox_height=20,
+            )
+            chk.grid(row=0, column=0, padx=(8, 2), pady=6)
+
+            ctk.CTkLabel(linha, text=emp['codigo'], width=90, anchor="w",
+                         font=ctk.CTkFont(size=11)).grid(row=0, column=1, padx=6, sticky="w")
+            ctk.CTkLabel(linha, text=emp['nome'], anchor="w",
+                         font=ctk.CTkFont(size=11)).grid(row=0, column=2, padx=6, sticky="w")
+
+            btns = ctk.CTkFrame(linha, fg_color="transparent")
+            btns.grid(row=0, column=3, padx=6)
+            ctk.CTkButton(btns, text="✏", width=32, height=26, font=ctk.CTkFont(size=12),
+                          fg_color=self.CORES['info'], hover_color="#2980B9",
+                          command=lambda i=idx: self.editar_empresa_dialog(i)).pack(side="left", padx=2)
+            ctk.CTkButton(btns, text="🗑", width=32, height=26, font=ctk.CTkFont(size=12),
+                          fg_color=self.CORES['erro'], hover_color="#C0392B",
+                          command=lambda i=idx: self.remover_empresa(i)).pack(side="left", padx=2)
+
+            self.empresa_widgets.append(var)
+
+        self._atualizar_resumo_empresas()
+
+    def _atualizar_resumo_empresas(self):
+        total = len(self.empresas)
+        ativas = sum(1 for e in self.empresas if e.get('ativo', True))
+        if total == 0:
+            texto = "Nenhuma empresa cadastrada"
+        else:
+            texto = f"{ativas} de {total} empresa(s) selecionada(s) para processar"
+        try:
+            self.lbl_resumo_empresas.configure(text=texto)
+        except Exception:
+            pass
+
+    def _toggle_ativo(self, idx, var):
+        if 0 <= idx < len(self.empresas):
+            self.empresas[idx]['ativo'] = bool(var.get())
+            self.salvar_empresas_json()
+            self._atualizar_resumo_empresas()
+
+    def marcar_todas(self, valor: bool):
+        for emp in self.empresas:
+            emp['ativo'] = valor
+        self.salvar_empresas_json()
+        self.render_lista_empresas()
+
+    def _dialog_empresa(self, titulo, codigo="", nome=""):
+        """Abre um diálogo modal para cadastrar/editar. Retorna dict ou None se cancelado."""
+        dlg = ctk.CTkToplevel(self.window)
+        dlg.title(titulo)
+        dlg.geometry("420x220")
+        dlg.transient(self.window)
+        dlg.grab_set()
+        dlg.resizable(False, False)
+
+        resultado = {'valor': None}
+        var_cod = ctk.StringVar(value=codigo)
+        var_nome = ctk.StringVar(value=nome)
+
+        frame = ctk.CTkFrame(dlg, fg_color="transparent")
+        frame.pack(fill="both", expand=True, padx=20, pady=20)
+        frame.grid_columnconfigure(1, weight=1)
+
+        campos = [("Código:", var_cod), ("Nome:", var_nome)]
+        entradas = []
+        for i, (rot, v) in enumerate(campos):
+            ctk.CTkLabel(frame, text=rot, font=ctk.CTkFont(size=12), width=70,
+                         anchor="w").grid(row=i, column=0, padx=(0, 8), pady=8, sticky="w")
+            e = ctk.CTkEntry(frame, textvariable=v, height=34, font=ctk.CTkFont(size=12))
+            e.grid(row=i, column=1, sticky="ew", pady=8)
+            entradas.append(e)
+        entradas[0].focus()
+
+        erro_lbl = ctk.CTkLabel(frame, text="", font=ctk.CTkFont(size=11),
+                                text_color=self.CORES['erro'])
+        erro_lbl.grid(row=2, column=0, columnspan=2, sticky="w")
+
+        def confirmar():
+            c, n = var_cod.get().strip(), var_nome.get().strip()
+            if not c or not n:
+                erro_lbl.configure(text="Preencha código e nome.")
+                return
+            resultado['valor'] = {'codigo': c, 'nome': n, 'ativo': True}
+            dlg.destroy()
+
+        botoes = ctk.CTkFrame(frame, fg_color="transparent")
+        botoes.grid(row=3, column=0, columnspan=2, pady=(12, 0), sticky="e")
+        ctk.CTkButton(botoes, text="Cancelar", command=dlg.destroy, width=100, height=32,
+                      fg_color="#34495E", hover_color="#2C3E50").pack(side="left", padx=6)
+        ctk.CTkButton(botoes, text="Salvar", command=confirmar, width=100, height=32,
+                      fg_color=self.CORES['sucesso'], hover_color="#27AE60").pack(side="left")
+
+        dlg.bind('<Return>', lambda _e: confirmar())
+        dlg.wait_window()
+        return resultado['valor']
+
+    def adicionar_empresa_dialog(self):
+        nova = self._dialog_empresa("Adicionar Empresa")
+        if nova:
+            self.empresas.append(nova)
+            self.salvar_empresas_json()
+            self.render_lista_empresas()
+            self.adicionar_log(f"Empresa adicionada: {nova['codigo']} - {nova['nome']}",
+                               logging.INFO, "sucesso")
+
+    def editar_empresa_dialog(self, idx):
+        if not (0 <= idx < len(self.empresas)):
+            return
+        emp = self.empresas[idx]
+        editada = self._dialog_empresa("Editar Empresa", emp['codigo'], emp['nome'])
+        if editada:
+            editada['ativo'] = emp.get('ativo', True)  # preserva a seleção
+            self.empresas[idx] = editada
+            self.salvar_empresas_json()
+            self.render_lista_empresas()
+            self.adicionar_log(f"Empresa atualizada: {editada['codigo']} - {editada['nome']}",
+                               logging.INFO, "info")
+
+    def remover_empresa(self, idx):
+        if not (0 <= idx < len(self.empresas)):
+            return
+        emp = self.empresas[idx]
+        if messagebox.askyesno("Confirmar remoção",
+                               f"Remover a empresa:\n\n{emp['codigo']} - {emp['nome']}?"):
+            self.empresas.pop(idx)
+            self.salvar_empresas_json()
+            self.render_lista_empresas()
+            self.adicionar_log(f"Empresa removida: {emp['codigo']} - {emp['nome']}",
+                               logging.INFO, "aviso")
+
+    def importar_empresas_excel(self):
+        """Importa empresas do Excel gerado pelo M.E.G_ONE (colunas: Nº, EMPRESAS, ...)."""
+        filename = ctk.filedialog.askopenfilename(
+            filetypes=[("Excel files", "*.xlsx *.xls")],
+            title="Selecione o Excel para importar as empresas",
+        )
+        if not filename:
+            return
+        try:
+            df = pd.read_excel(filename)
+            df = df.iloc[:, :2]
+            df.columns = ['Codigo', 'Nome']
+            # Pular linha de cabeçalho se existir (Excel sem header já lido acima)
+            if str(df.iloc[0]['Codigo']).lower() in ('codigo', 'código', 'nº', 'code'):
+                df = df.iloc[1:].reset_index(drop=True)
+
+            existentes = {e['codigo'] for e in self.empresas}
+            importadas = 0
+            duplicadas = 0
+            for _, row in df.iterrows():
+                codigo = self._limpar_codigo(row['Codigo'])
+                if not codigo:
+                    continue
+                if codigo in existentes:
+                    duplicadas += 1
+                    continue
+                self.empresas.append({
+                    'codigo': codigo,
+                    'nome': str(row.get('Nome', '')).strip(),
+                    'ativo': True,
+                })
+                existentes.add(codigo)
+                importadas += 1
+
+            self.salvar_empresas_json()
+            self.render_lista_empresas()
+            msg = f"Importação concluída: {importadas} adicionada(s)"
+            if duplicadas:
+                msg += f", {duplicadas} já existente(s) ignorada(s)"
+            self.adicionar_log(msg, logging.INFO, "sucesso")
+            messagebox.showinfo("Importação", msg)
+        except Exception as e:
+            self.adicionar_log(f"Erro ao importar do Excel: {e}", logging.ERROR, "erro")
+            messagebox.showerror("Erro na importação", str(e))
+
+    @staticmethod
+    def _limpar_codigo(codigo) -> str:
+        """Converte código para string limpa, removendo '.0' e espaços."""
+        if codigo is None or pd.isna(codigo):
+            return ""
+        if isinstance(codigo, float) and codigo.is_integer():
+            return str(int(codigo))
+        codigo_str = str(codigo).strip()
+        if codigo_str.endswith('.0'):
+            codigo_str = codigo_str[:-2]
+        return codigo_str
 
     def criar_painel_estatisticas(self, parent):
         """Cria o painel de estatísticas"""
@@ -352,11 +719,11 @@ class AutomacaoGUI:
         )
         self.tabview.grid(row=3, column=0, sticky="nsew")
 
+        tab_empresas = self.tabview.add("🏢 Empresas")
         tab_logs = self.tabview.add("📋 Logs")
-        tab_preview = self.tabview.add("📊 Preview")
 
+        self.criar_aba_empresas(tab_empresas)
         self.criar_aba_logs(tab_logs)
-        self.criar_aba_preview(tab_preview)
 
     def criar_aba_logs(self, parent):
         """Cria a aba de logs"""
@@ -397,88 +764,52 @@ class AutomacaoGUI:
             fg_color="#34495E", hover_color="#2C3E50"
         ).pack(side="left", padx=8)
 
-    def criar_aba_preview(self, parent):
-        """Cria a aba de preview do Excel"""
+    def criar_aba_empresas(self, parent):
+        """Cria a aba de gerenciamento de empresas cadastradas"""
         parent.grid_columnconfigure(0, weight=1)
-        parent.grid_rowconfigure(1, weight=1)
+        parent.grid_rowconfigure(2, weight=1)
 
-        info_frame = ctk.CTkFrame(parent, fg_color="transparent")
-        info_frame.grid(row=0, column=0, sticky="ew", padx=3, pady=3)
-
-        self.preview_info_label = ctk.CTkLabel(
-            info_frame, text="Nenhum arquivo carregado",
-            font=ctk.CTkFont(size=11), text_color="#95A5A6"
-        )
-        self.preview_info_label.pack(side="left")
+        # --- Barra de ações ---
+        acoes = ctk.CTkFrame(parent, fg_color="transparent")
+        acoes.grid(row=0, column=0, sticky="ew", padx=3, pady=(3, 2))
 
         ctk.CTkButton(
-            info_frame, text="🔄 Recarregar", command=self.carregar_preview,
-            width=85, height=24, font=ctk.CTkFont(size=10),
-            fg_color="#34495E", hover_color="#2C3E50"
-        ).pack(side="right")
+            acoes, text="➕ Adicionar", command=self.adicionar_empresa_dialog,
+            width=100, height=28, font=ctk.CTkFont(size=11, weight="bold"),
+            fg_color=self.CORES['sucesso'], hover_color="#27AE60",
+        ).pack(side="left", padx=(0, 6))
 
-        self.preview_text = ctk.CTkTextbox(
-            parent, font=ctk.CTkFont(family="Consolas", size=10),
-            fg_color=self.CORES['fundo_escuro'], corner_radius=6
+        ctk.CTkButton(
+            acoes, text="📥 Importar do Excel", command=self.importar_empresas_excel,
+            width=150, height=28, font=ctk.CTkFont(size=11),
+            fg_color=self.CORES['info'], hover_color="#2980B9",
+        ).pack(side="left", padx=(0, 6))
+
+        ctk.CTkButton(
+            acoes, text="☑ Todas", command=lambda: self.marcar_todas(True),
+            width=70, height=28, font=ctk.CTkFont(size=11),
+            fg_color="#34495E", hover_color="#2C3E50",
+        ).pack(side="left", padx=(0, 4))
+
+        ctk.CTkButton(
+            acoes, text="☐ Nenhuma", command=lambda: self.marcar_todas(False),
+            width=90, height=28, font=ctk.CTkFont(size=11),
+            fg_color="#34495E", hover_color="#2C3E50",
+        ).pack(side="left")
+
+        # --- Cabeçalho da lista ---
+        header = ctk.CTkFrame(parent, fg_color=self.CORES['fundo_escuro'], corner_radius=6)
+        header.grid(row=1, column=0, sticky="ew", padx=3, pady=(2, 0))
+        for col, (txt, w) in enumerate([("", 30), ("Código", 90), ("Nome", 300), ("Ações", 120)]):
+            ctk.CTkLabel(header, text=txt, width=w, font=ctk.CTkFont(size=10, weight="bold"),
+                         text_color="#7F8C8D", anchor="w").grid(row=0, column=col, padx=6, pady=4, sticky="w")
+
+        # --- Lista rolável de empresas ---
+        self.lista_empresas_frame = ctk.CTkScrollableFrame(
+            parent, fg_color=self.CORES['fundo_escuro'], corner_radius=6,
         )
-        self.preview_text.grid(row=1, column=0, sticky="nsew", padx=3, pady=(0, 3))
-
-    def selecionar_arquivo(self):
-        """Abre diálogo para selecionar arquivo Excel"""
-        filename = ctk.filedialog.askopenfilename(
-            filetypes=[("Excel files", "*.xlsx *.xls")],
-            title="Selecione o arquivo Excel"
-        )
-        if filename:
-            self.arquivo_excel.set(filename)
-            self.adicionar_log(f"Arquivo selecionado: {os.path.basename(filename)}", logging.INFO, "info")
-            self.carregar_preview()
-
-    def carregar_preview(self):
-        """Carrega preview do arquivo Excel"""
-        if not self.arquivo_excel.get():
-            return
-
-        try:
-            self.df_carregado = pd.read_excel(self.arquivo_excel.get())
-            total_linhas = len(self.df_carregado)
-
-            # Atualizar info
-            self.preview_info_label.configure(
-                text=f"📄 {os.path.basename(self.arquivo_excel.get())} | {total_linhas} linhas | Colunas: {', '.join(self.df_carregado.columns[:5])}..."
-            )
-
-            # Atualizar estatística de total
-            self.total_label.configure(text=str(total_linhas))
-
-            # Mostrar preview
-            self.preview_text.delete("1.0", "end")
-
-            # Cabeçalho
-            header = " | ".join([f"{col:^15}" for col in self.df_carregado.columns[:6]])
-            self.preview_text.insert("end", f"{'─' * len(header)}\n")
-            self.preview_text.insert("end", f"{header}\n")
-            self.preview_text.insert("end", f"{'─' * len(header)}\n")
-
-            # Dados (primeiras 50 linhas)
-            for idx, row in self.df_carregado.head(50).iterrows():
-                row_text = " | ".join([f"{str(val)[:15]:^15}" for val in row.values[:6]])
-                self.preview_text.insert("end", f"{row_text}\n")
-
-            if total_linhas > 50:
-                self.preview_text.insert("end", f"\n... e mais {total_linhas - 50} linhas\n")
-
-            # Validar colunas necessárias
-            colunas_necessarias = ['Nº', 'Periodo', 'Salvar Como']
-            colunas_faltando = [col for col in colunas_necessarias if col not in self.df_carregado.columns]
-
-            if colunas_faltando:
-                self.adicionar_log(f"Colunas obrigatórias não encontradas: {', '.join(colunas_faltando)}", logging.WARNING, "aviso")
-            else:
-                self.adicionar_log(f"Preview carregado: {total_linhas} linhas. Todas as colunas obrigatórias encontradas", logging.INFO, "sucesso")
-
-        except Exception as e:
-            self.adicionar_log(f"Erro ao carregar preview: {str(e)}", logging.ERROR, "erro")
+        self.lista_empresas_frame.grid(row=2, column=0, sticky="nsew", padx=3, pady=(0, 3))
+        self.lista_empresas_frame.grid_columnconfigure(0, weight=1)
 
     def limpar_logs(self):
         """Limpa a área de logs"""
@@ -570,37 +901,37 @@ class AutomacaoGUI:
 
     def validar_entrada(self) -> Tuple[bool, str]:
         """Valida os dados de entrada"""
-        if not self.arquivo_excel.get():
-            return False, "Selecione um arquivo Excel"
+        if not self.emitir_var.get() and not self.publicar_var.get():
+            return False, "Selecione ao menos uma etapa: Emitir e/ou Publicar"
 
-        if not os.path.exists(self.arquivo_excel.get()):
-            return False, "Arquivo Excel não encontrado"
+        if not self.empresas:
+            return False, "Nenhuma empresa cadastrada. Adicione ou importe do Excel na aba 🏢 Empresas."
 
+        if not any(e.get('ativo', True) for e in self.empresas):
+            return False, "Nenhuma empresa selecionada. Marque ao menos uma na aba 🏢 Empresas."
+
+        competencia = self.competencia_var.get().strip()
+        if not competencia:
+            return False, "Informe a competência (MM/AAAA)"
         try:
-            linha_inicial = int(self.linha_inicial.get())
-            if linha_inicial < 1:
-                return False, "Linha inicial deve ser maior que 0"
+            datetime.strptime(competencia, "%m/%Y")
         except ValueError:
-            return False, "Linha inicial deve ser um número válido"
+            return False, "Competência inválida. Use o formato MM/AAAA"
 
-        # Validar se o arquivo pode ser lido
-        try:
-            df = pd.read_excel(self.arquivo_excel.get())
-            if len(df) == 0:
-                return False, "Arquivo Excel está vazio"
+        if not self.pasta_saida.get().strip():
+            return False, "Selecione a pasta de saída dos PDFs"
 
-            if linha_inicial > len(df) + 1:  # +1 porque linha 1 é cabeçalho
-                return False, f"Linha inicial ({linha_inicial}) é maior que o total de linhas do arquivo ({len(df) + 1})"
+        if not os.path.isdir(self.pasta_saida.get().strip()):
+            return False, "Pasta de saída não encontrada. Verifique o caminho"
 
-            # Verificar colunas obrigatórias
-            colunas_necessarias = ['Nº', 'Periodo', 'Salvar Como']
-            colunas_faltando = [col for col in colunas_necessarias if col not in df.columns]
-
-            if colunas_faltando:
-                return False, f"Colunas obrigatórias não encontradas: {', '.join(colunas_faltando)}"
-
-        except Exception as e:
-            return False, f"Erro ao ler arquivo Excel: {str(e)}"
+        if self.publicar_var.get():
+            venc = self.data_vencimento_var.get().strip()
+            if not venc:
+                return False, "Informe a data de vencimento (DD/MM/AAAA) para a publicação"
+            try:
+                datetime.strptime(venc, "%d/%m/%Y")
+            except ValueError:
+                return False, "Data de vencimento inválida. Use o formato DD/MM/AAAA"
 
         return True, "Validação OK"
 
@@ -676,23 +1007,23 @@ class AutomacaoGUI:
 
     def iniciar_automacao(self):
         """Método principal de automação"""
-        linha_inicial = int(self.linha_inicial.get())
+        pasta_saida = self.pasta_saida.get().strip()
+        competencia = self.competencia_var.get().strip()  # MM/AAAA
+        emitir = self.emitir_var.get()
+        publicar = self.publicar_var.get()
+
+        mes, ano = competencia.split('/')
+        competencia_fmt = f"{mes}{ano}"
 
         try:
             self.adicionar_log("Iniciando automação...", logging.INFO, "processando")
             self.status_var.set("Em execução...")
             self.executando = True
 
-            # Carregar Excel
-            df = pd.read_excel(self.arquivo_excel.get())
-
-            # Ajustar linha inicial para índice do DataFrame (linha 2 = índice 1)
-            inicio_indice = linha_inicial - 2
-            df_processar = df.iloc[inicio_indice:]
-
-            self.total_linhas = len(df_processar)
-            self.adicionar_log(f"Arquivo carregado: {self.total_linhas} linhas para processar", logging.INFO, "info")
-            self.adicionar_log(f"Iniciando da linha {linha_inicial} (índice {inicio_indice})", logging.INFO, "info")
+            # Snapshot das empresas selecionadas (ativas) no momento do início
+            empresas_processar = [e for e in self.empresas if e.get('ativo', True)]
+            self.total_linhas = len(empresas_processar)
+            self.adicionar_log(f"{self.total_linhas} empresa(s) selecionada(s) para processar", logging.INFO, "info")
             self.total_label.configure(text=str(self.total_linhas))
 
             # Resetar barra de progresso
@@ -706,61 +1037,91 @@ class AutomacaoGUI:
                 self.adicionar_log("Não foi possível conectar ao Domínio", logging.ERROR, "erro")
                 return
 
-            # Processar linhas
-            for idx, (original_index, row) in enumerate(df_processar.iterrows()):
-                # Verificar se deve parar
-                if not self.executando:
-                    self.adicionar_log("Automação interrompida pelo usuário", logging.INFO, "aviso")
-                    break
+            documentos_para_publicar = []  # lista de (codigo, caminho_pdf)
 
-                # Verificar pausa
-                while self.pausa_solicitada and self.executando:
-                    time.sleep(0.5)
+            if emitir:
+                for idx, emp in enumerate(empresas_processar):
+                    # Verificar se deve parar
+                    if not self.executando:
+                        self.adicionar_log("Automação interrompida pelo usuário", logging.INFO, "aviso")
+                        break
 
-                if not self.executando:
-                    break
+                    # Verificar pausa
+                    while self.pausa_solicitada and self.executando:
+                        time.sleep(0.5)
 
-                # Atualizar progresso
-                self.atualizar_progresso(idx + 1, self.total_linhas)
+                    if not self.executando:
+                        break
 
-                linha_excel = original_index + 2  # +2 porque: +1 para base 1, +1 para cabeçalho
+                    # Atualizar progresso
+                    self.atualizar_progresso(idx + 1, self.total_linhas)
 
-                # Atualizar empresa no card
-                empresa_num = str(int(row['Nº']))
-                self.empresa_label.configure(text=empresa_num[:20])
+                    numero = idx + 1
+                    codigo = str(emp['codigo']).strip()
+                    nome = str(emp.get('nome', 'N/A')).strip()
 
-                try:
-                    self.adicionar_log(f"Processando linha {linha_excel} - Empresa {row['Nº']} - {row.get('EMPRESAS', 'N/A')}", logging.INFO, "processando")
+                    # Atualizar empresa no card
+                    self.empresa_label.configure(text=codigo[:20])
 
-                    success = automacao.processar_linha(row, original_index, linha_excel)
+                    nome_pdf = f"{codigo}-{nome}-{competencia_fmt}"
+                    caminho_pdf = os.path.join(pasta_saida, f"{nome_pdf}.pdf")
 
-                    if success:
-                        self.linhas_processadas += 1
-                        self.success_logger.info(f"Linha {linha_excel} - Empresa {row['Nº']} - processada com sucesso")
-                        self.adicionar_log(f"Linha {linha_excel} processada com sucesso", logging.INFO, "sucesso")
-                    else:
+                    try:
+                        self.adicionar_log(f"[{numero}/{self.total_linhas}] Processando - Empresa {codigo} - {nome}", logging.INFO, "processando")
+
+                        success = automacao.processar_linha(codigo, nome, competencia, numero, caminho_pdf)
+
+                        if success:
+                            self.linhas_processadas += 1
+                            documentos_para_publicar.append((codigo, caminho_pdf))
+                            self.success_logger.info(f"Empresa {codigo} - {nome} - processada com sucesso")
+                            self.adicionar_log(f"{codigo} - {nome} processada com sucesso", logging.INFO, "sucesso")
+                        else:
+                            self.linhas_com_erro += 1
+                            self.error_logger.error(f"Empresa {codigo} - {nome} - erro no processamento")
+                            self.adicionar_log(f"Erro ao processar {codigo} - {nome}", logging.ERROR, "erro")
+                            self.erros_detalhados.append({
+                                'empresa': nome,
+                                'numero': codigo,
+                                'motivo': 'Erro no processamento'
+                            })
+
+                        self.atualizar_estatisticas()
+
+                    except Exception as e:
                         self.linhas_com_erro += 1
-                        self.error_logger.error(f"Linha {linha_excel} - Empresa {row['Nº']} - erro no processamento")
-                        self.adicionar_log(f"Erro na linha {linha_excel}", logging.ERROR, "erro")
+                        erro_msg = f"Empresa {codigo} - {nome} - Erro: {str(e)}"
+                        self.error_logger.error(erro_msg)
+                        self.adicionar_log(erro_msg, logging.ERROR, "erro")
                         self.erros_detalhados.append({
-                            'empresa': row.get('EMPRESAS', 'N/A'),
-                            'numero': row['Nº'],
-                            'motivo': 'Erro no processamento'
+                            'empresa': nome,
+                            'numero': codigo,
+                            'motivo': str(e)[:80]
                         })
+                        self.atualizar_estatisticas()
+            else:
+                self.adicionar_log("Etapa de emissão pulada (checkbox 'Emitir' desmarcado)", logging.INFO, "aviso")
+                for emp in empresas_processar:
+                    codigo = str(emp['codigo']).strip()
+                    nome = str(emp.get('nome', 'N/A')).strip()
+                    nome_pdf = f"{codigo}-{nome}-{competencia_fmt}"
+                    caminho_pdf = os.path.join(pasta_saida, f"{nome_pdf}.pdf")
+                    documentos_para_publicar.append((codigo, caminho_pdf))
 
-                    self.atualizar_estatisticas()
-
-                except Exception as e:
-                    self.linhas_com_erro += 1
-                    erro_msg = f"Linha {linha_excel} - Erro: {str(e)}"
-                    self.error_logger.error(erro_msg)
-                    self.adicionar_log(erro_msg, logging.ERROR, "erro")
-                    self.erros_detalhados.append({
-                        'empresa': row.get('EMPRESAS', 'N/A'),
-                        'numero': row['Nº'],
-                        'motivo': str(e)[:80]
-                    })
-                    self.atualizar_estatisticas()
+            # Publicação em lote: só após salvar todos os PDFs e fechar as janelas
+            publicados, falhas_publicacao = 0, 0
+            if self.executando and publicar and documentos_para_publicar:
+                automacao.cleanup_windows()
+                self.status_var.set("Publicando no portal...")
+                self.atualizar_status_indicator('executando')
+                data_venc = self.data_vencimento_var.get().strip()
+                publicados, falhas_publicacao = automacao.publicar_lote_gms(documentos_para_publicar, data_venc)
+                self.adicionar_log(
+                    f"Publicação concluída: {publicados} publicado(s), {falhas_publicacao} falha(s)",
+                    logging.INFO, "sucesso" if falhas_publicacao == 0 else "aviso"
+                )
+            elif self.executando and publicar and not documentos_para_publicar:
+                self.adicionar_log("Nenhum documento disponível para publicar", logging.WARNING, "aviso")
 
             # Finalização
             if self.executando:
@@ -773,13 +1134,19 @@ class AutomacaoGUI:
 
                 # Enviar notificação ao Discord via webhook
                 try:
-                    diretorio_pdfs = os.path.dirname(os.path.abspath(self.arquivo_excel.get()))
                     mensagem = (
                         f"📋 **Emissão de Taxa GMS Finalizada**\n\n"
                         f"📊 **Quantidade emitida:** {self.linhas_processadas}\n"
                         f"❌ **Com erro:** {self.linhas_com_erro}\n"
                         f"⏭️ **Puladas:** {self.linhas_puladas}\n"
-                        f"📂 **Diretório dos PDFs:** `{diretorio_pdfs}`\n\n"
+                    )
+                    if publicar:
+                        mensagem += (
+                            f"🌐 **Publicados no Onvio:** {publicados}\n"
+                            f"⚠️ **Falhas na publicação:** {falhas_publicacao}\n"
+                        )
+                    mensagem += (
+                        f"📂 **Diretório dos PDFs:** `{pasta_saida}`\n\n"
                         f"✅ Emissão finalizada com sucesso!\n\n"
                         f"<@&1299044385899548752>"
                     )
@@ -1144,8 +1511,8 @@ class DominioAutomation:
         except Exception:
             pass  # Não é crítico se não conseguir fechar
 
-    def processar_linha(self, row, index: int, linha_excel: int) -> bool:
-        """Processa uma linha do Excel"""
+    def processar_linha(self, codigo: str, empresa_nome: str, periodo: str, linha_excel: int, caminho_pdf: str) -> bool:
+        """Processa uma empresa do cadastro"""
         try:
             if self.should_stop():
                 return False
@@ -1175,8 +1542,7 @@ class DominioAutomation:
             time.sleep(0.2)
 
             # Troca de empresa
-            empresa_num = str(int(row['Nº']))
-            if not self.handle_empresa_change(empresa_num):
+            if not self.handle_empresa_change(codigo):
                 return False
 
             if self.should_stop():
@@ -1200,13 +1566,13 @@ class DominioAutomation:
                 return False
 
             # Processar no Gerenciador de Relatórios
-            return self.processar_relatorio_taxa_gms(row, linha_excel)
+            return self.processar_relatorio_taxa_gms(periodo, linha_excel, caminho_pdf)
 
         except Exception as e:
-            self.log(f"❌ Erro ao processar linha {linha_excel}: {str(e)}")
+            self.log(f"❌ Erro ao processar {codigo} - {empresa_nome}: {str(e)}")
             return False
 
-    def processar_relatorio_taxa_gms(self, row, linha_excel: int) -> bool:
+    def processar_relatorio_taxa_gms(self, periodo: str, linha_excel: int, caminho_pdf: str) -> bool:
         """Processa o relatório de Taxa GMS"""
         try:
             if self.should_stop():
@@ -1284,7 +1650,6 @@ class DominioAutomation:
             time.sleep(0.2)
 
             # Período
-            periodo = str(row['Periodo'])
             send_keys('{TAB}' + periodo)
             if not self.smart_sleep(0.5):
                 return False
@@ -1319,13 +1684,95 @@ class DominioAutomation:
                     return False
 
             # Gerar PDF
-            return self.gerar_pdf(row, linha_excel)
+            return self.gerar_pdf(linha_excel, caminho_pdf)
 
         except Exception as e:
             self.log(f"❌ Erro no processamento do relatório: {str(e)}")
             return False
 
-    def gerar_pdf(self, row, linha_excel: int) -> bool:
+    def _find_confirmacao_substituir_hwnd(self) -> int:
+        """Localiza o hwnd do diálogo de confirmação de substituição de arquivo.
+        Reconhece pelo título ("Confirmar Salvar como" / "Salvar como") ou pelo
+        texto ("já existe" / "substituir") em janelas de classe #32770."""
+        result = [0]
+
+        def cb(hwnd, _):
+            if not win32gui.IsWindowVisible(hwnd):
+                return True
+            try:
+                if win32gui.GetClassName(hwnd) != "#32770":
+                    return True
+                titulo = win32gui.GetWindowText(hwnd).lower()
+                # A janela de salvamento em si também é #32770; distinguir pela
+                # presença do botão "&Sim" (IDYES) ou pelo título de confirmação.
+                if ("confirmar salvar" in titulo or "salvar como" in titulo
+                        or "confirmar" in titulo):
+                    # Confirmar que existe um botão Sim (evita confundir com a
+                    # própria janela "Salvar em PDF")
+                    yes_btn = win32gui.FindWindowEx(hwnd, 0, "Button", "&Sim")
+                    if not yes_btn:
+                        yes_btn = win32gui.FindWindowEx(hwnd, 0, "Button", "Sim")
+                    if yes_btn:
+                        result[0] = hwnd
+                        return False
+            except Exception:
+                pass
+            return True
+
+        try:
+            win32gui.EnumWindows(cb, None)
+        except Exception:
+            pass
+        return result[0]
+
+    def _confirmar_substituir_arquivo(self):
+        """Se o arquivo já existir, o Windows abre 'Confirmar Salvar como'
+        perguntando se deseja substituir. Aguarda brevemente por esse diálogo e
+        confirma 'Sim' (sobrescreve). Se ele não aparecer, segue normalmente."""
+        inicio = time.time()
+        while time.time() - inicio < 3:
+            if self.should_stop():
+                return
+            hwnd = self._find_confirmacao_substituir_hwnd()
+            if hwnd:
+                self.log("♻️ Arquivo já existe — confirmando substituição")
+                try:
+                    dlg = self.app.window(handle=hwnd)
+                    dlg.set_focus()
+                    time.sleep(0.2)
+                    # Tenta clicar no botão "Sim" (IDYES = 6)
+                    clicado = False
+                    for titulo in ("&Sim", "Sim"):
+                        try:
+                            btn = dlg.child_window(title=titulo, class_name="Button")
+                            if btn.exists():
+                                btn.click_input()
+                                clicado = True
+                                break
+                        except Exception:
+                            continue
+                    if not clicado:
+                        try:
+                            btn = dlg.child_window(auto_id="6", class_name="Button")
+                            if btn.exists():
+                                btn.click_input()
+                                clicado = True
+                        except Exception:
+                            pass
+                    if not clicado:
+                        # Último recurso: Enter aciona o botão default ("Sim")
+                        send_keys('{ENTER}')
+                except Exception:
+                    try:
+                        win32gui.SetForegroundWindow(hwnd)
+                        send_keys('{ENTER}')
+                    except Exception:
+                        pass
+                time.sleep(0.3)
+                return
+            time.sleep(0.15)
+
+    def gerar_pdf(self, linha_excel: int, caminho_pdf: str) -> bool:
         """Gera e salva o PDF do relatório"""
         try:
             if self.should_stop():
@@ -1421,32 +1868,19 @@ class DominioAutomation:
                     return False
                 self.check_pause()
 
-                # Navegar até a árvore de pastas (batch TABs)
-                self.log("📝 Indo até a pasta correta...")
-                send_keys('{TAB}{TAB}{TAB}{TAB}')
-                time.sleep(0.3)
+                # Preenche o caminho completo (pasta + nome) via clipboard, evitando
+                # a navegação manual pela árvore de pastas do diálogo "Salvar em PDF"
+                self.log(f"📝 Salvando em: {caminho_pdf}")
+                save_hwnd = save_window.handle
+                self._force_focus(save_hwnd)
+                self._set_clipboard(caminho_pdf)
 
-                # Selecionar pasta: G > P > G (Drive > Pessoal > GMS)
-                self.log("📝 Acessando a pasta GMS...")
-                send_keys('G')
-                time.sleep(0.15)
-                send_keys('P')
-                time.sleep(0.15)
-                send_keys('G')
-                time.sleep(0.15)
-
-                # Navegar até campo de nome (batch TABs)
-                self.log("📝 Nomeando PDF...")
-                send_keys('{TAB}{TAB}{TAB}{TAB}{TAB}')
-                time.sleep(0.3)
-
-                nome_pdf = str(row['Salvar Como'])
-                self.log(f"📝 Nome do arquivo: {nome_pdf}")
-
-                # Definir nome do arquivo
-                time.sleep(0.2)
                 name_field = save_window.child_window(auto_id="1148", class_name="Edit")
-                name_field.set_text(nome_pdf)
+                name_field.set_focus()
+                time.sleep(0.1)
+                send_keys('^a')
+                time.sleep(0.1)
+                send_keys('^v')
                 time.sleep(0.3)
 
                 if self.should_stop():
@@ -1458,13 +1892,31 @@ class DominioAutomation:
                 button_salvar = save_window.child_window(auto_id="1", class_name="Button")
                 button_salvar.click_input()
 
-                # Esperar janela de salvamento fechar (em vez de sleep fixo de 10s)
-                if not self.wait_for_condition(
-                    lambda: not save_window.exists() or not save_window.is_visible(),
-                    timeout=15,
-                    poll_interval=0.2,
-                    description="Aguardando salvamento do PDF"
-                ):
+                # Se o arquivo já existir, o Windows abre "Confirmar Salvar como"
+                # perguntando se deseja substituir — confirmar "Sim" e sobrescrever.
+                self._confirmar_substituir_arquivo()
+
+                # Esperar janela de salvamento fechar. O diálogo de substituição
+                # pode aparecer com atraso; por isso re-checamos dentro do laço.
+                inicio_espera = time.time()
+                salvou = False
+                while time.time() - inicio_espera < 15:
+                    if self.should_stop():
+                        return False
+                    self.check_pause()
+                    try:
+                        if not save_window.exists() or not save_window.is_visible():
+                            salvou = True
+                            break
+                    except Exception:
+                        salvou = True
+                        break
+                    # Trata diálogo de substituição que possa ter surgido com atraso
+                    if self._find_confirmacao_substituir_hwnd():
+                        self._confirmar_substituir_arquivo()
+                    time.sleep(0.2)
+
+                if not salvou:
                     self.log("⚠️ Timeout aguardando salvamento do PDF")
                     return False
 
@@ -1655,6 +2107,388 @@ class DominioAutomation:
 
         except Exception as e:
             self.log(f"⚠️ Erro durante limpeza: {str(e)}")
+
+    # ── Publicação em lote (Publicação de Documentos Externos) ────────────────
+    # Portado de DomBot_Taxas/taxa_panificacao.py, adaptado para receber a lista
+    # de documentos (código, caminho) já montada em memória durante a emissão.
+
+    PASTA_PUBLICACAO = "Pessoal/GMS"
+    PUB_LOTE_TITULO = "Publicação de Documentos Externos"
+    PUB_LOTE_CLASSE = "FNWND3190"
+
+    def _set_clipboard(self, text: str):
+        """Coloca texto no clipboard do Windows via win32clipboard."""
+        import win32clipboard
+        win32clipboard.OpenClipboard()
+        try:
+            win32clipboard.EmptyClipboard()
+            win32clipboard.SetClipboardText(text, win32clipboard.CF_UNICODETEXT)
+        finally:
+            win32clipboard.CloseClipboard()
+
+    def _force_focus(self, hwnd: int):
+        """Força foco para uma janela contornando a restrição do Windows 10."""
+        try:
+            ctypes.windll.user32.keybd_event(0x12, 0, 0, 0)
+            ctypes.windll.user32.keybd_event(0x12, 0, 2, 0)
+            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            win32gui.SetForegroundWindow(hwnd)
+            time.sleep(0.3)
+        except Exception:
+            pass
+
+    def _get_pub_lote_window(self):
+        """Retorna o objeto pywinauto da janela 'Publicação de Documentos Externos'."""
+        return self.main_window.child_window(
+            title=self.PUB_LOTE_TITULO, class_name=self.PUB_LOTE_CLASSE
+        )
+
+    def _pub_lote_window_ok(self) -> bool:
+        try:
+            pub = self._get_pub_lote_window()
+            return pub.exists() and pub.is_visible()
+        except Exception:
+            return False
+
+    def _abrir_janela_pub_lote(self) -> bool:
+        """Garante a janela de publicação em lote aberta (abre pelo botão-nuvem)."""
+        if self._pub_lote_window_ok():
+            self.log("📋 Janela de Publicação em Lote já está aberta")
+            return True
+
+        for tentativa in range(3):
+            if self.should_stop():
+                return False
+            try:
+                self.main_window.set_focus()
+                btn_nuvem = self.main_window.child_window(
+                    auto_id="picturePublicacaoDocumentosExternos"
+                )
+                if btn_nuvem.exists(timeout=2):
+                    btn_nuvem.click_input()
+                    self.log("☁️ Botão de publicação em lote clicado")
+            except Exception as e:
+                self.log(f"⚠️ Tentativa {tentativa + 1} de clicar no botão-nuvem falhou: {e}")
+
+            if self.wait_for_condition(
+                self._pub_lote_window_ok,
+                timeout=10, poll_interval=0.3,
+                description="Aguardando janela de Publicação em Lote",
+            ):
+                return True
+        return False
+
+    def _garantir_checkbox(self, pub, auto_id: str, nome: str) -> bool:
+        """Garante que um checkbox esteja marcado (ToggleState On)."""
+        try:
+            chk = pub.child_window(auto_id=auto_id, class_name="Button")
+            if not chk.exists(timeout=2):
+                self.log(f"⚠️ Checkbox '{nome}' não encontrado")
+                return False
+            for _ in range(2):
+                try:
+                    estado = chk.get_toggle_state()
+                except Exception:
+                    estado = None
+                if estado == 1:
+                    return True
+                self.log(f"☑ Marcando '{nome}'")
+                try:
+                    chk.click_input()
+                except Exception:
+                    chk.click()
+                self.smart_sleep(0.3)
+            try:
+                return chk.get_toggle_state() == 1
+            except Exception:
+                return True
+        except Exception as e:
+            self.log(f"⚠️ Não foi possível marcar '{nome}': {e}")
+            return False
+
+    def _preencher_data_mascarada(self, edit_data, digitos: str, data_fmt: str) -> bool:
+        """Preenche um campo de data com máscara (00/00/0000)."""
+        def _ler():
+            try:
+                v = (edit_data.get_value() or "").strip()
+            except Exception:
+                try:
+                    v = (edit_data.window_text() or "").strip()
+                except Exception:
+                    v = ""
+            return v
+
+        def _bate(valor):
+            return ''.join(c for c in valor if c.isdigit()) == digitos
+
+        try:
+            edit_data.set_focus()
+            time.sleep(0.1)
+            edit_data.type_keys("{HOME}{LEFT 12}", set_foreground=False)
+            time.sleep(0.1)
+            edit_data.type_keys(digitos, set_foreground=False)
+            time.sleep(0.2)
+            if _bate(_ler()):
+                return True
+        except Exception as e:
+            self.log(f"⚠️ Data (tentativa 1) falhou: {e}")
+
+        try:
+            edit_data.set_focus()
+            edit_data.type_keys("{HOME}{LEFT 12}{DELETE 12}", set_foreground=False)
+            time.sleep(0.1)
+            try:
+                edit_data.set_text(data_fmt)
+            except Exception:
+                edit_data.type_keys(digitos, set_foreground=False)
+            time.sleep(0.2)
+            valor = _ler()
+            if _bate(valor):
+                return True
+            self.log(f"⚠️ Data lida do campo: '{valor}' (esperado {data_fmt})")
+        except Exception as e:
+            self.log(f"⚠️ Data (tentativa 2) falhou: {e}")
+
+        return False
+
+    def _configurar_envio_lote(self, pub, data_vencimento: str) -> bool:
+        """Configuração feita uma vez: pasta, data de vencimento e 'Concluir atividade'."""
+        try:
+            self.log(f"📁 Configurando pasta: {self.PASTA_PUBLICACAO}")
+            try:
+                combo = pub.child_window(auto_id="1001", class_name="ComboBox")
+                combo.set_focus()
+                selecionado = False
+                try:
+                    combo.select(self.PASTA_PUBLICACAO)
+                    selecionado = True
+                except Exception:
+                    try:
+                        itens = combo.item_texts()
+                        alvo = self.PASTA_PUBLICACAO.strip().lower()
+                        for i, txt in enumerate(itens):
+                            t = (txt or "").strip().lower()
+                            if t == alvo or alvo in t:
+                                combo.select(i)
+                                selecionado = True
+                                self.log(f"📁 Pasta selecionada da lista: '{txt}'")
+                                break
+                        if not selecionado:
+                            self.log(f"⚠️ '{self.PASTA_PUBLICACAO}' não está na lista. Itens: {itens}")
+                    except Exception as e2:
+                        self.log(f"⚠️ Não foi possível ler os itens da lista de pastas: {e2}")
+                if not selecionado:
+                    try:
+                        combo.set_edit_text(self.PASTA_PUBLICACAO)
+                    except Exception:
+                        pass
+            except Exception as e:
+                self.log(f"⚠️ Não foi possível definir a pasta: {e}")
+            self.smart_sleep(0.4)
+
+            self._garantir_checkbox(pub, "1006", "Data de vencimento")
+            self.smart_sleep(0.3)
+
+            self.log(f"📅 Definindo data de vencimento: {data_vencimento}")
+            digitos = ''.join(ch for ch in data_vencimento if ch.isdigit())
+            try:
+                edit_data = pub.child_window(auto_id="1005", class_name="PBEDIT190")
+                if not self._preencher_data_mascarada(edit_data, digitos, data_vencimento):
+                    self.log("⚠️ Data pode ter ficado incorreta no campo")
+                self.smart_sleep(0.3)
+            except Exception as e:
+                self.log(f"⚠️ Não foi possível definir a data de vencimento: {e}")
+
+            self._garantir_checkbox(pub, "1004", "Concluir atividade")
+
+            return True
+        except Exception as e:
+            self.log(f"❌ Erro ao configurar envio em lote: {e}")
+            return False
+
+    def _publicar_um_documento(self, pub, caminho_pdf: str, codigo: str) -> bool:
+        """Publica um único documento na janela já aberta e confirma o OK."""
+        try:
+            self.log(f"📄 Caminho: {os.path.basename(caminho_pdf)}")
+            try:
+                campo_caminho = pub.child_window(auto_id="1013", class_name="Edit")
+                if not campo_caminho.exists(timeout=3):
+                    self.log("❌ Campo 'Caminho' não encontrado")
+                    return False
+                campo_caminho.set_focus()
+                campo_caminho.type_keys("^a{DELETE}", set_foreground=False)
+                time.sleep(0.3)
+                campo_caminho.set_text(caminho_pdf)
+            except Exception as e:
+                self.log(f"❌ Não foi possível preencher o caminho: {e}")
+                return False
+            self.smart_sleep(0.5)
+
+            self.log(f"🏢 Código da empresa: {codigo}")
+            try:
+                campo_codigo = pub.child_window(auto_id="1001", class_name="PBEDIT190")
+                if not campo_codigo.exists(timeout=3):
+                    self.log("❌ Campo 'Código' não encontrado")
+                    return False
+                campo_codigo.set_focus()
+                campo_codigo.type_keys("^a{DELETE}", set_foreground=False)
+                time.sleep(0.3)
+                campo_codigo.set_text(codigo)
+            except Exception as e:
+                self.log(f"❌ Não foi possível preencher o código da empresa: {e}")
+                return False
+            self.smart_sleep(0.5)
+
+            self.log("⚡ Publicando documento")
+            try:
+                botao_publicar = pub.child_window(auto_id="1003", class_name="Button")
+                if not botao_publicar.exists(timeout=3):
+                    self.log("❌ Botão 'Publicar' não encontrado")
+                    return False
+                botao_publicar.click()
+                time.sleep(2)
+            except Exception as e:
+                self.log(f"❌ Erro ao clicar em 'Publicar': {e}")
+                return False
+
+            dialog = self._aguardar_confirmacao(timeout=15)
+            if dialog is False:
+                return False
+            if dialog:
+                if self._clicar_botao_ok(dialog):
+                    time.sleep(1)
+                    return True
+                self.log("⚠️ Falha ao clicar no OK de confirmação")
+                return False
+            else:
+                self.log("⚠️ Janela de confirmação não encontrada")
+                return False
+
+        except Exception as e:
+            self.log(f"❌ Erro ao publicar documento {os.path.basename(caminho_pdf)}: {e}")
+            return False
+
+    def _aguardar_confirmacao(self, timeout=15):
+        """Aguarda o diálogo de confirmação após 'Publicar'."""
+        self.log("🔍 Procurando janela de confirmação...")
+        inicio = time.time()
+        while (time.time() - inicio) < timeout:
+            if self.should_stop():
+                self.log("⏹️ Busca por confirmação interrompida")
+                return False
+            self.check_pause()
+            try:
+                all_windows = findwindows.find_windows()
+                for hwnd in all_windows:
+                    try:
+                        window = self.app.window(handle=hwnd)
+                        if window.is_dialog() and window.is_visible():
+                            titulo = window.window_text()
+                            if titulo and any(p in titulo.lower() for p in
+                                              ['atenção', 'confirmação', 'aviso', 'informação', 'sucesso']):
+                                self.log(f"✅ Confirmação encontrada: '{titulo}'")
+                                return window
+                    except Exception:
+                        continue
+            except Exception:
+                pass
+            time.sleep(0.5)
+        self.log("⚠️ Timeout: nenhuma janela de confirmação encontrada")
+        return None
+
+    def _clicar_botao_ok(self, dialog) -> bool:
+        """Clica no OK/Confirmar/Sim do diálogo."""
+        for texto in ["OK", "Ok", "Confirmar", "Sim", "Yes"]:
+            try:
+                botao = dialog.child_window(title=texto, control_type="Button")
+                if botao.exists(timeout=2):
+                    botao.click()
+                    self.log(f"✅ Botão '{texto}' clicado")
+                    return True
+            except Exception:
+                continue
+        for auto_id in ["1", "2", "6", "1001", "2001"]:
+            try:
+                botao = dialog.child_window(auto_id=auto_id, control_type="Button")
+                if botao.exists(timeout=2):
+                    botao.click()
+                    self.log(f"✅ Botão auto_id '{auto_id}' clicado")
+                    return True
+            except Exception:
+                continue
+        try:
+            botoes = dialog.children(control_type="Button")
+            if botoes:
+                botoes[0].click()
+                self.log("✅ Primeiro botão do diálogo clicado")
+                return True
+        except Exception:
+            pass
+        return False
+
+    def publicar_lote_gms(self, documentos: list, data_vencimento: str) -> tuple:
+        """
+        Publica em lote os documentos informados na janela 'Publicação de
+        Documentos Externos'. `documentos` é uma lista de (codigo, caminho_pdf)
+        já montada em memória durante a emissão (não depende do nome do arquivo).
+        A configuração de envio (pasta/data/concluir) é feita uma única vez.
+        Retorna (publicados, falhas).
+        """
+        publicados = 0
+        falhas = 0
+        try:
+            if not documentos:
+                self.log("⚠️ Nenhum documento informado para publicar")
+                return (0, 0)
+
+            self.log(f"🌐 Iniciando publicação em lote: {len(documentos)} documento(s)")
+
+            if not self._abrir_janela_pub_lote():
+                self.log("❌ Não foi possível abrir a janela de Publicação em Lote")
+                return (0, len(documentos))
+
+            pub = self._get_pub_lote_window()
+            try:
+                pub.set_focus()
+            except Exception:
+                pass
+
+            if not self._configurar_envio_lote(pub, data_vencimento):
+                self.log("❌ Falha ao configurar o envio em lote")
+                self.cleanup_windows()
+                return (0, len(documentos))
+
+            for codigo, caminho_pdf in documentos:
+                if self.should_stop():
+                    self.log("Publicação em lote interrompida pelo usuário")
+                    break
+                self.check_pause()
+
+                if not os.path.exists(caminho_pdf):
+                    self.log(f"⚠️ PDF não encontrado, pulando: {caminho_pdf}")
+                    falhas += 1
+                    continue
+
+                nome_base = os.path.basename(caminho_pdf)
+                if self._publicar_um_documento(pub, caminho_pdf, codigo):
+                    publicados += 1
+                    self.log(f"✅ Publicado: {nome_base}")
+                else:
+                    falhas += 1
+                    self.log(f"❌ Falha ao publicar: {nome_base}")
+
+            self.log(f"🌐 Publicação em lote concluída: {publicados} publicado(s), {falhas} falha(s)")
+            self.cleanup_windows()
+            return (publicados, falhas)
+
+        except Exception as e:
+            self.log(f"❌ Erro na publicação em lote: {e}\n{traceback.format_exc()}")
+            try:
+                self.cleanup_windows()
+            except Exception:
+                pass
+            return (publicados, falhas)
+
 
 def main():
     """Função principal"""
